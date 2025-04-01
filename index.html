@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirShop - Unified Quoting & Inventory Platform</title>
     
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="AirShop - Unified Quoting & Inventory Platform">
+    <meta name="description" content="Streamline your business with AirShop's unified platform for quotes and inventory management. Win more quotes, master inventory, and grow your business efficiently.">
+    <meta name="keywords" content="quoting software, inventory management, business software, CRM, manufacturing software, CNC software">
+    <meta name="author" content="AirShop">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://airshopapp.com">
+    
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="AirShop - Unified Quoting & Inventory Platform">
     <meta property="og:description" content="Finally, quotes & inventory in one app. Win more quotes and master inventory with AirShop.">
@@ -18,22 +27,77 @@
     <meta name="twitter:description" content="Finally, quotes & inventory in one app. Win more quotes and master inventory with AirShop.">
     <meta name="twitter:image" content="https://airshopapp.com/AirShop-OPG.png">
     
-   <!-- Google tag (gtag.js) -->
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AirShop",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Unified platform for quotes and inventory management. Win more quotes and master inventory with AirShop.",
+        "featureList": [
+            "Smart Quoting",
+            "Inventory Management",
+            "Seamless Payments",
+            "Connected Workflow",
+            "Business Analytics",
+            "Customer Management",
+            "Mobile Ready",
+            "Live data",
+            "Business Intelligence"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        }
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AirShop",
+        "url": "https://airshopapp.com",
+        "logo": "https://airshopapp.com/AirShop-OPG.png",
+        "sameAs": [
+            "https://instagram.com/airshopapp",
+            "https://youtube.com/@airshopapp"
+        ],
+        "description": "AirShop is a unified platform for quotes and inventory management, helping businesses streamline their operations and grow efficiently."
+    }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GLMJ5X9LJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-5GLMJ5X9LJ');
     </script>
     
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="./ActionSans-Bold.otf" as="font" type="font/otf" crossorigin>
+    
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load fonts with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Action Sans';
@@ -797,7 +861,10 @@
         <h2 class="section-title">Beautiful dashboards that show what matters</h2>
         <p class="section-subtitle" style="color: var(--med-gray);">Track inventory levels, quote success rates, and business performance at a glance</p>
         <div class="dashboard-preview">
-            <img src="./dash.png" alt="AirShop Dashboard">
+            <picture>
+                <source srcset="./dash.webp" type="image/webp">
+                <img src="./dash.png" alt="AirShop Dashboard" loading="lazy">
+            </picture>
             <div class="dashboard-vignette"></div>
         </div>
     </section>
@@ -840,7 +907,10 @@
                 <p style="color: var(--med-gray); font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--spacing-lg);">See all customer interactions, quotes, and preferences in one place</p>
             </div>
             <div class="dashboard-preview" style="height: 500px; margin: 0;">
-                <img src="./contact-erlich.png" alt="AirShop CRM Contact View" style="object-position: center center; object-fit: contain;">
+                <picture>
+                    <source srcset="./contact-erlich.webp" type="image/webp">
+                    <img src="./contact-erlich.png" alt="AirShop CRM Contact View" style="object-position: center center; object-fit: contain;" loading="lazy">
+                </picture>
                 <div class="dashboard-vignette"></div>
             </div>
         </div>
