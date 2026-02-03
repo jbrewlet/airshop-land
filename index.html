@@ -277,16 +277,17 @@
         .industries-carousel {
             display: flex;
             justify-content: center;
-            align-items: stretch;
-            gap: 20px;
+            align-items: center;
             position: relative;
             overflow: hidden;
-            padding: 10px 0;
+            height: 400px; /* Fixed height for absolute positioning */
+            width: 100%;
         }
 
         .industry-card {
-            flex: 0 0 280px;
-            aspect-ratio: 4 / 5;
+            position: absolute;
+            width: 280px;
+            height: 350px; /* Fixed height */
             padding: 32px 24px;
             border-radius: 20px;
             text-align: center;
@@ -296,14 +297,21 @@
             align-items: center;
             cursor: pointer;
             opacity: 0.5;
+            background-color: #2D3748; /* Fallback */
+            left: 50%;
+            top: 50%;
+            margin-top: -175px; /* Half height */
+            margin-left: -140px; /* Half width */
+            will-change: transform, opacity, filter;
         }
 
         .industry-card.active {
             opacity: 1;
+            z-index: 10;
         }
 
         .industry-card:hover {
-            opacity: 0.75;
+            opacity: 0.9;
         }
 
         .industry-card.active:hover {
@@ -454,12 +462,21 @@
 
             .industries-carousel {
                 gap: 0;
+                position: relative;
+                height: 380px;
             }
 
             .industry-card {
                 flex: 0 0 280px;
+                width: 280px;
+                min-width: 280px;
+                max-width: 280px;
                 padding: 32px 24px;
                 opacity: 1;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
             }
 
             .industry-card-icon {
@@ -2473,7 +2490,7 @@
             }
         }
 
-        // Industries Carousel - smooth slide animation
+        // Industries Carousel - True Infinite Loop
         (function() {
             const carousel = document.getElementById('industries-carousel');
             const dots = document.querySelectorAll('.carousel-dot');
@@ -2484,205 +2501,230 @@
             if (!carousel || !cards.length) return;
 
             const totalCards = cards.length;
-            let centerIndex = 1; // CNC Shops starts in center
+            let currentIndex = 1; // Start with index 1 (CNC Shops) in center
             let isAnimating = false;
+            const animDuration = 400;
             const mobileBreakpoint = 640;
-            const animDuration = 350;
 
-            function isMobile() {
-                return window.innerWidth <= mobileBreakpoint;
+            // Virtual slots: -1, 0, 1, 2, 3, 4 (for 6 cards)
+            // Center is slot 0.
+            // Desktop visible: -1, 0, 1
+            // Mobile visible: 0
+            
+            // We maintain an array of card indices currently in slots -2 to 3
+            // Let's just calculate target position for every card based on currentIndex
+            
+            function getCardOffset(index) {
+                // Calculate distance from center
+                let diff = index - currentIndex;
+                
+                // Adjust for wrapping
+                while (diff > totalCards / 2) diff -= totalCards;
+                while (diff < -totalCards / 2) diff += totalCards;
+                
+                return diff;
             }
 
-            function getVisibleIndices(center) {
-                const left = (center - 1 + totalCards) % totalCards;
-                const right = (center + 1) % totalCards;
-                return [left, center, right];
-            }
+            function updatePositions(animate = true) {
+                const isMobileView = window.innerWidth <= mobileBreakpoint;
+                const spacing = isMobileView ? window.innerWidth : 320; // 280 + 40 gap
+                
+                cards.forEach((card, index) => {
+                    const offset = getCardOffset(index);
+                    
+                    // Determine if this card is "wrapping around" (teleporting)
+                    // If we are animating, we need to be careful.
+                    // But with the virtual slot logic, we just render based on current state.
+                    
+                    const xPos = offset * spacing;
+                    const scale = (offset === 0) ? 1 : 0.9;
+                    const opacity = (offset === 0) ? 1 : 0.5;
+                    const zIndex = (offset === 0) ? 10 : 1;
+                    const blur = (offset === 0) ? 0 : '1px';
 
-            function resetCardStyles(card) {
-                card.style.transform = '';
-                card.style.transition = '';
-                card.style.filter = '';
-                card.style.opacity = '';
-            }
+                    // Hide cards that are far off screen to prevent horizontal scroll or painting
+                    const isVisible = Math.abs(offset) <= 2;
+                    card.style.display = isVisible ? 'flex' : 'none';
 
-            function showCards() {
-                const [leftIdx, centerIdx, rightIdx] = getVisibleIndices(centerIndex);
+                    if (animate) {
+                        card.style.transition = `transform ${animDuration}ms cubic-bezier(0.25, 1, 0.5, 1), opacity ${animDuration}ms ease, filter ${animDuration}ms ease`;
+                    } else {
+                        card.style.transition = 'none';
+                    }
 
-                cards.forEach((card) => {
-                    card.style.display = 'none';
-                    card.classList.remove('active');
-                    card.style.order = '';
-                    resetCardStyles(card);
+                    card.style.transform = `translateX(${xPos}px) scale(${scale})`;
+                    card.style.opacity = isVisible ? opacity : 0;
+                    card.style.zIndex = zIndex;
+                    card.style.filter = `blur(${blur})`;
+                    
+                    if (offset === 0) card.classList.add('active');
+                    else card.classList.remove('active');
                 });
 
-                if (isMobile()) {
-                    cards[centerIdx].style.display = 'flex';
-                    cards[centerIdx].classList.add('active');
-                } else {
-                    cards[leftIdx].style.display = 'flex';
-                    cards[leftIdx].style.order = '1';
-                    
-                    cards[centerIdx].style.display = 'flex';
-                    cards[centerIdx].style.order = '2';
-                    cards[centerIdx].classList.add('active');
-                    
-                    cards[rightIdx].style.display = 'flex';
-                    cards[rightIdx].style.order = '3';
-                }
-
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === centerIndex);
-                });
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
             }
 
-            function slideToCard(newIndex, direction) {
-                if (isAnimating || newIndex === centerIndex) return;
+            function move(direction) {
+                if (isAnimating) return;
                 isAnimating = true;
 
-                const slideOut = direction === 'next' ? -100 : 100;
-                const slideIn = direction === 'next' ? 100 : -100;
-                const ease = 'cubic-bezier(0.4, 0, 0.2, 1)';
+                // 1. Prepare for wrap-around
+                // If moving NEXT (direction = 1), the card at offset -2 will become -3 (far far left).
+                // The card at offset 3 will become 2 (far right).
+                // We need to ensure the card that WILL appear at the new edge is already at the old edge.
+                
+                // Actually, simpler:
+                // Just update the index.
+                // Identify which card wraps.
+                // Disable transition for THAT card, move it to the "other side".
+                // Then enable transition and move everyone.
+                
+                const nextIndex = (currentIndex + direction + totalCards) % totalCards;
+                
+                // Find the card that is wrapping
+                // If moving Next (+1): Card at offset -2 needs to wrap to +3?
+                // No, card at offset -3 (hidden) becomes -4...
+                // Let's look at the card that moves from "Hidden Left" to "Hidden Right" or vice versa.
+                // Total 6 cards. Offsets: -2, -1, 0, 1, 2, 3.
+                // Center 0.
+                // Move Next (+1): Center becomes 1.
+                // Old Center (0) becomes -1.
+                // Old -1 becomes -2.
+                // Old -2 becomes -3 (Wrap to 3).
+                // So the card that WAS at -2 needs to teleport to 3.
+                
+                // If moving Prev (-1):
+                // Old 3 becomes 4 (Wrap to -2).
+                // So card at 3 needs to teleport to -2.
 
-                if (isMobile()) {
-                    const oldCard = cards[centerIndex];
-                    const newCard = cards[newIndex];
-
-                    // Setup new card off-screen
-                    newCard.style.display = 'flex';
-                    newCard.style.position = 'absolute';
-                    newCard.style.left = '50%';
-                    newCard.style.transform = `translateX(calc(-50% + ${slideIn}vw))`;
-                    newCard.style.filter = 'blur(1px)';
-                    newCard.style.transition = 'none';
-                    newCard.classList.add('active');
+                const wrapCardOffset = direction === 1 ? -2 : 3; // The offset of the card that needs to wrap
+                // Find card with this offset
+                const wrapCardIndex = cards.findIndex((_, i) => getCardOffset(i) === wrapCardOffset);
+                
+                if (wrapCardIndex !== -1) {
+                    const wrapCard = cards[wrapCardIndex];
+                    wrapCard.style.transition = 'none';
+                    // Move it to the "opposite" side instantly
+                    // If direction 1 (Next), it was at -2, needs to go to 3?
+                    // Actually, just let it stay where it is?
+                    // No, if we just animate index, it will fly across.
+                    // We need to move it to the "start" position of the NEW slot.
                     
-                    carousel.offsetHeight;
-
-                    // Animate
-                    const transition = `transform ${animDuration}ms ${ease}, filter ${animDuration}ms ${ease}`;
+                    // Wait, if it was at -2, and we move next, it goes to -3.
+                    // -3 is equivalent to 3.
+                    // So we want it to animate 3 -> 2? No.
+                    // It enters from the right.
+                    // So it needs to start at 3, and animate to 2.
+                    // Currently it is at -2.
+                    // So we teleport -2 -> 3.
                     
-                    oldCard.style.transition = transition;
-                    oldCard.style.transform = `translateX(${slideOut}vw)`;
-                    oldCard.style.filter = 'blur(1px)';
-                    oldCard.classList.remove('active');
-
-                    newCard.style.transition = transition;
-                    newCard.style.transform = 'translateX(-50%)';
-                    newCard.style.filter = 'blur(0)';
-
-                    setTimeout(() => {
-                        centerIndex = newIndex;
-                        newCard.style.position = '';
-                        newCard.style.left = '';
-                        showCards();
-                        isAnimating = false;
-                    }, animDuration);
-                } else {
-                    const [oldLeftIdx, oldCenterIdx, oldRightIdx] = getVisibleIndices(centerIndex);
-                    const [newLeftIdx, newCenterIdx, newRightIdx] = getVisibleIndices(newIndex);
-                    const transition = `transform ${animDuration}ms ${ease}, filter ${animDuration}ms ${ease}, opacity ${animDuration}ms ${ease}`;
-
-                    // Animate current cards out
-                    [oldLeftIdx, oldCenterIdx, oldRightIdx].forEach(idx => {
-                        cards[idx].style.transition = transition;
-                        cards[idx].style.transform = `translateX(${slideOut}%)`;
-                        cards[idx].style.filter = 'blur(1px)';
-                        cards[idx].style.opacity = '0.3';
-                    });
-
-                    // Prep new cards
-                    setTimeout(() => {
-                        cards.forEach((card) => {
-                            card.style.display = 'none';
-                            card.classList.remove('active');
-                            card.style.order = '';
-                        });
-
-                        [newLeftIdx, newCenterIdx, newRightIdx].forEach((idx, i) => {
-                            cards[idx].style.display = 'flex';
-                            cards[idx].style.order = String(i + 1);
-                            cards[idx].style.transform = `translateX(${slideIn}%)`;
-                            cards[idx].style.filter = 'blur(1px)';
-                            cards[idx].style.opacity = '0.3';
-                            cards[idx].style.transition = 'none';
-                            if (idx === newCenterIdx) cards[idx].classList.add('active');
-                        });
-
-                        carousel.offsetHeight;
-
-                        // Slide in
-                        [newLeftIdx, newCenterIdx, newRightIdx].forEach((idx) => {
-                            cards[idx].style.transition = transition;
-                            cards[idx].style.transform = 'translateX(0)';
-                            cards[idx].style.filter = 'blur(0)';
-                            cards[idx].style.opacity = '';
-                        });
-
-                        centerIndex = newIndex;
-                        dots.forEach((dot, index) => {
-                            dot.classList.toggle('active', index === centerIndex);
-                        });
-
-                        setTimeout(() => {
-                            showCards();
-                            isAnimating = false;
-                        }, animDuration);
-                    }, animDuration * 0.4);
+                    const isMobileView = window.innerWidth <= mobileBreakpoint;
+                    const spacing = isMobileView ? window.innerWidth : 320;
+                    
+                    const startWrapPos = (direction === 1 ? 3 : -3) * spacing; 
+                    // Wait, if direction is -1 (Prev), we want card to appear at left (-2).
+                    // It comes from -3.
+                    // So it starts at -3 and animates to -2.
+                    // Currently it is at 3.
+                    // So teleport 3 -> -3.
+                    
+                    // Correct logic:
+                    // If Next (+1): Teleport card at -2 to 3. (Then it will animate 3->2? No, it stays at 3? No, it becomes offset 2 relative to new center? No.)
+                    // New center is +1.
+                    // Card index is fixed.
+                    // New offset = CardIndex - (Current+1).
+                    // If Card was at -2 relative to Current.
+                    // Relative to Current+1, it is -3.
+                    // -3 wraps to +3.
+                    // So relative to NEW center, it is at +3.
+                    // We want it to animate from +4 to +3? No.
+                    // It is hidden. It doesn't matter.
+                    
+                    // The only Visible wrap is if we have few cards.
+                    // With 6 cards, visible is -1, 0, 1.
+                    // Wraps happen at -3/3. Far away.
+                    // So we don't need to worry about visual glitches!
+                    // Just disable transition for the wrapper so it doesn't fly across.
+                    
+                    // So:
+                    // 1. Identify wrapper.
+                    // 2. Teleport wrapper to its "pre-move" position on the other side.
+                    // Wrapper index relative to OLD center:
+                    // Next (+1): Wrapper is the one at -2. It needs to be at +4 (so it can become +3).
+                    // Prev (-1): Wrapper is the one at +3. It needs to be at -3 (so it can become -2).
+                    
+                    const preWrapOffset = direction === 1 ? 4 : -3;
+                    wrapCard.style.transform = `translateX(${preWrapOffset * spacing}px) scale(0.9)`;
+                    wrapCard.style.display = 'none'; // Hide during teleport just in case
+                    
+                    // Force reflow
+                    void wrapCard.offsetWidth;
+                    wrapCard.style.display = 'flex';
                 }
+
+                currentIndex = nextIndex;
+                updatePositions(true);
+
+                setTimeout(() => {
+                    isAnimating = false;
+                }, animDuration);
             }
 
-            function next() {
-                const newIndex = (centerIndex + 1) % totalCards;
-                slideToCard(newIndex, 'next');
-            }
+            prevBtn.addEventListener('click', () => move(-1));
+            nextBtn.addEventListener('click', () => move(1));
 
-            function prev() {
-                const newIndex = (centerIndex - 1 + totalCards) % totalCards;
-                slideToCard(newIndex, 'prev');
-            }
-
-            prevBtn.addEventListener('click', prev);
-            nextBtn.addEventListener('click', next);
-
-            dots.forEach((dot) => {
+            dots.forEach(dot => {
                 dot.addEventListener('click', () => {
+                    if (isAnimating) return;
                     const targetIndex = parseInt(dot.dataset.index);
-                    if (targetIndex === centerIndex || isAnimating) return;
-                    const direction = targetIndex > centerIndex ? 'next' : 'prev';
-                    slideToCard(targetIndex, direction);
+                    if (targetIndex === currentIndex) return;
+                    
+                    // Find shortest path
+                    let diff = targetIndex - currentIndex;
+                    while (diff > totalCards / 2) diff -= totalCards;
+                    while (diff < -totalCards / 2) diff += totalCards;
+                    
+                    // If diff is > 1, just jump instantly to avoid crazy spinning
+                    if (Math.abs(diff) > 1) {
+                        currentIndex = targetIndex;
+                        updatePositions(false); // No animation
+                    } else {
+                        move(diff); // Animate single step
+                    }
                 });
             });
 
+            // Click side cards
             carousel.addEventListener('click', (e) => {
-                if (isMobile() || isAnimating) return;
+                if (isAnimating) return;
                 const card = e.target.closest('.industry-card');
                 if (!card || card.classList.contains('active')) return;
                 
-                const [leftIdx, , rightIdx] = getVisibleIndices(centerIndex);
                 const cardIndex = cards.indexOf(card);
+                let diff = cardIndex - currentIndex;
+                while (diff > totalCards / 2) diff -= totalCards;
+                while (diff < -totalCards / 2) diff += totalCards;
                 
-                if (cardIndex === leftIdx) prev();
-                else if (cardIndex === rightIdx) next();
+                if (Math.abs(diff) === 1) move(diff);
             });
 
+            // Swipe
             let touchStartX = 0;
-            carousel.addEventListener('touchstart', (e) => {
+            carousel.addEventListener('touchstart', e => {
                 touchStartX = e.changedTouches[0].screenX;
             }, { passive: true });
 
-            carousel.addEventListener('touchend', (e) => {
+            carousel.addEventListener('touchend', e => {
                 const diff = touchStartX - e.changedTouches[0].screenX;
-                if (Math.abs(diff) > 50) {
-                    diff > 0 ? next() : prev();
-                }
+                if (Math.abs(diff) > 50) move(diff > 0 ? 1 : -1);
             }, { passive: true });
 
             window.addEventListener('resize', () => {
-                if (!isAnimating) showCards();
+                if (!isAnimating) updatePositions(false);
             });
 
-            showCards();
+            // Initial setup
+            updatePositions(false);
         })();
     </script>
 </body>
