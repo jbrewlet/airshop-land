@@ -1726,6 +1726,81 @@
             padding: var(--spacing-md);
         }
     }
+
+    /* FAQ Section */
+    .faq-section {
+        padding: var(--spacing-lg) 0;
+        margin-top: var(--spacing-lg);
+    }
+    .faq-section h2 {
+        font-family: 'Action Sans', sans-serif;
+        font-size: 1.75rem;
+        color: var(--light-gray);
+        text-align: center;
+        margin-bottom: var(--spacing-md);
+    }
+    .faq-list {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .faq-item {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-item:first-child {
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-question {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--light-gray);
+        padding: 1rem 2rem 1rem 0;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.2s;
+    }
+    .faq-question:hover {
+        color: var(--orange);
+    }
+    .faq-question::after {
+        content: '▶';
+        font-size: 0.6rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        transition: transform 0.2s;
+        color: var(--med-gray);
+    }
+    .faq-item.expanded .faq-question::after {
+        transform: translateY(-50%) rotate(90deg);
+    }
+    .faq-answer {
+        display: none;
+        padding: 0 0 1rem 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--med-gray);
+    }
+    .faq-item.expanded .faq-answer {
+        display: block;
+    }
+    .faq-answer p {
+        margin: 0;
+    }
+    .faq-answer a {
+        color: var(--orange);
+        text-decoration: none;
+        border-bottom: 1px solid var(--orange);
+        transition: color 0.2s, border-color 0.2s;
+    }
+    .faq-answer a:hover {
+        color: var(--light-gray);
+        border-color: var(--light-gray);
+    }
+    .faq-cta {
+        text-align: center;
+        margin-top: var(--spacing-md);
+    }
 </style>
 </head>
 <body>
@@ -2259,6 +2334,69 @@
         <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
             STOP LOSING MONEY
         </a>
+    </section>
+
+    <section class="faq-section container" id="faq">
+        <h2>Common questions</h2>
+        <div class="faq-list">
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">I don't have inventory.</div>
+                <div class="faq-answer">
+                    <p>If you order anything for your business (materials, parts, supplies), that's inventory. You don't need to track stock quantities daily. Most shops start by adding the things they order so they can build quotes faster. Quantity tracking is optional and can come later (or never).</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">What does this cost?</div>
+                <div class="faq-answer">
+                    <p>Starts at $99/month for small teams. Get a discount for paying annually.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">I'm not tech-savvy.</div>
+                <div class="faq-answer">
+                    <p>AirShop is designed for shop owners, not IT departments. If you can send an email, you can use AirShop. <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> and we'll set things up with you.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">I don't have time to set this up.</div>
+                <div class="faq-answer">
+                    <p>You don't need to migrate everything at once. Most shops start by creating their first quote in under 10 minutes. <a href="https://cal.com/airshop/demo" target="_blank">Set up a time to chat with us</a>, then start your free trial and add items as you go, a little each day. From our experience there's never an ideal time to switch, but getting started means progress. Keep making little improvements over time.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">Will someone help me get set up?</div>
+                <div class="faq-answer">
+                    <p>Yes. The AirShop team helps you get up and running. Depending on complexity and size, we can also help migrate your data (free or charged at a fair fee). <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> and we'll make sure you get value, not leave you on your own.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">What if I try it and it doesn't work for my shop?</div>
+                <div class="faq-answer">
+                    <p>There's no contract and no risk. <a href="https://cal.com/airshop/demo" target="_blank">Set up a time to chat with us</a>, then start your free trial and choose a monthly plan when you're comfortable and loving it. If it's not a fit, no hard feelings. We'd rather you find the right tool than feel stuck.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">I already use spreadsheets / QuickBooks / another system.</div>
+                <div class="faq-answer">
+                    <p>AirShop isn't here to replace everything overnight. Many shops run it alongside their existing tools at first. The goal is to make quoting faster today. <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> to see how it fits with your workflow.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">How do I get inquiries into AirShop?</div>
+                <div class="faq-answer">
+                    <p>Embed our form on your website and inquiries land directly in AirShop. No double entry. You can also create inquiries manually from email or phone requests. <a href="https://cal.com/airshop/demo" target="_blank">Set up a time to chat</a> and we'll show you how it works.</p>
+                </div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                <div class="faq-question">Do you have a bulk import?</div>
+                <div class="faq-answer">
+                    <p>Yes. You can import items from spreadsheets, or we can help migrate your data during onboarding. <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> to discuss your setup.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-cta">
+            <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">Let's chat</a>
+        </div>
     </section>
 
     <section class="built-by container">
