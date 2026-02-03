@@ -352,6 +352,11 @@
             fill: none;
         }
 
+        .industry-card-icon .material-icons {
+            font-size: 64px;
+            color: white;
+        }
+
         .industry-card h3 {
             margin-bottom: 12px;
             font-size: 1.4rem;
@@ -454,29 +459,23 @@
             }
         }
 
-        /* Mobile: single card view */
+        /* Mobile: single card view - wider card, fills screen */
         @media (max-width: 640px) {
             .industries-carousel-wrapper {
-                padding: 0 var(--spacing-md);
+                padding: 0 16px;
             }
 
             .industries-carousel {
                 gap: 0;
-                position: relative;
-                height: 380px;
+                height: 420px;
             }
 
             .industry-card {
-                flex: 0 0 280px;
-                width: 280px;
-                min-width: 280px;
-                max-width: 280px;
-                padding: 32px 24px;
+                width: min(320px, calc(100vw - 32px));
+                height: min(400px, calc((100vw - 32px) * 1.25));
+                margin-left: calc(-1 * min(160px, (100vw - 32px) / 2));
+                margin-top: calc(-1 * min(200px, (100vw - 32px) * 0.625));
                 opacity: 1;
-                position: absolute;
-                left: 50%;
-                top: 0;
-                transform: translateX(-50%);
             }
 
             .industry-card-icon {
@@ -1877,42 +1876,42 @@
             <div class="industries-carousel" id="industries-carousel">
                 <div class="industry-card">
                     <div class="industry-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <i class="material-icons">celebration</i>
                     </div>
                     <h3>Event Planners</h3>
                     <p>Track your items, use them in quotes and delight customers</p>
                 </div>
                 <div class="industry-card active">
                     <div class="industry-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <i class="material-icons">precision_manufacturing</i>
                     </div>
                     <h3>CNC Shops</h3>
                     <p>Streamline quoting and material management</p>
                 </div>
                 <div class="industry-card">
                     <div class="industry-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <i class="material-icons">construction</i>
                     </div>
                     <h3>Custom Fabricators</h3>
                     <p>Quote projects efficiently with inventory on hand</p>
                 </div>
                 <div class="industry-card">
                     <div class="industry-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                        <i class="material-icons">chair</i>
                     </div>
                     <h3>Rental Companies</h3>
                     <p>Track equipment availability and streamline rental quotes</p>
                 </div>
                 <div class="industry-card">
                     <div class="industry-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <i class="material-icons">factory</i>
                     </div>
                     <h3>Manufacturers</h3>
                     <p>Manage inventory and customer quotes in one place</p>
                 </div>
                 <div class="industry-card">
                     <div class="industry-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                        <i class="material-icons">countertops</i>
                     </div>
                     <h3>Cabinet Makers</h3>
                     <p>Track materials and hardware while quoting custom projects</p>
@@ -2532,18 +2531,15 @@
                 cards.forEach((card, index) => {
                     const offset = getCardOffset(index);
                     
-                    // Determine if this card is "wrapping around" (teleporting)
-                    // If we are animating, we need to be careful.
-                    // But with the virtual slot logic, we just render based on current state.
-                    
                     const xPos = offset * spacing;
-                    const scale = (offset === 0) ? 1 : 0.9;
-                    const opacity = (offset === 0) ? 1 : 0.5;
+                    const scale = (offset === 0) ? 1 : (isMobileView ? 1 : 0.9);
+                    const opacity = (offset === 0) ? 1 : (isMobileView ? 1 : 0.5);
                     const zIndex = (offset === 0) ? 10 : 1;
                     const blur = (offset === 0) ? 0 : '1px';
 
-                    // Hide cards that are far off screen to prevent horizontal scroll or painting
-                    const isVisible = Math.abs(offset) <= 2;
+                    // Mobile: show center + neighbors (neighbors are off-screen for slide animation)
+                    // Desktop: show 3 cards (-1, 0, 1)
+                    const isVisible = Math.abs(offset) <= 1;
                     card.style.display = isVisible ? 'flex' : 'none';
 
                     if (animate) {
