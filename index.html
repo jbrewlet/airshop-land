@@ -733,10 +733,56 @@
     }
 
     .footer {
-        padding: var(--spacing-md) 0;
-        margin-top: var(--spacing-md);
-        color:var(--med-gray);
-        text-align:center;
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+        margin-top: var(--spacing-lg);
+        color: var(--med-gray);
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: var(--spacing-lg);
+        max-width: 900px;
+        margin: 0 auto var(--spacing-lg);
+        text-align: left;
+    }
+    .footer-col h4 {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--light-gray);
+        margin: 0 0 var(--spacing-sm);
+    }
+    .footer-col ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .footer-col li {
+        margin-bottom: 0.5rem;
+    }
+    .footer-col a {
+        color: var(--med-gray);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+    }
+    .footer-col a:hover {
+        color: var(--orange);
+    }
+    .footer-bottom {
+        text-align: center;
+        padding-top: var(--spacing-md);
+        border-top: 1px solid rgba(255,255,255,0.06);
+        font-size: 0.85rem;
+    }
+    @media (max-width: 600px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            text-align: center;
+        }
     }
 
     .pricing {
@@ -1689,7 +1735,7 @@
                 <img src="./AirShop_Dark.svg"  alt="AirShop">
             </div>
             <div class="nav-links" style="font-size:.7rem;">
-                <a href="#features">HOW IT WORKS</a>
+                <a href="#how">HOW IT WORKS</a>
                 <a href="https://cal.com/airshop/demo" target="_blank">DEMO</a>
                 <a href="https://airshop.work" target="_blank">LOGIN</a>
             </div>
@@ -1705,7 +1751,7 @@
     </header>
 
     <!-- How It Works Section -->
-    <section class="container" id="how-it-works" style="margin-top: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+    <section class="container" id="how" style="margin-top: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
         <h2 class="section-title">How It Works</h2>
         
         <div class="organic-workflow">
@@ -2227,17 +2273,8 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-            <div style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-bottom: var(--spacing-md);">
-                <a href="./blog/" style="color: var(--med-gray); text-decoration: none; font-size: 0.9rem;">Articles</a>
-                <a href="https://instagram.com/airshopapp" style="color: var(--med-gray); text-decoration: none; font-size: 0.9rem;">Instagram</a>
-                <a href="https://youtube.com/@airshopapp" style="color: var(--med-gray); text-decoration: none; font-size: 0.9rem;">YouTube</a>
-                <a href="https://cal.com/airshop/demo" target="_blank" style="color: var(--med-gray); text-decoration: none; font-size: 0.9rem;">Get a Demo</a>
-            </div>
-            <p style="font-size: 0.9rem;">© 2026 AirShop Works Inc. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script src="js/load-footer.js"></script>
 
     <!-- Save Estimate Modal -->
     <div class="roi-modal-overlay" id="save-modal">
@@ -2271,19 +2308,6 @@
         </div>
     </div>
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/67c20e6c61aa0c190e3e2ea0/1il70gm2o';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
     <script>
         const rateInput = document.getElementById('shop-rate');
         const weeklyDisplay = document.getElementById('weekly-loss');
