@@ -113,6 +113,7 @@
             --med-gray: #808080;
             --dark-gray: #222222;
             --teal: #008376;
+            --green: #2e7d32;
             --spacing-sm: 1rem;
             --spacing-md: 2rem;
             --spacing-lg: 4rem;
@@ -983,6 +984,61 @@
         color: var(--med-gray);
         font-size: 0.95rem;
         line-height: 1.6;
+    }
+
+    .badge {
+        font-size: 0.6em;
+        margin-left: 8px;
+        font-weight: bold;
+    }
+
+    .badge-soon {
+        color: var(--orange);
+    }
+
+    .badge-new {
+        color: var(--green);
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        padding: 0 4px;
+        border-radius: 4px;
+        background: rgba(46, 125, 50, 0.05);
+        box-shadow: 0 0 8px rgba(46, 125, 50, 0.15);
+        animation: shimmer-glow 6s infinite ease-in-out;
+    }
+
+    @keyframes shimmer-glow {
+        0%, 100% {
+            box-shadow: 0 0 4px rgba(46, 125, 50, 0.1);
+            background: rgba(46, 125, 50, 0.05);
+        }
+        50% {
+            box-shadow: 0 0 12px rgba(46, 125, 50, 0.25);
+            background: rgba(46, 125, 50, 0.1);
+        }
+    }
+
+    .badge-new::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent
+        );
+        animation: shimmer-roll 6s infinite ease-in-out;
+    }
+
+    @keyframes shimmer-roll {
+        0% { left: -150%; }
+        30% { left: 150%; }
+        100% { left: 150%; }
     }
 
     .big-cta {
@@ -2150,15 +2206,19 @@
                     </li>
                     <li>
                         <h4>Smart Composite Items</h4>
-                        <p>Build out detailed line item assemblies while keeping customer-facing quotes clean and clear.</p>
-                    </li>
-                    <li>
-                        <h4>Integrated Payments</h4>
-                        <p>Take partial or full payments instantly after quote acceptance with built-in Stripe integration.</p>
+                        <p>Build out detailed line item roll-up assemblies while keeping customer-facing quotes clean and clear.</p>
                     </li>
                     <li>
                         <h4>Margin Tracking</h4>
-                        <p>Know your margins on each item before you send.</p>
+                        <p>Know your cost and profit on each item before you send.</p>
+                    </li>
+                    <li>
+                        <h4>2D / 3D / PDF Viewer<span class="badge badge-new">NEW</span></h4>
+                        <p>View drawings and models directly in your inquiries AND on customer quotes to convert faster with and impress the socks off your custmomers.</p>
+                    </li>
+                    <li>
+                        <h4>Integrated Payments<span class="badge badge-soon">SOON</span></h4>
+                        <p>Take partial or full payments instantly after quote acceptance with built-in Stripe integration.</p>
                     </li>
                 </ul>
             </div>
@@ -2190,6 +2250,18 @@
                         <h4>Seamless Quote Integration</h4>
                         <p>No more copying data between spreadsheets or from your Amazon orders. Use your items directly in your quotes.</p>
                     </li>
+                    <li>
+                        <h4>Duplicate Finder<span class="badge badge-new">NEW</span></h4>
+                        <p>Keep your inventory clean with automated duplicate detection and merging tools.</p>
+                    </li>
+                    <li>
+                        <h4>Stocktake<span class="badge badge-new">NEW</span></h4>
+                        <p>Perform fast, accurate inventory counts using a deskto or mobile device. Keep your stock levels in sync without the paperwork. <em>Great for end of year count.</em></p>
+                    </li>
+                    <li>
+                        <h4>One-click Ordering<span class="badge badge-soon">SOON</span></h4>
+                        <p>We already have excellent ways to order online, but soon we'll have easy email ordering via Purchase Orders. Send orders to your vendors with a single click.</p>
+                    </li>
                 </ul>
             </div>
 
@@ -2197,20 +2269,32 @@
                 <h3>Customer Management</h3>
                 <ul class="feature-list">
                     <li>
-                        <h4>Organization Overview</h4>
-                        <p>See contacts in an organization and all their activity.</p>
-                    </li>
-                    <li>
-                        <h4>Integrated Communication</h4>
+                        <h4>One-click Quote Sending</h4>
                         <p>Send quotes directly to your customers via email and track engagement.</p>
-                    </li>
-                    <li>
-                        <h4>Bulk Contact Import</h4>
-                        <p>Get started fast by uploading your contacts into AirShop.</p>
                     </li>
                     <li>
                         <h4>Track Customer Trends</h4>
                         <p>Keep track of your customer's quote history and preferences.</p>
+                    </li>
+                    <li>
+                        <h4>Internal Customer Notes</h4>
+                        <p>A "scratchpad" for each organization to keep track of quirks—like "prefers phone calls over email" or "dock is tight, send a small truck."</p>
+                    </li>
+                    <li>
+                        <h4>Inquiry History</h4>
+                        <p>A consolidated view of every inquiry a customer has ever sent, even if they didn't turn into quotes, so you can see what they almost bought.</p>
+                    </li>
+                    <li>
+                        <h4>Help Scout Integration<span class="badge badge-new">NEW</span></h4>
+                        <p>Stop jumping between tabs. See customer data right in your Help Scout sidebar, and keep your notes and status in sync automatically.</p>
+                    </li>
+                    <li>
+                        <h4>Organization Overview<span class="badge badge-soon">SOON</span></h4>
+                        <p>See contacts in an organization and all their activity.</p>
+                    </li>
+                    <li>
+                        <h4>Bulk Contact Import<span class="badge badge-soon">SOON</span></h4>
+                        <p>Get started fast by uploading your contacts into AirShop.</p>
                     </li>
                 </ul>
             </div>
@@ -2227,15 +2311,23 @@
                         <p>Never lose progress while creating quotes – we automatically save your work.</p>
                     </li>
                     <li>
+                        <h4>Fast Omni-search</h4>
+                        <p>Search everything fast from any page and go straight there. Find quotes, items, or customers instantly.</p>
+                    </li>
+                    <li>
                         <h4>Quote Success Tracking</h4>
                         <p>Learn what works by analyzing your win rates and most successful quote types.</p>
                     </li>
                     <li>
-                        <h4>Light and Dark Modes</h4>
+                        <h4>Light and Dark Modes 🌞🌚</h4>
                         <p>When you've seen the dark mode, you'll never go back.</p>
                     </li>
                     <li>
-                        <h4>AI-Powered Analytics <span style="color: var(--orange); font-size: 0.6em;">Coming Soon</span></h4>
+                        <h4>Keyboard Shortcuts</h4>
+                        <p>Work at the speed of thought with powerful keyboard shortcuts across the entire platform.</p>
+                    </li>
+                    <li>
+                        <h4>AI-Powered Analytics<span class="badge badge-soon">SOON</span></h4>
                         <p>We're building smart features that will analyze your data to provide actionable insights about winning quotes, inventory trends, and customer patterns.</p>
                     </li>
                 </ul>
