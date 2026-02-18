@@ -241,11 +241,93 @@
                 <p>Stop sending quotes into the void. Start knowing when your customers are paying attention.</p>
 
                 <p><strong>Ready to see when your quotes are viewed?</strong> <a href="https://cal.com/airshop/demo" target="_blank" style="color: var(--orange);">Schedule a demo of AirShop</a>.</p>
+
+                <div class="email-signup-block">
+                    <span class="email-signup-burst" aria-hidden="true">Free Guide</span>
+                    <div class="email-signup-content">
+                        <h3 class="email-signup-title">Quote faster, track smarter.</h3>
+                        <p class="email-signup-text">Practical tactics for quoting and inventory. No fluff.</p>
+                        <ul class="email-signup-benefits">
+                            <li>Tips from someone who's been there</li>
+                            <li>Quoting and inventory tactics that work</li>
+                            <li>Short, practical, no theory</li>
+                        </ul>
+                        <form id="email-signup-form" class="email-signup-form" novalidate>
+                            <input type="text" name="website" class="email-signup-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <input type="hidden" name="form_load_time" id="signup-form-load-time" value="">
+                            <input type="email" name="email" id="signup-email" placeholder="you@company.com" required aria-label="Email address">
+                            <button type="submit" class="btn email-signup-btn">Get the Guide</button>
+                        </form>
+                        <p class="email-signup-trust">No spam. Unsubscribe anytime.</p>
+                        <p id="signup-message" class="email-signup-message" aria-live="polite"></p>
+                    </div>
+                </div>
             </div>
         </article>
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="../js/load-footer.js"></script>
+    <script>
+        (function() {
+            const form = document.getElementById('email-signup-form');
+            const messageEl = document.getElementById('signup-message');
+            const loadTimeInput = document.getElementById('signup-form-load-time');
+            const signupApiUrl = 'https://hooks.zapier.com/hooks/catch/3088816/ucdkbhw/';
+
+            if (!form) return;
+
+            if (loadTimeInput) {
+                loadTimeInput.value = String(Date.now());
+            }
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const emailInput = document.getElementById('signup-email');
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const email = emailInput.value.trim();
+                const website = form.querySelector('input[name="website"]');
+                const formLoadTime = form.querySelector('input[name="form_load_time"]');
+
+                if (!email) {
+                    messageEl.textContent = 'Please enter your email.';
+                    messageEl.className = 'email-signup-message error';
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                messageEl.textContent = '';
+                messageEl.className = 'email-signup-message';
+
+                try {
+                    const params = new URLSearchParams();
+                    params.append('email', email);
+                    params.append('website', website ? website.value : '');
+                    params.append('form_load_time', formLoadTime ? formLoadTime.value : '');
+                    const response = await fetch(signupApiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: params.toString()
+                    });
+
+                    const data = await response.json().catch(() => ({}));
+
+                    if (response.ok) {
+                        messageEl.textContent = "Check your inbox for the guide.";
+                        messageEl.className = 'email-signup-message success';
+                        form.reset();
+                        if (loadTimeInput) loadTimeInput.value = String(Date.now());
+                    } else {
+                        throw new Error(data.error || 'Something went wrong');
+                    }
+                } catch (err) {
+                    messageEl.textContent = err.message || 'Failed to sign up. Please try again.';
+                    messageEl.className = 'email-signup-message error';
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
