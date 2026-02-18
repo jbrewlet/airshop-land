@@ -1,0 +1,32 @@
+---
+description: Local server port for airshop-land
+alwaysApply: true
+---
+
+# Local Development Server
+
+Always use **port 8000** for the local HTML server in this project.
+
+## How to Start
+Run the following command in your terminal:
+```bash
+python3 -m http.server 8000
+```
+
+## Troubleshooting
+If you see an error like `OSError: [Errno 48] Address already in use`, it means port 8000 is occupied. 
+
+1. **Find the process ID (PID):**
+   ```bash
+   lsof -i :8000
+   ```
+2. **Kill the process:**
+   ```bash
+   kill -9 <PID>
+   ```
+3. **Restart the server:**
+   ```bash
+   python3 -m http.server 8000
+   ```
+
+Note: While port 3000 is mentioned in some user rules as a priority, this specific project is configured to use **port 8000**.
