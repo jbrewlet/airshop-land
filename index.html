@@ -3069,11 +3069,14 @@
                 const estimateApiUrl = 'https://airshop.work/api/leads/send-estimate';
                 const response = await fetch(estimateApiUrl, {
                     method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
                 
                 if (!response.ok) {
-                    throw new Error('Failed to send email');
+                    const errBody = await response.json().catch(() => ({}));
+                    const msg = errBody?.error || `Failed to send email (${response.status})`;
+                    throw new Error(msg);
                 }
                 
                 // Success
