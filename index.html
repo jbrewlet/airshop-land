@@ -3065,8 +3065,8 @@
             submitBtn.textContent = 'Sending...';
             
             try {
-                // POST to Zapier webhook (see RESEND-SETUP.md)
-                const estimateApiUrl = 'https://hooks.zapier.com/hooks/catch/3088816/uls8rb5/';
+                // POST to AirShop API (see RESEND-SETUP.md, AIRSHOP-API-SEND-ESTIMATE-SPEC.md)
+                const estimateApiUrl = 'https://airshop.work/api/leads/send-estimate';
                 const response = await fetch(estimateApiUrl, {
                     method: 'POST',
                     body: JSON.stringify(data)

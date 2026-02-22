@@ -57,7 +57,7 @@ Use this if you prefer to run **api/send-estimate.js** yourself (same HTML email
 ## 1. Resend
 
 1. [resend.com](https://resend.com) → API key, verify sending domain.
-2. In **api/send-estimate.js**, set `from` and `bcc` to your real addresses.
+2. In **api/send-estimate.js**, `from` and default `bcc` are `team@airshopapp.com`; override BCC with `ADMIN_EMAILS` env if needed.
 
 ## 2. Deploy the API
 
@@ -95,14 +95,26 @@ If needed, revert the form to POST to the Zapier webhook. The API continues to s
 
 ---
 
+## Send Estimate (AirShop API)
+
+When you add `POST /api/leads/send-estimate` to the AirShop API, point the form there instead of Zapier. See **AIRSHOP-API-SEND-ESTIMATE-SPEC.md** for the full implementation spec.
+
+- **From:** team@airshopapp.com
+- **Subject:** Stop losing {{monthlyLoss}}/month 🟧 AirShop
+- **BCC:** Admin emails (ADMIN_EMAILS env or team@airshopapp.com)
+- **Body:** Light-theme HTML template in api/send-estimate.js
+
+---
+
 ## Summary
 
-| What              | Estimate (current) | Signup (landing page) |
-|-------------------|--------------------|------------------------|
-| airshopapp.com    | GitHub Pages       | GitHub Pages           |
-| Form POSTs to     | Zapier webhook     | AirShop API            |
-| Sends/adds via    | Zapier → Resend    | AirShop API → Resend   |
-| Resend API key    | Stored in Zapier   | In AirShop API env     |
+| What              | Estimate (current) | Estimate (after API) | Signup (landing page) |
+|-------------------|--------------------|----------------------|------------------------|
+| airshopapp.com    | GitHub Pages       | GitHub Pages         | GitHub Pages           |
+| Form POSTs to     | Zapier webhook     | AirShop API          | AirShop API            |
+| Sends/adds via    | Zapier → Resend    | AirShop API → Resend | AirShop API → Resend   |
+| Resend API key    | Stored in Zapier   | In AirShop API env   | In AirShop API env     |
 
-**Estimate:** Zapier Catch Hook → Resend Send Email.  
+**Estimate (current):** Zapier Catch Hook → Resend Send Email.  
+**Estimate (after):** Form → `https://airshop.work/api/leads/send-estimate` → Resend.  
 **Signup:** Form → `https://airshop.work/api/leads/guide-signup` → Resend (contact, segment, topic, welcome email).
