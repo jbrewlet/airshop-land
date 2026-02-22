@@ -28,13 +28,7 @@
     <meta name="twitter:image" content="https://airshopapp.com/AirShop-OPG.png">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GLMJ5X9LJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5GLMJ5X9LJ');
-    </script>
+    <script src="../js/ga.js"></script>
     
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     
@@ -50,7 +44,7 @@
     <!-- Blog Styles -->
     <link rel="stylesheet" href="./articles.css">
 </head>
-<body>
+<body class="main">
     <header class="header">
         <nav class="nav container">
             <a href="../" class="logo">
@@ -58,7 +52,7 @@
             </a>
             <div class="nav-links">
                 <a href="../#how">HOW IT WORKS</a>
-                <a href="https://cal.com/airshop/demo" target="_blank">DEMO</a>
+                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
                 <a href="https://airshop.work" target="_blank">LOGIN</a>
             </div>
         </nav>
@@ -124,13 +118,14 @@
         <div class="blog-cta">
             <h2>Ready to run a more efficient shop?</h2>
             <p>See how AirShop brings quoting and inventory together in one platform.</p>
-            <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                 GET A DEMO
             </a>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="../js/cal-embed.js"></script>
     <script src="../js/load-footer.js"></script>
 </body>
 </html>

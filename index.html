@@ -77,13 +77,7 @@
     </script>
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GLMJ5X9LJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5GLMJ5X9LJ');
-    </script>
+    <script src="js/ga.js"></script>
     
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     
@@ -2175,7 +2169,7 @@
     }
 </style>
 </head>
-<body>
+<body class="main">
     <header class="header">
         <nav class="nav container">
             <div class="logo">
@@ -2183,7 +2177,7 @@
             </div>
             <div class="nav-links" style="font-size:.7rem;">
                 <a href="#how">HOW IT WORKS</a>
-                <a href="https://cal.com/airshop/demo" target="_blank">DEMO</a>
+                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
                 <a href="https://airshop.work" target="_blank">LOGIN</a>
             </div>
         </nav>
@@ -2191,7 +2185,7 @@
             <h1>Win more <span class="hero-underline">Quotes</span>.<br>Master <span class="hero-underline">Inventory</span>.
                 <br>All in <span class="hero-underline">AirShop</span>.</h1>
             <p>Finally, quotes &amp; inventory in one app.</p>
-            <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                 SEE IT IN ACTION
             </a>
         </div>
@@ -2287,7 +2281,7 @@
                     </div>
                 </div>
                 <p class="crm-subtext" style="margin-bottom: var(--spacing-md);">View CAD files, PDF, and DXF files without leaving AirShop. When a customer sends you a STEP, DXF, or PDF, view it instantly and quote while your competitors are still downloading. First to quote wins jobs.</p>
-                <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+                <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                     SEE IT YOURSELF
                 </a>
             </div>
@@ -2457,9 +2451,11 @@
         </div>
         <p class="features-scroll-hint">Scroll or swipe to explore</p>
         </div>
-        <a href="https://cal.com/airshop/demo" 
-                class="btn btn-primary"
-                target="_blank"
+        <a href="#" 
+                class="btn btn-primary cal-demo-trigger"
+                data-cal-namespace="demo"
+                data-cal-link="airshop/demo"
+                role="button"
                 style="margin-top: calc(var(--spacing-lg) * 2); display: block; width: fit-content; margin-left: auto; margin-right: auto;">
             SEE IT IN ACTION
         </a>
@@ -2470,7 +2466,7 @@
         <div class="big-cta-inner">
             <h2>Ready to streamline your business?</h2>
             <p>Starting at $99/month</p>
-            <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                 SEE IT IN ACTION
             </a>
         </div>
@@ -2741,7 +2737,7 @@
             </div>
         </div>
 
-        <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+        <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
             STOP LOSING MONEY
         </a>
     </section>
@@ -2764,48 +2760,48 @@
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">I'm not tech-savvy.</div>
                 <div class="faq-answer">
-                    <p>AirShop is designed for shop owners, not IT departments. If you can send an email, you can use AirShop. <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> and we'll set things up with you.</p>
+                    <p>AirShop is designed for shop owners, not IT departments. If you can send an email, you can use AirShop. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> and we'll set things up with you.</p>
                 </div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">I don't have time to set this up.</div>
                 <div class="faq-answer">
-                    <p>You don't need to migrate everything at once. Most shops start by creating their first quote in under 10 minutes. <a href="https://cal.com/airshop/demo" target="_blank">Set up a time to chat with us</a>, then start your free trial and add items as you go, a little each day. From our experience there's never an ideal time to switch, but getting started means progress. Keep making little improvements over time.</p>
+                    <p>You don't need to migrate everything at once. Most shops start by creating their first quote in under 10 minutes. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Set up a time to chat with us</a>, then start your free trial and add items as you go, a little each day. From our experience there's never an ideal time to switch, but getting started means progress. Keep making little improvements over time.</p>
                 </div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">Will someone help me get set up?</div>
                 <div class="faq-answer">
-                    <p>Yes. The AirShop team helps you get up and running. Depending on complexity and size, we can also help migrate your data (free or charged at a fair fee). <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> and we'll make sure you get value, not leave you on your own.</p>
+                    <p>Yes. The AirShop team helps you get up and running. Depending on complexity and size, we can also help migrate your data (free or charged at a fair fee). <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> and we'll make sure you get value, not leave you on your own.</p>
                 </div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">What if I try it and it doesn't work for my shop?</div>
                 <div class="faq-answer">
-                    <p>There's no contract and no risk. <a href="https://cal.com/airshop/demo" target="_blank">Set up a time to chat with us</a>, then start your free trial and choose a monthly plan when you're comfortable and loving it. If it's not a fit, no hard feelings. We'd rather you find the right tool than feel stuck.</p>
+                    <p>There's no contract and no risk. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Set up a time to chat with us</a>, then start your free trial and choose a monthly plan when you're comfortable and loving it. If it's not a fit, no hard feelings. We'd rather you find the right tool than feel stuck.</p>
                 </div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">I already use spreadsheets / QuickBooks / another system.</div>
                 <div class="faq-answer">
-                    <p>AirShop isn't here to replace everything overnight. Many shops run it alongside their existing tools at first. The goal is to make quoting faster today. <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> to see how it fits with your workflow.</p>
+                    <p>AirShop isn't here to replace everything overnight. Many shops run it alongside their existing tools at first. The goal is to make quoting faster today. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> to see how it fits with your workflow.</p>
                 </div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">How do I get inquiries into AirShop?</div>
                 <div class="faq-answer">
-                    <p>Embed our form on your website and inquiries land directly in AirShop. No double entry. You can also create inquiries manually from email or phone requests. <a href="https://cal.com/airshop/demo" target="_blank">Set up a time to chat</a> and we'll show you how it works.</p>
+                    <p>Embed our form on your website and inquiries land directly in AirShop. No double entry. You can also create inquiries manually from email or phone requests. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Set up a time to chat</a> and we'll show you how it works.</p>
                 </div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('expanded')">
                 <div class="faq-question">Do you have a bulk import?</div>
                 <div class="faq-answer">
-                    <p>Yes. You can import items from spreadsheets, or we can help migrate your data during onboarding. <a href="https://cal.com/airshop/demo" target="_blank">Book a demo</a> to discuss your setup.</p>
+                    <p>Yes. You can import items from spreadsheets, or we can help migrate your data during onboarding. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> to discuss your setup.</p>
                 </div>
             </div>
         </div>
         <div class="faq-cta">
-            <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">Let's chat</a>
+            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Let's chat</a>
         </div>
     </section>
 
@@ -2822,6 +2818,7 @@
     </section>
 
     <div id="footer-placeholder"></div>
+    <script src="js/cal-embed.js"></script>
     <script src="js/load-footer.js"></script>
     <script src="js/guide-signup.js"></script>
 
@@ -2852,7 +2849,7 @@
             </form>
             
             <p class="roi-modal-footer">
-                Or <a href="https://cal.com/airshop/demo" target="_blank">book a demo</a> to see AirShop in action.
+                Or <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">book a demo</a> to see AirShop in action.
             </p>
         </div>
     </div>

@@ -53,13 +53,7 @@
     </script>
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GLMJ5X9LJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5GLMJ5X9LJ');
-    </script>
+    <script src="../js/ga.js"></script>
     
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     
@@ -75,7 +69,7 @@
     <!-- Blog Styles -->
     <link rel="stylesheet" href="./articles.css">
 </head>
-<body>
+<body class="main">
     <header class="header">
         <nav class="nav container">
             <a href="../" class="logo">
@@ -83,7 +77,7 @@
             </a>
             <div class="nav-links">
                 <a href="../#how">HOW IT WORKS</a>
-                <a href="https://cal.com/airshop/demo" target="_blank">DEMO</a>
+                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
                 <a href="https://airshop.work" target="_blank">LOGIN</a>
             </div>
         </nav>
@@ -180,7 +174,7 @@
                 <div class="article-cta">
                     <h2>See Your Margins Before You Send</h2>
                     <p>AirShop shows margin on every line item and every quote. Your inventory costs flow straight into your quotes. Know if a job is profitable before you commit to it.</p>
-                    <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+                    <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                         SEE HOW IT WORKS
                     </a>
                 </div>
@@ -226,7 +220,7 @@
 
                 <p>Stop guessing at margins. Stop hoping jobs are profitable. Get the visibility you need to price with confidence and grow a business that actually makes money.</p>
 
-                <p><strong>Ready to see your real margins?</strong> <a href="https://cal.com/airshop/demo" target="_blank" style="color: var(--orange);">Schedule a demo of AirShop</a>.</p>
+                <p><strong>Ready to see your real margins?</strong> <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" style="color: var(--orange);">Schedule a demo of AirShop</a>.</p>
 
                 <div class="email-signup-block">
                     <span class="email-signup-burst" aria-hidden="true">Free Guide</span>
@@ -252,6 +246,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="../js/cal-embed.js"></script>
     <script src="../js/load-footer.js"></script>
     <script src="../js/guide-signup.js"></script>
 </body>

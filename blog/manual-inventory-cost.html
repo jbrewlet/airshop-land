@@ -53,13 +53,7 @@
     </script>
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GLMJ5X9LJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5GLMJ5X9LJ');
-    </script>
+    <script src="../js/ga.js"></script>
     
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     
@@ -75,7 +69,7 @@
     <!-- Blog Styles -->
     <link rel="stylesheet" href="./articles.css">
 </head>
-<body>
+<body class="main">
     <header class="header">
         <nav class="nav container">
             <a href="../" class="logo">
@@ -83,7 +77,7 @@
             </a>
             <div class="nav-links">
                 <a href="../#how">HOW IT WORKS</a>
-                <a href="https://cal.com/airshop/demo" target="_blank">DEMO</a>
+                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
                 <a href="https://airshop.work" target="_blank">LOGIN</a>
             </div>
         </nav>
@@ -229,7 +223,7 @@
                 <div class="article-cta">
                     <h2>Stop Losing Money to Manual Tracking</h2>
                     <p>AirShop gives you real-time inventory visibility, automatic reorder alerts, and direct integration with your quotes. No spreadsheets required.</p>
-                    <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+                    <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                         SEE IT IN ACTION
                     </a>
                 </div>
@@ -258,7 +252,7 @@
 
                 <p>The question isn't whether you can afford to switch to a real inventory system. It's whether you can afford not to.</p>
 
-                <p><strong>Ready to calculate your specific costs?</strong> <a href="../#calc" style="color: var(--orange);">Try our ROI calculator</a> or <a href="https://cal.com/airshop/demo" target="_blank" style="color: var(--orange);">schedule a demo</a> to see how AirShop can help.</p>
+                <p><strong>Ready to calculate your specific costs?</strong> <a href="../#calc" style="color: var(--orange);">Try our ROI calculator</a> or <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" style="color: var(--orange);">schedule a demo</a> to see how AirShop can help.</p>
 
                 <div class="email-signup-block">
                     <span class="email-signup-burst" aria-hidden="true">Free Guide</span>
@@ -284,6 +278,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="../js/cal-embed.js"></script>
     <script src="../js/load-footer.js"></script>
     <script src="../js/guide-signup.js"></script>
 </body>

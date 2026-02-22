@@ -53,13 +53,7 @@
     </script>
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GLMJ5X9LJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5GLMJ5X9LJ');
-    </script>
+    <script src="../js/ga.js"></script>
     
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     
@@ -75,7 +69,7 @@
     <!-- Blog Styles -->
     <link rel="stylesheet" href="./articles.css">
 </head>
-<body>
+<body class="main">
     <header class="header">
         <nav class="nav container">
             <a href="../" class="logo">
@@ -83,7 +77,7 @@
             </a>
             <div class="nav-links">
                 <a href="../#how">HOW IT WORKS</a>
-                <a href="https://cal.com/airshop/demo" target="_blank">DEMO</a>
+                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
                 <a href="https://airshop.work" target="_blank">LOGIN</a>
             </div>
         </nav>
@@ -156,7 +150,7 @@
                 <div class="article-cta">
                     <h2>AirShop Makes Quoting Fast</h2>
                     <p>Convert inquiries to quotes with one click. Pull from your inventory instantly. Send professional quotes in minutes, not hours.</p>
-                    <a href="https://cal.com/airshop/demo" class="btn btn-primary" target="_blank">
+                    <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
                         SEE IT IN ACTION
                     </a>
                 </div>
@@ -178,7 +172,7 @@
 
                 <p>The good news? This is a fixable problem. The right tools and processes can turn quoting from a bottleneck into a competitive advantage.</p>
 
-                <p><strong>Ready to stop losing jobs to slow quoting?</strong> <a href="https://cal.com/airshop/demo" target="_blank" style="color: var(--orange);">See how AirShop can help</a>.</p>
+                <p><strong>Ready to stop losing jobs to slow quoting?</strong> <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" style="color: var(--orange);">See how AirShop can help</a>.</p>
 
                 <div class="email-signup-block">
                     <span class="email-signup-burst" aria-hidden="true">Free Guide</span>
@@ -204,6 +198,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="../js/cal-embed.js"></script>
     <script src="../js/load-footer.js"></script>
     <script src="../js/guide-signup.js"></script>
 </body>
