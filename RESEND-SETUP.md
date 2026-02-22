@@ -79,46 +79,19 @@ Commit and push.
 
 # Email List Signup (Landing Page)
 
-The "Win more quotes, waste less time" form adds contacts to your Resend **leads** segment for the welcome sales series.
+The "Get the Guide" form adds contacts to your Resend **leads** segment and sends the welcome email.
 
 ## How it works
 
-- Form includes honeypot (`website`) and timing check—rejects spam without CAPTCHA.
-- Form POSTs to a Zapier webhook; a Zap adds the contact to Resend with:
-  - Segment: `20235748-374c-4d2f-b560-e5cb88f183fe` (leads)
-  - Property: `LeadType: "landing_page_signup"`
-- Resend triggers your welcome sales series based on the segment (configure in Resend dashboard).
-- Email templates for the series can be managed from your app at github.com/jbrewlet/airshop.
+- Form includes honeypot (`website`)—rejects spam without CAPTCHA.
+- Form POSTs directly to **AirShop API** at `https://airshop.work/api/leads/guide-signup`.
+- The API creates the contact in Resend, adds to LEADS segment, opts into Lead Guide Series topic, sends welcome email, and records the send in DB.
+- Form fields: `email` (required), `firstName` (optional), `lastName` (optional).
+- Logic lives in **js/guide-signup.js**; loaded by index.html and all blog pages.
 
-## Zapier setup (no Vercel deployment)
+## Rollback
 
-**api/signup-lead.js** exists if you ever want to deploy to Vercel/Netlify instead; for now, use Zapier. If deployed, set `AIRSHOP_WEBHOOK_URL` to notify the airshop app when a lead signs up (e.g. `https://app.airshop.works/api/webhooks/landing-signup`).
-
-1. **Zapier** → Create Zap.
-2. **Trigger:** **Webhooks by Zapier** → **Catch Hook**.
-   - Copy the webhook URL.
-3. **Action:** **Resend** → **Create Contact** (or **Add Contact to Segment**).
-   - Connect your Resend account.
-   - Map `email` from the webhook payload.
-   - Add to segment `20235748-374c-4d2f-b560-e5cb88f183fe`.
-   - Set custom property `LeadType: "landing_page_signup"` if supported.
-4. **Filter:** Only continue if `website` is empty (honeypot) and `form_load_time` indicates > 3 seconds since page load (optional; or handle in a later step).
-5. Test the Zap, then turn it on.
-
-## Point the form at the webhook
-
-In **index.html**, search for `signupApiUrl` and set:
-
-```javascript
-const signupApiUrl = 'https://hooks.zapier.com/hooks/catch/XXXXX/YYYYY/';
-```
-
-Use the exact URL from the Zapier "Catch Hook" step.
-
-## Resend setup
-
-1. Create the **LeadType** contact property in Resend (Dashboard → Audiences → Properties) if not already created.
-2. Configure your welcome sales series / broadcast for the leads segment in Resend.
+If needed, revert the form to POST to the Zapier webhook. The API continues to support `?source=zapier` for backward compatibility.
 
 ---
 
@@ -127,9 +100,9 @@ Use the exact URL from the Zapier "Catch Hook" step.
 | What              | Estimate (current) | Signup (landing page) |
 |-------------------|--------------------|------------------------|
 | airshopapp.com    | GitHub Pages       | GitHub Pages           |
-| Form POSTs to     | Zapier webhook     | Zapier webhook         |
-| Sends/adds via    | Zapier → Resend    | Zapier → Resend        |
-| Resend API key    | Stored in Zapier   | Stored in Zapier       |
+| Form POSTs to     | Zapier webhook     | AirShop API            |
+| Sends/adds via    | Zapier → Resend    | AirShop API → Resend   |
+| Resend API key    | Stored in Zapier   | In AirShop API env     |
 
 **Estimate:** Zapier Catch Hook → Resend Send Email.  
-**Signup:** Zapier Catch Hook → Resend Create Contact / Add to Segment.
+**Signup:** Form → `https://airshop.work/api/leads/guide-signup` → Resend (contact, segment, topic, welcome email).
