@@ -50,10 +50,11 @@
 
         <p class="links-tagline">AirShop unifies inventory and quoting</p>
 
-        <a href="#" class="links-tease cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">LIMITED TIME: 50% off for 6 months!</a>
+        <a href="#" class="links-tease cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">LIMITED TIME:&nbsp;&nbsp;50% off for 6 months!</a>
 
         <div id="links-list" class="links-list"></div>
 
+        <h2 class="links-intro">"Built to be exactly what we needed" – PDX CNC</h2>
         <p class="links-long-description">Inventory and quoting in one place, so your team moves faster with fewer mistakes. Use the links above for a quick overview, a live demo, or Friday Q&amp;A.</p>
 
         <nav class="social-row" id="social-row" aria-label="Social media links"></nav>
@@ -76,10 +77,12 @@
                 if (item.calPopup) {
                     a.href = '#';
                     a.className = 'cal-demo-trigger';
-                    a.setAttribute('data-cal-namespace', 'demo');
-                    a.setAttribute('data-cal-link', 'airshop/demo');
+                    var calLink = item.calLink || 'airshop/demo';
+                    var calNs = calLink.indexOf('donuts') !== -1 ? 'donuts' : 'demo';
+                    a.setAttribute('data-cal-namespace', calNs);
+                    a.setAttribute('data-cal-link', calLink);
                     a.setAttribute('role', 'button');
-                    a.setAttribute('aria-label', 'Book a demo');
+                    a.setAttribute('aria-label', calNs === 'donuts' ? 'Book Friday Donut Hour' : 'Book a demo');
                 } else {
                     a.href = item.url;
                 }

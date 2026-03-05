@@ -45,6 +45,13 @@ Cal.ns['demo']('ui', {
 });
 Cal.ns['demo']('preload', { calLink: 'airshop/demo' });
 
+Cal('init', 'donuts', { origin: 'https://cal.com' });
+Cal.ns['donuts']('ui', {
+  theme: 'dark',
+  styles: { branding: { brandColor: '#FF5918' } },
+});
+Cal.ns['donuts']('preload', { calLink: 'airshop/donuts' });
+
 function fireCalEvent(eventName, eventLabel, eventParams) {
   if (typeof gtag === 'function') {
     var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
