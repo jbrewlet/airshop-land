@@ -45,12 +45,12 @@
 <body>
     <main class="links-page">
         <a href="https://airshopapp.com" class="links-logo" aria-label="AirShop home">
-            <img src="../hex-scanner.svg" alt="AirShop">
+            <img src="../AirShop_Full-Lockup_dark.svg" alt="AirShop">
         </a>
 
         <p class="links-tagline">AirShop unifies inventory and quoting</p>
 
-        <p class="links-tease">LIMITED TIME: 50% off for 6 months!</p>
+        <a href="#" class="links-tease cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">LIMITED TIME: 50% off for 6 months!</a>
 
         <div id="links-list" class="links-list"></div>
 
@@ -73,9 +73,27 @@
             var listEl = document.getElementById('links-list');
             links.forEach(function(item) {
                 var a = document.createElement('a');
-                a.href = item.url;
-                a.innerHTML = '<span class="link-label">' + escapeHtml(item.label) + '</span>' +
-                    (item.description ? '<span class="link-desc">' + escapeHtml(item.description) + '</span>' : '');
+                if (item.calPopup) {
+                    a.href = '#';
+                    a.className = 'cal-demo-trigger';
+                    a.setAttribute('data-cal-namespace', 'demo');
+                    a.setAttribute('data-cal-link', 'airshop/demo');
+                    a.setAttribute('role', 'button');
+                    a.setAttribute('aria-label', 'Book a demo');
+                } else {
+                    a.href = item.url;
+                }
+
+                var content = '';
+                if (item.image) {
+                    content += '<img class="link-image" src="images/' + item.image + '" alt="">';
+                }
+                content += '<div class="link-text">' +
+                    '<span class="link-label">' + escapeHtml(item.label) + '</span>' +
+                    (item.description ? '<span class="link-desc">' + escapeHtml(item.description) + '</span>' : '') +
+                    '</div>';
+                
+                a.innerHTML = content;
                 listEl.appendChild(a);
             });
 
