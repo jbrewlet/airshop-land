@@ -7,7 +7,7 @@
     
     <!-- Primary Meta Tags -->
     <meta name="title" content="AirShop - Unified Quoting & Inventory Platform">
-    <meta name="description" content="Streamline your business with AirShop's unified platform for quotes and inventory management. Win more quotes, master inventory, and grow your business efficiently.">
+    <meta name="description" content="The shop management tool built by manufacturers. Quoting, Inventory, and Payments in one place. Start a 14-day free trial—no credit card. Sample data included.">
     <meta name="keywords" content="quoting software, inventory management, business software, CRM, manufacturing software, CNC software">
     <meta name="author" content="AirShop">
     
@@ -16,7 +16,7 @@
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="AirShop - Unified Quoting & Inventory Platform">
-    <meta property="og:description" content="Finally, quotes & inventory in one app. Win more quotes and master inventory with AirShop.">
+    <meta property="og:description" content="The shop management tool built by manufacturers. Quoting, Inventory, and Payments in one place. Start a 14-day free trial—no credit card.">
     <meta property="og:image" content="https://airshopapp.com/AirShop-OPG.png">
     <meta property="og:url" content="https://airshopapp.com">
     <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AirShop - Unified Quoting & Inventory Platform">
-    <meta name="twitter:description" content="Finally, quotes & inventory in one app. Win more quotes and master inventory with AirShop.">
+    <meta name="twitter:description" content="The shop management tool built by manufacturers. Quoting, Inventory, and Payments in one place. Start a 14-day free trial—no credit card.">
     <meta name="twitter:image" content="https://airshopapp.com/AirShop-OPG.png">
     
     <!-- Structured Data -->
@@ -40,11 +40,11 @@
             "price": "0",
             "priceCurrency": "USD"
         },
-        "description": "Unified platform for quotes and inventory management. Win more quotes and master inventory with AirShop.",
+        "description": "The shop management tool built by manufacturers. Quoting, Inventory, and Payments in one place. 14-day free trial, no credit card, sample data included.",
         "featureList": [
             "Smart Quoting",
             "Inventory Management",
-            "Seamless Payments",
+            "Get Paid Faster",
             "Connected Workflow",
             "Business Analytics",
             "Customer Management",
@@ -92,6 +92,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css?v=20260311">
     <style>
         @font-face {
             font-family: 'Action Sans';
@@ -135,6 +136,40 @@
             background-color: var(--dark-gray);
             color: var(--light-gray);
             line-height: 1.6;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -100%;
+            background: var(--orange);
+            color: #fff;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            z-index: 2000;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--orange);
+            outline-offset: 2px;
         }
 
         .container {
@@ -514,36 +549,85 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-md);
             margin-top: var(--spacing-md);
+            align-items: start;
         }
-
+        .pricing-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0.35rem;
+        }
+        .promo-pill {
+            display: inline-block;
+            margin: 0 1.1rem 0 0;
+            padding: 0.45rem 1.15rem 0.45rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(46, 125, 50, 0.15);
+            border: 1px solid rgba(46, 125, 50, 0.45);
+            color: #b9f6ca;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+        }
+        .pricing-toggle {
+            display: inline-flex;
+            gap: 0.35rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 0.35rem;
+            margin-top: 0;
+        }
+        .pricing-toggle-btn {
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--light-gray);
+            padding: 0.4rem 0.9rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .pricing-toggle-btn.active {
+            background: rgba(255, 255, 255, 0.95);
+            color: #111;
+        }
         .pricing-card-outer {
-            background: linear-gradient(145deg, var(--navy), var(--dark-gray));
+            background: #1f2226;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
             padding: var(--spacing-md);
             text-align: center;
+            min-height: 420px;
         }
 
         .pricing-card-outer.popular {
             position: relative;
-            background: linear-gradient(90deg, var(--navy), var(--dark-gray));
+            border-color: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+            transform: translateY(-12px);
+            padding-top: calc(var(--spacing-md) + 0.35rem);
+            padding-bottom: calc(var(--spacing-md) + 0.35rem);
+            min-height: 504px;
+            align-self: start;
         }
 
         .pricing-card-outer.popular::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            bottom: -2px;
-            left: -2px;
-            background: linear-gradient(80deg, var(--orange), #72270a);
-            border-radius: 12px;
-            z-index: -1;
+            content: none;
         }
 
         .pricing-card-outer h3 {
             font-size:1.2rem;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 0.35rem;
+        }
+        .plan-subtext {
+            color: var(--light-gray);
+            opacity: 0.82;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 0.95rem;
         }
 
         .pricing-card-inner {
@@ -558,10 +642,67 @@
             font-weight: 500;
             margin: var(--spacing-sm) 0;
         }
+        .price-original {
+            color: #b9f6ca;
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-top: 0.15rem;
+            margin-bottom: 0.25rem;
+            text-decoration: line-through;
+            text-decoration-color: var(--orange);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 0.12em;
+            opacity: 0.95;
+        }
+        .price-promo {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-top: 0.2rem;
+            line-height: 1.1;
+        }
+        .price-meta {
+            color: var(--med-gray);
+            font-size: 0.85rem;
+            margin-top: 0.45rem;
+        }
+        .plan-savings {
+            display: none;
+            margin-top: 0.5rem;
+            padding: 0.22rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(46, 125, 50, 0.15);
+            border: 1px solid rgba(46, 125, 50, 0.45);
+            color: #b9f6ca;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+        }
+        .plan-savings.is-active {
+            display: inline-block;
+        }
+        .pricing-card-outer .btn {
+            width: 100%;
+            margin-top: var(--spacing-sm);
+        }
+        .pricing-card-outer .btn.btn-primary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            color: #ffffff;
+        }
+        .pricing-card-outer .btn.btn-primary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
 
         .price-features {
-            margin: var(--spacing-md) 0;
-          flex: 1;
+            margin: var(--spacing-md) auto;
+            flex: 1;
+            padding: 0;
+            text-align: left;
+            width: fit-content;
+            max-width: 240px;
         }
 
         .price-features li {
@@ -755,63 +896,6 @@
 
     .built-by a:hover {
         color: var(--orange);
-    }
-
-    .footer {
-        padding: var(--spacing-lg) 0 var(--spacing-md);
-        margin-top: var(--spacing-lg);
-        color: var(--med-gray);
-        border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: var(--spacing-lg);
-        max-width: 900px;
-        margin: 0 auto var(--spacing-lg);
-        text-align: left;
-    }
-    .footer-col h4 {
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--light-gray);
-        margin: 0 0 var(--spacing-sm);
-    }
-    .footer-col ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .footer-col li {
-        margin-bottom: 0.5rem;
-    }
-    .footer-col a {
-        color: var(--med-gray);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.2s ease;
-    }
-    .footer-col a:hover {
-        color: var(--orange);
-    }
-    .footer-bottom {
-        text-align: center;
-        padding-top: var(--spacing-md);
-        border-top: 1px solid rgba(255,255,255,0.06);
-        font-size: 0.85rem;
-    }
-    @media (max-width: 600px) {
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-            text-align: center;
-        }
-    }
-
-    .pricing {
-        display: none;
     }
 
     /* Add styles for dashboard section */
@@ -1013,7 +1097,8 @@
     }
 
     .email-signup-form input[type="email"]:focus {
-        outline: none;
+        outline: 2px solid var(--teal);
+        outline-offset: 2px;
         border-color: var(--teal);
     }
 
@@ -1204,6 +1289,19 @@
         display: flex;
         align-items: center;
         gap: 12px;
+    }
+    .top-features .feature-category h3 {
+        color: var(--orange);
+    }
+    @media (min-width: 1100px) {
+        .top-features .feature-categories {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .top-features .feature-category:nth-child(3) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: min(100%, 680px);
+        }
     }
 
     .feature-category h3::before {
@@ -1843,7 +1941,8 @@
         box-sizing: border-box;
     }
     .roi-modal-input:focus {
-        outline: none;
+        outline: 2px solid var(--orange);
+        outline-offset: 2px;
         border-color: var(--orange);
     }
     .roi-modal-input::placeholder {
@@ -1923,6 +2022,23 @@
         box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         line-height: 1.4;
     }
+    .tooltip-icon:focus-visible::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        border: 1px solid var(--med-gray);
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        width: 220px;
+        margin-bottom: 8px;
+        z-index: 10;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        line-height: 1.4;
+    }
     .roi-input-wrapper {
         position: relative;
         display: inline-flex;
@@ -1948,7 +2064,8 @@
         transition: all 0.2s ease;
     }
     .roi-input:focus {
-        outline: none;
+        outline: 2px solid var(--orange);
+        outline-offset: 2px;
         border-color: var(--orange);
         background: rgba(0,0,0,0.5);
     }
@@ -2002,6 +2119,9 @@
         text-align: left;
     }
     .roi-assumptions-summary {
+        width: 100%;
+        border: 0;
+        background: transparent;
         font-size: 0.75rem;
         color: var(--med-gray);
         text-align: center;
@@ -2064,11 +2184,14 @@
         font-family: inherit;
     }
     .roi-inline-input:focus {
-        outline: none;
+        outline: 2px solid var(--orange);
+        outline-offset: 2px;
         border-color: var(--orange);
         color: var(--orange);
     }
     .roi-reset {
+        border: 0;
+        background: transparent;
         font-size: 0.7rem;
         color: var(--med-gray);
         text-decoration: underline;
@@ -2116,6 +2239,10 @@
         border-top: 1px solid rgba(255,255,255,0.1);
     }
     .faq-question {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        text-align: left;
         font-size: 1rem;
         font-weight: 600;
         color: var(--light-gray);
@@ -2167,30 +2294,95 @@
         text-align: center;
         margin-top: var(--spacing-md);
     }
+    .cta-inline-links {
+        margin-top: 0.6rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    .pricing-secondary-cta {
+        margin-top: 1.2rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .cta-inline-links a {
+        color: #e6e6e6;
+    }
+    .cta-inline-links .divider {
+        color: var(--med-gray);
+        margin: 0 0.35rem;
+    }
+    .cta-chat-link {
+        margin-top: 0.5rem;
+        font-size: 0.78rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+    .cta-chat-link a {
+        color: #e6e6e6;
+    }
+    .cta-chat-link a:hover,
+    .cta-inline-links a:hover {
+        color: #ffffff;
+    }
+    .hero-chat-link {
+        margin-top: 24px;
+        text-align: center;
+        font-size: 0.42rem;
+        line-height: 1;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+    }
+    .hero-chat-link a {
+        color: #e6e6e6;
+    }
+    .hero-chat-link a:hover {
+        color: #ffffff;
+    }
+    @media (max-width: 801px) {
+        .pricing-controls {
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .promo-pill {
+            margin-right: 0;
+            padding-right: 0.9rem;
+        }
+        .pricing-card-outer {
+            min-height: 0;
+        }
+        .pricing-card-outer.popular {
+            transform: none;
+            padding-top: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            min-height: 0;
+        }
+    }
 </style>
 </head>
 <body class="main">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav container" aria-label="Primary">
             <div class="logo">
                 <img src="./AirShop_Dark.svg"  alt="AirShop">
             </div>
             <div class="nav-links" style="font-size:.7rem;">
                 <a href="#how">HOW IT WORKS</a>
-                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
-                <a href="https://airshop.work" target="_blank">LOGIN</a>
+                <a href="https://airshop.work/onboarding">START TRIAL</a>
+                <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
             </div>
         </nav>
         <div class="hero container">
             <h1>Win more <span class="hero-underline">Quotes</span>.<br>Master <span class="hero-underline">Inventory</span>.
                 <br>All in <span class="hero-underline">AirShop</span>.</h1>
             <p>Finally, quotes &amp; inventory in one app.</p>
-            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
-                SEE IT IN ACTION
+            <a href="https://airshop.work/onboarding" class="btn btn-primary">
+                Start Free Trial
             </a>
         </div>
     </header>
 
+    <main id="main-content">
     <!-- How It Works Section -->
     <section class="container" id="how" style="margin-top: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
         <h2 class="section-title">How It Works</h2>
@@ -2252,6 +2444,43 @@
         </div>
     </section>
 
+    <!-- Easy Setup – Data Portability -->
+    <section class="detailed-features container" style="margin-top: var(--spacing-xl);">
+        <h2 class="section-title">Easy Setup</h2>
+        <p class="section-subtitle" style="color: var(--med-gray); max-width: 700px; margin: 0 auto;">
+            Stop typing. Start quoting. Bring your existing spreadsheets and customer records into AirShop in minutes.
+            New accounts include sample data by default so you can see how everything works immediately.
+        </p>
+        <div class="feature-categories">
+            <div class="feature-category">
+                <h3>Contacts &amp; Organizations</h3>
+                <ul class="feature-list">
+                    <li>
+                        <h4>Bulk import customer data</h4>
+                        <p>Upload your contacts and organizations from CSV/Excel and keep your customer history intact.</p>
+                    </li>
+                    <li>
+                        <h4>Start with real data right away</h4>
+                        <p>No manual re-entry, no copy/paste cleanup, no waiting around before your team can quote.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-category">
+                <h3>Inventory Items</h3>
+                <ul class="feature-list">
+                    <li>
+                        <h4>Import material and part catalogs</h4>
+                        <p>Move your item library over in one pass so pricing and quoting can run off your real inventory list.</p>
+                    </li>
+                    <li>
+                        <h4>Quote faster from day one</h4>
+                        <p>With sample data plus your imports, your team can send accurate quotes without rebuilding everything from scratch.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section style="background: rgba(255,255,255,0.02); padding: var(--spacing-xl) 0; margin-top: var(--spacing-xl);">
         <div class="container">
             <div class="stacked-media-layout">
@@ -2281,9 +2510,10 @@
                     </div>
                 </div>
                 <p class="crm-subtext" style="margin-bottom: var(--spacing-md);">View CAD files, PDF, and DXF files without leaving AirShop. When a customer sends you a STEP, DXF, or PDF, view it instantly and quote while your competitors are still downloading. First to quote wins jobs.</p>
-                <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
-                    SEE IT YOURSELF
+                <a href="https://airshop.work/onboarding" class="btn btn-primary">
+                    Start Free Trial
                 </a>
+                <p class="cta-chat-link"><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
             </div>
         </div>
     </section>
@@ -2375,20 +2605,6 @@
         </div>
     </section>
 
-    <section class="container" style="margin-top: var(--spacing-xl);">
-        <div class="crm-grid-flipped">
-            <h2 class="crm-heading">AirShop in your Help Scout sidebar</h2>
-            <div class="dashboard-preview crm-preview">
-                <picture>
-                    <source srcset="./helpscout-integration.webp" type="image/webp">
-                    <img src="./helpscout-integration.png" alt="AirShop integration in Help Scout showing quote status and customer notes" style="object-position: center center; object-fit: contain;" loading="lazy">
-                </picture>
-                <div class="dashboard-vignette-light"></div>
-            </div>
-            <p class="crm-subtext">Quote status, notes, and customer history right where you handle support—no tab switching.</p>
-        </div>
-    </section>
-
     <section class="features container" id="features">
         <h2 class="section-title">Everything you need, all in one place</h2>
         <p class="section-subtitle" style="color: var(--med-gray);">AirShop brings together essential tools for managing your business efficiently.</p>
@@ -2409,8 +2625,8 @@
 
             <div class="feature-card">
                 <div class="feature-icon"><i class="material-icons">payments</i></div>
-                <h3>Seamless Payments</h3>
-                <p>Take a deposit or full payment – your choice on each quote right inside the app.</p>
+                <h3>Get Paid Faster</h3>
+                <p>Professional invoicing, Stripe/ACH integration. Take deposits or full payment right inside the app.</p>
             </div>
             
             <div class="feature-card">
@@ -2451,181 +2667,136 @@
         </div>
         <p class="features-scroll-hint">Scroll or swipe to explore</p>
         </div>
-        <a href="#" 
-                class="btn btn-primary cal-demo-trigger"
-                data-cal-namespace="demo"
-                data-cal-link="airshop/demo"
-                role="button"
+        <a href="https://airshop.work/onboarding" class="btn btn-primary"
                 style="margin-top: calc(var(--spacing-lg) * 2); display: block; width: fit-content; margin-left: auto; margin-right: auto;">
-            SEE IT IN ACTION
+            Start Free Trial
         </a>
+        <p class="cta-inline-links"><a href="/features-and-integrations/">See all features</a><span class="divider">·</span><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
     </section>
 
 
-    <section class="signup container big-cta" id="signup">
-        <div class="big-cta-inner">
-            <h2>Ready to streamline your business?</h2>
-            <p>Starting at $99/month</p>
-            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
-                SEE IT IN ACTION
-            </a>
+    <section class="pricing container" id="signup">
+        <div class="pricing-header">
+            <h2 class="section-title">Let's get started</h2>
+            <p class="section-subtitle">Select a plan that fits your team needs.</p>
+            <div class="pricing-controls">
+                <div class="promo-pill">LIMITED-TIME:&nbsp;&nbsp;50% OFF 6-MONTHS</div>
+                <div class="pricing-toggle" role="group" aria-label="Billing cycle">
+                    <button type="button" class="pricing-toggle-btn active" data-billing="monthly">Monthly</button>
+                    <button type="button" class="pricing-toggle-btn" data-billing="annual">Annual</button>
+                </div>
+            </div>
         </div>
+        <div class="pricing-grid">
+            <div class="pricing-card-outer">
+                <div class="pricing-card-inner">
+                    <h3>Starter</h3>
+                    <p class="plan-subtext">For small shops getting organized.</p>
+                    <p class="price-original billing-original" data-monthly="$99/mo" data-annual="$99/mo">$99/mo</p>
+                    <p class="price-promo billing-promo" data-monthly="$49/mo" data-annual="$41/mo">$49/mo</p>
+                    <p class="price-meta billing-meta" data-monthly="6 months, then $99/mo" data-annual="6 months, then $99/mo">6 months, then $99/mo</p>
+                    <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $96/YEAR"></span>
+                    <ul class="price-features">
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Up to 2 users</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Email &amp; chat support</li>
+                    </ul>
+                    <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
+                </div>
+            </div>
+            <div class="pricing-card-outer popular">
+                <div class="pricing-card-inner">
+                    <h3>Team</h3>
+                    <p class="plan-subtext">For growing teams ready to scale.</p>
+                    <p class="price-original billing-original" data-monthly="$299/mo" data-annual="$299/mo">$299/mo</p>
+                    <p class="price-promo billing-promo" data-monthly="$149/mo" data-annual="$124/mo">$149/mo</p>
+                    <p class="price-meta billing-meta" data-monthly="6 months, then $299/mo" data-annual="6 months, then $299/mo">6 months, then $299/mo</p>
+                    <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $300/YEAR"></span>
+                    <ul class="price-features">
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Up to 10 users</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Priority email &amp; chat support</li>
+                    </ul>
+                    <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
+                </div>
+            </div>
+            <div class="pricing-card-outer">
+                <div class="pricing-card-inner">
+                    <h3>Pro</h3>
+                    <p class="plan-subtext">For larger teams with advanced needs.</p>
+                    <p class="price-promo">Custom</p>
+                    <p class="price-meta">Contact us for pricing.</p>
+                    <ul class="price-features">
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Unlimited users</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Dedicated support</li>
+                    </ul>
+                    <a href="https://cal.com/airshop/demo" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <p class="cta-inline-links pricing-secondary-cta"><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
     </section>
 
-    <section class="detailed-features container">
+    <section class="detailed-features container top-features">
         <h2 class="section-title">Powerful Features for Modern Business</h2>
-        <p class="section-subtitle" style="color: var(--med-gray);">We're constantly adding new tools to help you grow your business.</p>
-        
+        <p class="section-subtitle" style="color: var(--med-gray); max-width: 760px;">
+            AirShop combines quoting, inventory, customer management, and automation so your team can move from inquiry to paid work without tool switching.
+        </p>
         <div class="feature-categories">
             <div class="feature-category">
-                <h3>Quoting</h3>
+                <h3>Quoting &amp; Approvals</h3>
                 <ul class="feature-list">
                     <li>
-                        <h4>Streamline Inquiry to Quote</h4>
-                        <p>Take inquiries right on your website with our embedded form. No double entry or copying between apps.</p>
+                        <h4>Template-driven quotes</h4>
+                        <p>Generate polished quotes quickly using reusable templates and live material pricing.</p>
                     </li>
                     <li>
-                        <h4>Know When Quotes are Viewed</h4>
-                        <p>Our quotes live track when customers view your quotes.</p>
+                        <h4>Real-time quote visibility</h4>
+                        <p>See when customers open quotes so your team can follow up at the right moment.</p>
                     </li>
                     <li>
-                        <h4>Beautiful Quote Builder</h4>
-                        <p>Build quotes from your inventory with images and professional formatting.</p>
-                    </li>
-                    <li>
-                        <h4>Custom One-Off Items</h4>
-                        <p>Create custom items right in your quote without adding them to inventory.</p>
-                    </li>
-                    <li>
-                        <h4>Smart Composite Items</h4>
-                        <p>Build out detailed line item roll-up assemblies while keeping customer-facing quotes clean and clear.</p>
-                    </li>
-                    <li>
-                        <h4>Margin Tracking</h4>
-                        <p>Know your cost and profit on each item before you send.</p>
-                    </li>
-                    <li>
-                        <h4>2D / 3D / PDF Viewer<span class="badge badge-new">NEW</span></h4>
-                        <p>View drawings and models directly in your inquiries AND on customer quotes to convert faster with and impress the socks off your custmomers.</p>
-                    </li>
-                    <li>
-                        <h4>Integrated Payments<span class="badge badge-soon">SOON</span></h4>
-                        <p>Take partial or full payments instantly after quote acceptance with built-in Stripe integration.</p>
+                        <h4>Payments in workflow</h4>
+                        <p>Collect deposits and final payments through Stripe without leaving the quote process.</p>
                     </li>
                 </ul>
             </div>
-
             <div class="feature-category">
-                <h3>Inventory</h3>
+                <h3>Inventory &amp; Purchasing</h3>
                 <ul class="feature-list">
                     <li>
-                        <h4>Smart Ordering</h4>
-                        <p>Keep on top of what needs to be ordered so you don't get blocked by lack of inventory.</p>
+                        <h4>Organized material library</h4>
+                        <p>Keep parts, materials, and supplier details in one searchable source of truth.</p>
                     </li>
                     <li>
-                        <h4>Quick Search Codes  ✨</h4>
-                        <p>Find items fast with unique short codes that you can search by and refer to.</p>
+                        <h4>QR Kanban for the shop floor</h4>
+                        <p>Use QR cards to trigger replenishment and keep critical items from running out.</p>
                     </li>
                     <li>
-                        <h4>Bulk Import</h4>
-                        <p>Moving to a new system sucks, we've built a quick bulk import tool to make that easy.</p>
-                    </li>
-                    <li>
-                        <h4>Kanban Cards & Labels</h4>
-                        <p>Print physical cards & labels in multiple sizes to trigger reorders and manage inventory visually.</p>
-                    </li>
-                    <li>
-                        <h4>QR Code Integration</h4>
-                        <p>Automatically integrated QR codes for easy barcode or phone camera scanning.</p>
-                    </li>
-                    <li>
-                        <h4>Seamless Quote Integration</h4>
-                        <p>No more copying data between spreadsheets or from your Amazon orders. Use your items directly in your quotes.</p>
-                    </li>
-                    <li>
-                        <h4>Duplicate Finder<span class="badge badge-new">NEW</span></h4>
-                        <p>Keep your inventory clean with automated duplicate detection and merging tools.</p>
-                    </li>
-                    <li>
-                        <h4>Stocktake<span class="badge badge-new">NEW</span></h4>
-                        <p>Perform fast, accurate inventory counts using a deskto or mobile device. Keep your stock levels in sync without the paperwork. <em>Great for end of year count.</em></p>
-                    </li>
-                    <li>
-                        <h4>One-click Ordering<span class="badge badge-soon">SOON</span></h4>
-                        <p>We already have excellent ways to order online, but soon we'll have easy email ordering via Purchase Orders. Send orders to your vendors with a single click.</p>
+                        <h4>Stock + job context together</h4>
+                        <p>Connect inventory usage to customer jobs so purchasing and quoting stay aligned.</p>
                     </li>
                 </ul>
             </div>
-
             <div class="feature-category">
-                <h3>Customer Management</h3>
+                <h3>CRM, Forms &amp; Integrations</h3>
                 <ul class="feature-list">
                     <li>
-                        <h4>One-click Quote Sending</h4>
-                        <p>Send quotes directly to your customers via email and track engagement.</p>
+                        <h4>Built-in customer intelligence</h4>
+                        <p>Track customer history, communication context, and preferences on each account.</p>
                     </li>
                     <li>
-                        <h4>Track Customer Trends</h4>
-                        <p>Keep track of your customer's quote history and preferences.</p>
+                        <h4>Custom inquiry forms</h4>
+                        <p>Standardize intake so every new request arrives with the right project details.</p>
                     </li>
                     <li>
-                        <h4>Internal Customer Notes</h4>
-                        <p>A "scratchpad" for each organization to keep track of quirks—like "prefers phone calls over email" or "dock is tight, send a small truck."</p>
-                    </li>
-                    <li>
-                        <h4>Inquiry History</h4>
-                        <p>A consolidated view of every inquiry a customer has ever sent, even if they didn't turn into quotes, so you can see what they almost bought.</p>
-                    </li>
-                    <li>
-                        <h4>Help Scout Integration<span class="badge badge-new">NEW</span></h4>
-                        <p>Stop jumping between tabs. See customer data right in your Help Scout sidebar, and keep your notes and status in sync automatically.</p>
-                    </li>
-                    <li>
-                        <h4>Bulk Contact & Org Import<span class="badge badge-new">NEW</span></h4>
-                        <p>Get started fast by uploading your contacts and organizations into AirShop.</p>
-                    </li>
-                    <li>
-                        <h4>Organization Overview<span class="badge badge-new">NEW</span></h4>
-                        <p>See contacts in an organization and all their activity.</p>
+                        <h4>Connected tools out of the box</h4>
+                        <p>Sync workflows with Fusion and Help Scout to reduce duplicate entry and missed updates.</p>
                     </li>
                 </ul>
             </div>
-
-            <div class="feature-category">
-                <h3>Intelligence</h3>
-                <ul class="feature-list">
-                    <li>
-                        <h4>Business Dashboards</h4>
-                        <p>Monitor your key business factors at a glance with our intuitive dashboards.</p>
-                    </li>
-                    <li>
-                        <h4>Auto-Saving</h4>
-                        <p>Never lose progress while creating quotes – we automatically save your work.</p>
-                    </li>
-                    <li>
-                        <h4>Fast Omni-search</h4>
-                        <p>Search everything fast from any page and go straight there. Find quotes, items, or customers instantly.</p>
-                    </li>
-                    <li>
-                        <h4>Quote Success Tracking</h4>
-                        <p>Learn what works by analyzing your win rates and most successful quote types.</p>
-                    </li>
-                    <li>
-                        <h4>Light and Dark Modes 🌞🌚</h4>
-                        <p>When you've seen the dark mode, you'll never go back.</p>
-                    </li>
-                    <li>
-                        <h4>Keyboard Shortcuts</h4>
-                        <p>Work at the speed of thought with powerful keyboard shortcuts across the entire platform.</p>
-                    </li>
-                    <li>
-                        <h4>AI-Powered Analytics<span class="badge badge-soon">SOON</span></h4>
-                        <p>We're building smart features that will analyze your data to provide actionable insights about winning quotes, inventory trends, and customer patterns.</p>
-                    </li>
-                </ul>
-            </div>
-
         </div>
+        <p class="cta-inline-links"><a href="/features-and-integrations/" style="color: var(--orange); font-weight: 600;">See full feature list &amp; integrations →</a><span class="divider">·</span><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Schedule a walkthrough</a></p>
     </section>
 
     <section class="container" id="signup-lead" style="margin-top: 136px; margin-bottom: 200px;">
@@ -2641,6 +2812,7 @@
                 </ul>
                 <form id="email-signup-form" class="email-signup-form" novalidate>
                     <input type="text" name="website" class="email-signup-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <label class="sr-only" for="signup-email">Email address</label>
                     <input type="email" name="email" id="signup-email" placeholder="you@company.com" required aria-label="Email address">
                     <button type="submit" class="btn email-signup-btn">Get the Guide</button>
                 </form>
@@ -2652,16 +2824,16 @@
 
     <section class="container">
         <div class="social-links">
-            <a href="https://instagram.com/airshopapp" target="_blank" class="instagram" aria-label="Follow AirShop on Instagram">
-                <i class="material-icons">photo_camera</i>
+            <a href="https://instagram.com/airshopapp" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="Follow AirShop on Instagram">
+                <i class="material-icons" aria-hidden="true">photo_camera</i>
                 <div>
                     <div class="platform-name">Instagram</div>
                     <div class="action-text">Behind the Scenes</div>
                     <div class="description">See features & updates in action</div>
                 </div>
             </a>
-            <a href="https://youtube.com/@airshopapp" target="_blank" class="youtube" aria-label="Watch AirShop tutorials">
-                <i class="material-icons">play_circle</i>
+            <a href="https://youtube.com/@airshopapp" target="_blank" rel="noopener noreferrer" class="youtube" aria-label="Watch AirShop tutorials">
+                <i class="material-icons" aria-hidden="true">play_circle</i>
                 <div>
                     <div class="platform-name">YouTube</div>
                     <div class="action-text">Watch Our Tutorials</div>
@@ -2673,14 +2845,14 @@
 
 
     <section class="container roi-calculator" id="calc">
-        <button class="roi-save-btn" id="save-btn" onclick="openSaveModal(event)">Save Estimate</button>
+        <button class="roi-save-btn" id="save-btn" type="button">Save Estimate</button>
         <h2 class="section-title">Calculate Your Lost Revenue</h2>
         <p class="section-subtitle">See how much manual quoting and inventory chaos is actually costing you.</p>
         
         <div class="roi-input-group">
             <div class="roi-label-row">
                 <label for="shop-rate">Your Billing Rate</label>
-                <span class="tooltip-icon" data-tooltip="What you charge customers per hour of work.">?</span>
+                <span class="tooltip-icon" data-tooltip="What you charge customers per hour of work." tabindex="0" role="img" aria-label="What you charge customers per hour of work">?</span>
             </div>
             <div class="roi-input-wrapper">
                 <span class="currency">$</span>
@@ -2689,7 +2861,7 @@
             </div>
         </div>
 
-        <div class="roi-results" id="roi-results">
+        <div class="roi-results" id="roi-results" aria-live="polite">
             <div class="roi-card">
                 <div class="roi-label">You're Currently Losing</div>
                 <div class="roi-value" id="weekly-loss">-$2,983</div>
@@ -2703,105 +2875,107 @@
         </div>
         
         <div class="roi-assumptions" id="roi-assumptions">
-            <div class="roi-assumptions-summary" onclick="document.getElementById('roi-assumptions').classList.toggle('expanded')">
+            <button class="roi-assumptions-summary" id="roi-assumptions-toggle" type="button" aria-expanded="false" aria-controls="roi-assumptions-details">
                 Adjust estimates
-            </div>
-            <div class="roi-assumptions-details">
+            </button>
+            <div class="roi-assumptions-details" id="roi-assumptions-details">
                 <div class="roi-group">
                     <div class="roi-group-title">Quoting</div>
                     <div class="roi-group-row">
                         <span>Quotes per week</span>
-                        <span><input type="number" id="quotes-per-week" class="roi-inline-input" value="5"></span>
+                        <span><input type="number" id="quotes-per-week" class="roi-inline-input" value="5" aria-label="Quotes per week"></span>
                     </div>
                     <div class="roi-group-row">
                         <span>Time spent per quote</span>
-                        <span><input type="number" id="time-per-quote" class="roi-inline-input" value="25"> min</span>
+                        <span><input type="number" id="time-per-quote" class="roi-inline-input" value="25" aria-label="Time spent per quote in minutes"> min</span>
                     </div>
                     <div class="roi-group-row">
                         <span>Wasted time per quote (no templates, manual lookups, re-typing)</span>
-                        <span><input type="number" id="wasted-per-quote" class="roi-inline-input" value="10"> min</span>
+                        <span><input type="number" id="wasted-per-quote" class="roi-inline-input" value="10" aria-label="Wasted time per quote in minutes"> min</span>
                     </div>
                 </div>
                 <div class="roi-group">
                     <div class="roi-group-title">Inventory — time wasted per week</div>
                     <div class="roi-group-row">
                         <span>Manual tracking & counts</span>
-                        <span><input type="number" id="inventory-hours" class="roi-inline-input" value="2"> hrs/wk</span>
+                        <span><input type="number" id="inventory-hours" class="roi-inline-input" value="2" aria-label="Manual inventory tracking hours per week"> hrs/wk</span>
                     </div>
                     <div class="roi-group-row">
                         <span>Stockout delays (waiting on parts)</span>
-                        <span><input type="number" id="stockout-days" class="roi-inline-input" value="1"> day/mo</span>
+                        <span><input type="number" id="stockout-days" class="roi-inline-input" value="1" aria-label="Stockout delay days per month"> day/mo</span>
                     </div>
                 </div>
-                <span class="roi-reset" onclick="resetCalculator()">Reset to defaults</span>
+                <button class="roi-reset" id="roi-reset-btn" type="button">Reset to defaults</button>
             </div>
         </div>
 
-        <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">
-            STOP LOSING MONEY
+        <a href="https://airshop.work/onboarding" class="btn btn-primary">
+            Start Free Trial
         </a>
+        <p class="cta-chat-link"><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
     </section>
 
     <section class="faq-section container" id="faq">
         <h2>Common questions</h2>
         <div class="faq-list">
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">I don't have inventory.</div>
-                <div class="faq-answer">
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">I don't have inventory.</button>
+                <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
                     <p>If you order anything for your business (materials, parts, supplies), that's inventory. You don't need to track stock quantities daily. Most shops start by adding the things they order so they can build quotes faster. Quantity tracking is optional and can come later (or never).</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">What does this cost?</div>
-                <div class="faq-answer">
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">What does this cost?</button>
+                <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
                     <p>Starts at $99/month for small teams. Get a discount for paying annually.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">I'm not tech-savvy.</div>
-                <div class="faq-answer">
-                    <p>AirShop is designed for shop owners, not IT departments. If you can send an email, you can use AirShop. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> and we'll set things up with you.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">I'm not tech-savvy.</button>
+                <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
+                    <p>AirShop is designed for shop owners, not IT departments. If you can send an email, you can use AirShop. <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Book a demo</a> and we'll set things up with you.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">I don't have time to set this up.</div>
-                <div class="faq-answer">
-                    <p>You don't need to migrate everything at once. Most shops start by creating their first quote in under 10 minutes. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Set up a time to chat with us</a>, then start your free trial and add items as you go, a little each day. From our experience there's never an ideal time to switch, but getting started means progress. Keep making little improvements over time.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">I don't have time to set this up.</button>
+                <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
+                    <p>You don't need to migrate everything at once. Most shops start by creating their first quote in under 10 minutes. <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Set up a time to chat with us</a>, then start your free trial and add items as you go, a little each day. From our experience there's never an ideal time to switch, but getting started means progress. Keep making little improvements over time.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">Will someone help me get set up?</div>
-                <div class="faq-answer">
-                    <p>Yes. The AirShop team helps you get up and running. Depending on complexity and size, we can also help migrate your data (free or charged at a fair fee). <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> and we'll make sure you get value, not leave you on your own.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">Will someone help me get set up?</button>
+                <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
+                    <p>Yes. The AirShop team helps you get up and running. Depending on complexity and size, we can also help migrate your data (free or charged at a fair fee). <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Book a demo</a> and we'll make sure you get value, not leave you on your own.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">What if I try it and it doesn't work for my shop?</div>
-                <div class="faq-answer">
-                    <p>There's no contract and no risk. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Set up a time to chat with us</a>, then start your free trial and choose a monthly plan when you're comfortable and loving it. If it's not a fit, no hard feelings. We'd rather you find the right tool than feel stuck.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-6" aria-expanded="false" aria-controls="faq-answer-6">What if I try it and it doesn't work for my shop?</button>
+                <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+                    <p>There's no contract and no risk. <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Set up a time to chat with us</a>, then start your free trial and choose a monthly plan when you're comfortable and loving it. If it's not a fit, no hard feelings. We'd rather you find the right tool than feel stuck.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">I already use spreadsheets / QuickBooks / another system.</div>
-                <div class="faq-answer">
-                    <p>AirShop isn't here to replace everything overnight. Many shops run it alongside their existing tools at first. The goal is to make quoting faster today. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> to see how it fits with your workflow.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-7" aria-expanded="false" aria-controls="faq-answer-7">I already use spreadsheets / QuickBooks / another system.</button>
+                <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+                    <p>AirShop isn't here to replace everything overnight. Many shops run it alongside their existing tools at first. The goal is to make quoting faster today. <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Book a demo</a> to see how it fits with your workflow.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">How do I get inquiries into AirShop?</div>
-                <div class="faq-answer">
-                    <p>Embed our form on your website and inquiries land directly in AirShop. No double entry. You can also create inquiries manually from email or phone requests. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Set up a time to chat</a> and we'll show you how it works.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-8" aria-expanded="false" aria-controls="faq-answer-8">How do I get inquiries into AirShop?</button>
+                <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8">
+                    <p>Embed our form on your website and inquiries land directly in AirShop. No double entry. You can also create inquiries manually from email or phone requests. <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Set up a time to chat</a> and we'll show you how it works.</p>
                 </div>
             </div>
-            <div class="faq-item" onclick="this.classList.toggle('expanded')">
-                <div class="faq-question">Do you have a bulk import?</div>
-                <div class="faq-answer">
-                    <p>Yes. We have bulk imports for items, organizations, and customers. You can upload from spreadsheets, or we can help migrate your data during onboarding. <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a demo</a> to discuss your setup.</p>
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-9" aria-expanded="false" aria-controls="faq-answer-9">Do you have a bulk import?</button>
+                <div class="faq-answer" id="faq-answer-9" role="region" aria-labelledby="faq-question-9">
+                    <p>Yes. We have bulk imports for items, organizations, and customers. You can upload from spreadsheets, or we can help migrate your data during onboarding. <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Book a demo</a> to discuss your setup.</p>
                 </div>
             </div>
         </div>
         <div class="faq-cta">
-            <a href="#" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Let's chat</a>
+            <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
+            <p class="cta-chat-link"><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
         </div>
     </section>
 
@@ -2809,7 +2983,7 @@
         <div class="built-by-content">
             <h3>Built by people who get it</h3>
             <p>
-                Created by <a href="https://s.pdxcnc.com?ref=airshop-ftr" target="_blank">PDX CNC</a>, a manufacturing business that uses it daily.
+                Created by <a href="https://s.pdxcnc.com?ref=airshop-ftr" target="_blank" rel="noopener noreferrer">PDX CNC</a>, a manufacturing business that uses it daily.
                 <br><br>
                 We're building the tool we always wanted.<br><br>
                 <span style="display:none;text-align: right;color: var(--orange)">– Justin</span>
@@ -2817,17 +2991,51 @@
         </div>
     </section>
 
+    </main>
     <div id="footer-placeholder"></div>
     <script src="js/cal-embed.js"></script>
     <script src="js/load-footer.js?v=20260304"></script>
     <script src="js/guide-signup.js"></script>
+    <script>
+        (function setupPricingToggle() {
+            var toggleButtons = document.querySelectorAll('.pricing-toggle-btn');
+            if (!toggleButtons.length) return;
+
+            function setBillingMode(mode) {
+                toggleButtons.forEach(function(btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-billing') === mode);
+                });
+
+                document.querySelectorAll('.billing-original, .billing-promo, .billing-meta').forEach(function(el) {
+                    var nextValue = el.getAttribute('data-' + mode);
+                    if (nextValue) {
+                        el.textContent = nextValue;
+                    }
+                });
+
+                document.querySelectorAll('.billing-plan-savings').forEach(function(el) {
+                    var nextValue = el.getAttribute('data-' + mode) || '';
+                    el.textContent = nextValue;
+                    el.classList.toggle('is-active', Boolean(nextValue));
+                });
+
+            }
+
+            toggleButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var mode = btn.getAttribute('data-billing') || 'monthly';
+                    setBillingMode(mode);
+                });
+            });
+        })();
+    </script>
 
     <!-- Save Estimate Modal -->
-    <div class="roi-modal-overlay" id="save-modal">
+    <div class="roi-modal-overlay" id="save-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="save-modal-title" aria-describedby="save-modal-description">
         <div class="roi-modal">
-            <button class="roi-modal-close" onclick="closeSaveModal()">&times;</button>
-            <h3>Save Your Estimate</h3>
-            <p>Get a copy of your lost revenue calculation and see how AirShop can help you recover it.</p>
+            <button class="roi-modal-close" type="button" aria-label="Close save estimate dialog">&times;</button>
+            <h3 id="save-modal-title">Save Your Estimate</h3>
+            <p id="save-modal-description">Get a copy of your lost revenue calculation and see how AirShop can help you recover it.</p>
             
             <div class="roi-modal-summary">
                 <div class="roi-modal-summary-row">
@@ -2841,15 +3049,18 @@
             </div>
             
             <form class="roi-modal-form" id="save-form" onsubmit="submitSaveForm(event)">
+                <label class="sr-only" for="save-email">Email address</label>
                 <input type="email" class="roi-modal-input" id="save-email" placeholder="Your email" required>
+                <label class="sr-only" for="save-name">Your name</label>
                 <input type="text" class="roi-modal-input" id="save-name" placeholder="Your name (optional)">
+                <label class="sr-only" for="save-company">Company name</label>
                 <input type="text" class="roi-modal-input" id="save-company" placeholder="Company name (optional)">
                 <button type="submit" class="roi-modal-submit" id="save-submit-btn">Send My Estimate</button>
-                <p id="save-error" style="color: #ff6b6b; font-size: 0.8rem; margin: 0; display: none;"></p>
+                <p id="save-error" aria-live="polite" style="color: #ff6b6b; font-size: 0.8rem; margin: 0; display: none;"></p>
             </form>
             
             <p class="roi-modal-footer">
-                Or <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">book a demo</a> to see AirShop in action.
+                Or <a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">let's chat</a> to see AirShop in action.
             </p>
         </div>
     </div>
@@ -2991,21 +3202,61 @@
         const saveModal = document.getElementById('save-modal');
         const modalMonthly = document.getElementById('modal-monthly');
         const modalYearly = document.getElementById('modal-yearly');
+        const modalCloseBtn = saveModal ? saveModal.querySelector('.roi-modal-close') : null;
+        const modalEmailInput = document.getElementById('save-email');
+        const assumptionsPanel = document.getElementById('roi-assumptions');
+        const assumptionsToggle = document.getElementById('roi-assumptions-toggle');
+        const roiResetBtn = document.getElementById('roi-reset-btn');
+        let lastFocusedElement = null;
+
+        if (assumptionsToggle && assumptionsPanel) {
+            assumptionsToggle.addEventListener('click', function() {
+                const isExpanded = assumptionsPanel.classList.toggle('expanded');
+                assumptionsToggle.setAttribute('aria-expanded', String(isExpanded));
+            });
+        }
+
+        if (roiResetBtn) {
+            roiResetBtn.addEventListener('click', resetCalculator);
+        }
+
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+            const questionBtn = item.querySelector('.faq-question');
+            if (!questionBtn) return;
+            questionBtn.addEventListener('click', function() {
+                const isExpanded = item.classList.toggle('expanded');
+                questionBtn.setAttribute('aria-expanded', String(isExpanded));
+            });
+        });
 
         function openSaveModal(e) {
-            e.preventDefault();
+            if (e) e.preventDefault();
             // Stop animation when they click
             saveBtn.classList.remove('attention');
             if (attentionTimeout) clearTimeout(attentionTimeout);
-            
+            lastFocusedElement = document.activeElement;
+
             // Update modal with current values
             modalMonthly.textContent = weeklyDisplay.textContent;
             modalYearly.textContent = yearlyDisplay.textContent;
             saveModal.classList.add('visible');
+            saveModal.setAttribute('aria-hidden', 'false');
+            if (modalEmailInput) modalEmailInput.focus();
         }
 
         function closeSaveModal() {
             saveModal.classList.remove('visible');
+            saveModal.setAttribute('aria-hidden', 'true');
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
+        }
+
+        if (saveBtn) {
+            saveBtn.addEventListener('click', openSaveModal);
+        }
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeSaveModal);
         }
 
         // Close modal on overlay click
