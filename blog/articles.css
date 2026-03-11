@@ -114,6 +114,16 @@ body {
     background-color: #e04d0a;
 }
 
+.article-content a.btn-primary {
+    color: white;
+    text-decoration: none;
+}
+
+.article-content a.btn-primary:hover {
+    color: white;
+    text-decoration: none;
+}
+
 /* Page Header (Index) */
 .page-header {
     text-align: center;
@@ -296,6 +306,48 @@ body {
 
 .article-content strong {
     color: var(--light-gray);
+}
+
+.article-content a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+.article-content a:hover {
+    text-decoration: underline;
+}
+
+/* Video Embed */
+.article-content .video-embed {
+    position: relative;
+    width: 100%;
+    margin: var(--spacing-md) 0;
+}
+
+.article-content .video-embed iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Article Figure */
+.article-content figure.article-figure {
+    margin: var(--spacing-md) 0;
+    width: 100%;
+}
+
+.article-content figure.article-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.article-content figure.article-figure figcaption {
+    font-size: 0.9rem;
+    color: var(--med-gray);
+    margin-top: 0.5rem;
 }
 
 /* Highlight Box */
