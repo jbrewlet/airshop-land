@@ -59,6 +59,17 @@
     font-size: 0.85rem;
 }
 
+.footer-status {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md, 2rem);
+}
+
+.footer-status iframe {
+    border: 0;
+    max-width: 100%;
+}
+
 @media (max-width: 600px) {
     .footer-grid {
         grid-template-columns: 1fr;
