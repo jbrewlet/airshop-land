@@ -25,6 +25,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airshopapp.com/blog/follow-up.html</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airshopapp.com/blog/qr-inventory.html</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://airshopapp.com/blog/calculate-job-margins.html</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>monthly</changefreq>
