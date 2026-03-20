@@ -2354,6 +2354,130 @@
             min-height: 0;
         }
     }
+
+    .testimonials-section {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+    }
+
+    .testimonials-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--teal);
+        text-align: center;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .testimonials-heading {
+        font-family: 'Action Sans', sans-serif;
+        font-size: 1.8rem;
+        color: var(--light-gray);
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .testimonials-grid {
+        display: flex;
+        gap: var(--spacing-lg);
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .testimonial {
+        width: 320px;
+        flex-shrink: 0;
+        position: relative;
+        padding: var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15), 0 12px 40px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .testimonial:nth-child(2) {
+        margin-top: calc(var(--spacing-xl) + var(--spacing-md));
+    }
+
+    .testimonial blockquote {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--light-gray);
+        margin: 0;
+    }
+
+    .testimonial blockquote::before {
+        content: '\201C';
+        display: block;
+        font-size: 4rem;
+        line-height: 0.6;
+        color: var(--orange);
+        opacity: 1;
+        margin-bottom: 0.75rem;
+        font-family: Georgia, serif;
+    }
+
+    .testimonial cite {
+        display: block;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        font-style: normal;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.4);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1.6;
+    }
+
+    .testimonial cite span {
+        display: block;
+        color: rgba(255,255,255,0.25);
+        font-size: 0.72rem;
+        margin-top: 0.2rem;
+    }
+
+    .testimonials-section .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .testimonial.reveal {
+        transform: translateY(48px) scale(0.97);
+    }
+
+    .testimonials-section .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .testimonial.reveal.in {
+        transform: translateY(0) scale(1);
+    }
+
+    @media (max-width: 700px) {
+        .testimonials-grid {
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        .testimonial {
+            width: 100%;
+            max-width: 400px;
+        }
+        .testimonial:nth-child(2) {
+            margin-top: 0;
+        }
+    }
 </style>
 </head>
 <body class="main">
@@ -2436,6 +2560,23 @@
                     </div>
                     <h3>Get Paid</h3>
                     <p>Client approves, pays the deposit, and you get to work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="margin-top: var(--spacing-xl); margin-bottom: 0;">
+        <div class="testimonials-section">
+            <p class="testimonials-label reveal">From businesses using AirShop</p>
+            <h2 class="testimonials-heading reveal">Feel what they feel</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial reveal">
+                    <blockquote>I sent my first quote this morning and it was slick. Thanks again for developing this.</blockquote>
+                    <cite>Business owner<span>First week on AirShop</span></cite>
+                </div>
+                <div class="testimonial reveal">
+                    <blockquote>The flow from inquiry to quote to job is something surprisingly difficult to find. <br><br>The ability to email it to a customer and do digital review and acceptance was unexpected and awesome.</blockquote>
+                    <cite>Business owner<span>Custom fabrication</span></cite>
                 </div>
             </div>
         </div>
@@ -3577,6 +3718,27 @@
 
             // Initial setup
             updatePositions(false);
+        })();
+    </script>
+    <script>
+        (function () {
+            var section = document.querySelector('.testimonials-section');
+            if (!section) return;
+            var els = section.querySelectorAll('.reveal');
+            var delays = [0, 150, 400, 900];
+            var fired = false;
+            var io = new IntersectionObserver(function (entries) {
+                if (fired) return;
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    fired = true;
+                    els.forEach(function (el, i) {
+                        setTimeout(function () { el.classList.add('in'); }, delays[i] || i * 300);
+                    });
+                    io.disconnect();
+                });
+            }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
+            io.observe(section);
         })();
     </script>
 </body>
