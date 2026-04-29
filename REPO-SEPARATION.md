@@ -75,10 +75,9 @@
   - Sends welcome email (lead_welcome_1)
   - Records in `subscription_email_sends`
 - **src/helpers/SendEstimateEmailTemplate.ts** — Email template (should match api/send-estimate.js layout)
+- **src/helpers/ShopboardReceiptEmailTemplates.ts** — Shopboard list confirmation; images live under **`public/email/`** on the app host (same pattern as `logo-dark.png` from `public/`).
 - **src/lib/resend.ts** — Resend client, segments, contact creation
 - All env vars: `RESEND_API_KEY`, `RESEND_SEGMENT_LEADS`, `ADMIN_EMAILS`, etc.
-
----
 
 ## Data Flow
 
@@ -118,4 +117,4 @@ Shopboard Signup Form
 | Email template | Reference in api/send-estimate.js | SendEstimateEmailTemplate.ts |
 | Env vars (RESEND_API_KEY, etc.) | ❌ | ✅ |
 
-**Rule of thumb:** airshop-land = frontend only. AirShop = backend + app.
+**Rule of thumb:** airshop-land = frontend only. AirShop = backend + app. **Email images** used in AirShop-sent mail (logos, Shopboard mockups, etc.) live in **AirShop `public/`**, not on airshop-land, so every `<img src>` has a stable `https://airshop.work/...` URL after deploy.

@@ -38,7 +38,10 @@
 
       if (!/^https:\/\/airshop\.work\/onboarding(\/|\?|$)/i.test(resolvedHref)) return;
 
-      var label = (el.textContent || '').trim().slice(0, 50) || 'start_free_trial';
+      var label =
+        (el.getAttribute('data-ga-label') || '').trim() ||
+        (el.textContent || '').trim().slice(0, 50) ||
+        'start_free_trial';
       var params = {
         event_category: 'engagement',
         event_label: label,
@@ -57,6 +60,41 @@
           event_label: label,
           value: 1,
           link_url: resolvedHref,
+        });
+      }
+    },
+    true
+  );
+
+  document.addEventListener(
+    'click',
+    function (e) {
+      var btn =
+        e.target && e.target.closest
+          ? e.target.closest('[data-shopboard-signup-open]')
+          : null;
+      if (!btn) return;
+
+      var label =
+        (btn.getAttribute('data-ga-label') || '').trim() ||
+        (btn.textContent || '').trim().slice(0, 50) ||
+        'shopboard_get_updates';
+      var params = {
+        event_category: 'engagement',
+        event_label: label,
+        value: 1,
+        send_to: 'G-LPM80C117C',
+        debug_mode: isLocal,
+      };
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'shopboard_updates_cta_click', params);
+      } else if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'shopboard_updates_cta_click',
+          event_category: 'engagement',
+          event_label: label,
+          value: 1,
         });
       }
     },
