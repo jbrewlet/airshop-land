@@ -2341,6 +2341,198 @@
         }
     }
 
+    /* Shopboard promo panel */
+    .shopboard-promo {
+        margin-top: var(--spacing-xl);
+    }
+
+    .shopboard-promo-inner {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-lg);
+        background: #1a1f25;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: var(--spacing-lg);
+        position: relative;
+        transition: border-color 0.3s ease;
+    }
+
+    .shopboard-promo-inner:hover {
+        border-color: rgba(255,255,255,0.18);
+    }
+
+    .shopboard-promo-badge {
+        display: inline-block;
+        background: var(--teal);
+        color: #fff;
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.28rem 0.6rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    .shopboard-promo-copy {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .shopboard-promo-copy h3 {
+        font-family: 'Action Sans', sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+    }
+
+    .shopboard-promo-copy p {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        color: var(--med-gray);
+        line-height: 1.6;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        max-width: 440px;
+    }
+
+    .shopboard-promo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--light-gray);
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-bottom: 2px solid var(--orange);
+        padding-bottom: 2px;
+        transition: color 0.2s ease, gap 0.2s ease;
+    }
+
+    .shopboard-promo-link:hover {
+        color: var(--orange);
+        gap: 0.65rem;
+    }
+
+    .shopboard-promo-link .material-icons {
+        font-size: 1.1rem;
+    }
+
+    .shopboard-promo-visual {
+        flex: 0 0 260px;
+    }
+
+    .shopboard-promo-screen-box {
+        background: #0d0d0d;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+        padding: 0.7rem;
+        display: grid;
+        grid-template-rows: 2fr 1fr 1fr;
+        gap: 0.6rem;
+        min-height: 320px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .shopboard-promo-signal {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.7rem 0.9rem;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .shopboard-promo-signal--featured {
+        background: var(--orange);
+        border-color: rgba(255,255,255,0.2);
+        padding: 0.95rem 1rem;
+    }
+
+    .shopboard-promo-signal-dot {
+        flex: 0 0 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .shopboard-promo-signal-dot--green {
+        background: #176a32;
+        box-shadow: 0 0 8px rgba(23,106,50,0.5);
+    }
+
+    .shopboard-promo-signal-dot--blue {
+        background: #0654ff;
+        box-shadow: 0 0 8px rgba(6,84,255,0.4);
+    }
+
+    .shopboard-promo-signal-dot--orange {
+        background: var(--orange);
+        box-shadow: 0 0 8px rgba(255,89,24,0.4);
+    }
+
+    .shopboard-promo-signal-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .shopboard-promo-signal-label {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--light-gray);
+        line-height: 1.2;
+    }
+
+    .shopboard-promo-signal--featured .shopboard-promo-signal-label {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .shopboard-promo-signal-meta {
+        display: block;
+        font-size: 0.62rem;
+        color: var(--med-gray);
+        margin-top: 0.15rem;
+    }
+
+    .shopboard-promo-signal--featured .shopboard-promo-signal-meta {
+        color: rgba(255,255,255,0.88);
+        font-size: 0.72rem;
+    }
+
+    .shopboard-promo-signal-time {
+        flex: 0 0 auto;
+        font-family: 'Action Sans', 'Roboto', sans-serif;
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.4);
+    }
+
+    .shopboard-promo-signal--featured .shopboard-promo-signal-time {
+        color: #fff;
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+        .shopboard-promo-inner {
+            flex-direction: column;
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .shopboard-promo-copy p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .shopboard-promo-visual {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 320px;
+        }
+    }
+
     /* FAQ Section */
     .faq-section {
         padding: var(--spacing-lg) 0;
@@ -2949,6 +3141,46 @@
     </section>
 
 
+    <section class="shopboard-promo container">
+        <div class="shopboard-promo-inner">
+            <div class="shopboard-promo-copy">
+                <span class="shopboard-promo-badge">New</span>
+                <h3>Shopboard — a live display for your team</h3>
+                <p>Turn a Raspberry Pi into a shop floor display with announcements, calendar events, and Shopify sales. Included with every AirShop plan.</p>
+                <a href="/shopboard" class="shopboard-promo-link">
+                    See Shopboard <i class="material-icons" aria-hidden="true">arrow_forward</i>
+                </a>
+            </div>
+            <div class="shopboard-promo-visual" aria-hidden="true">
+                <div class="shopboard-promo-screen-box">
+                    <div class="shopboard-promo-signal shopboard-promo-signal--featured">
+                        <span class="shopboard-promo-signal-dot shopboard-promo-signal-dot--orange"></span>
+                        <div class="shopboard-promo-signal-text">
+                            <span class="shopboard-promo-signal-label">Bay 2 clear by 3:15</span>
+                            <span class="shopboard-promo-signal-meta">Floor announcement</span>
+                        </div>
+                    </div>
+                    <div class="shopboard-promo-signal">
+                        <span class="shopboard-promo-signal-dot shopboard-promo-signal-dot--blue"></span>
+                        <div class="shopboard-promo-signal-text">
+                            <span class="shopboard-promo-signal-label">UPS Pickup</span>
+                            <span class="shopboard-promo-signal-meta">Calendar event</span>
+                        </div>
+                        <span class="shopboard-promo-signal-time">2:30</span>
+                    </div>
+                    <div class="shopboard-promo-signal">
+                        <span class="shopboard-promo-signal-dot shopboard-promo-signal-dot--green"></span>
+                        <div class="shopboard-promo-signal-text">
+                            <span class="shopboard-promo-signal-label">Shopify order #4091</span>
+                            <span class="shopboard-promo-signal-meta">New sale · $185</span>
+                        </div>
+                        <span class="shopboard-promo-signal-time">1:12</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="pricing container" id="signup">
         <div class="pricing-header">
             <h2 class="section-title">Let's get started</h2>
@@ -3255,11 +3487,9 @@
 
     <section class="built-by container">
         <div class="built-by-content">
-            <h3>Built by people who get it</h3>
+            <h3>Built by AirShop</h3>
             <p>
-                Created by <a href="https://s.pdxcnc.com?ref=airshop-ftr" target="_blank" rel="noopener noreferrer">PDX CNC</a>, a manufacturing business that uses it daily.
-                <br><br>
-                We're building the tool we always wanted.<br><br>
+                We're building the business operations tool we always wanted: quoting, inventory, and payments in one place.
                 <span style="display:none;text-align: right;color: var(--orange)">– Justin</span>
             </p>
         </div>

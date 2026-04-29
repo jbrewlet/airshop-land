@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirShop Shopboard — Shop floor display for Raspberry Pi</title>
+  <meta name="description" content="Turn a Raspberry Pi into a live shop floor display. Free for personal use. One-time commercial license. Full AirShop integration on paid plans.">
+  <meta property="og:title" content="AirShop Shopboard — Shop floor display for Raspberry Pi">
+  <meta property="og:description" content="Live alerts, calendar events, Shopify, Home Assistant, and AirShop when you are on a paid plan.">
+  <meta property="og:url" content="https://airshopapp.com/shopboard/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://airshopapp.com/shopboard/">
+  <script src="../js/ga.js"></script>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../airshop-landing-shared.css?v=20260428">
+  <link rel="stylesheet" href="./shopboard.css?v=20260428">
+  <link rel="stylesheet" href="../footer.css?v=20260311">
+</head>
+<body class="shopboard-page">
+  <header class="header">
+    <nav class="nav container">
+      <a href="../" class="logo"><img src="../AirShop_Dark.svg" alt="AirShop"></a>
+      <div class="nav-links">
+        <a href="../#how">HOW IT WORKS</a>
+        <a aria-disabled="true">COMING SOON</a>
+        <span class="nav-link-muted">SEE PLANS</span>
+        <span class="nav-link-muted">LOGIN</span>
+      </div>
+    </nav>
+
+    <div class="shopboard-hero container">
+      <div class="shopboard-hero-copy">
+        <p class="shopboard-eyebrow">Shopboard by AirShop</p>
+        <h1>Shop floor alerts – right when you need it.</h1>
+        <p>Shopboard turns a Raspberry Pi into a live workshop display for custom alerts, Shopify sales, and calendar events. <br><br>On AirShop plans, it also shows the business intelligence your team should see without opening another dashboard.</p>
+        <div class="shopboard-hero-actions">
+          <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+        </div>
+      </div>
+      <div class="shopboard-device" aria-label="Shopboard display preview">
+        <div class="shopboard-screen">
+          <div class="shopboard-screen-body">
+            <div class="shopboard-stats shopboard-stats--today">
+              <div class="shopboard-stat-card">
+                <span>Today</span>
+                <strong>7</strong>
+                <em>$1.3k</em>
+              </div>
+            </div>
+            <div class="shopboard-stats shopboard-stats--rush">
+              <div class="shopboard-stat-card shopboard-stat-card--rush">
+                <span>Rush</span>
+                <strong>2</strong>
+              </div>
+            </div>
+            <div class="shopboard-idle">
+              <div class="shopboard-clock">1:39 PM</div>
+              <div class="shopboard-date">Friday, April 24</div>
+            </div>
+          </div>
+          <div class="shopboard-event-bar">
+            <strong class="shopboard-event-bar-label">UPS Pickup</strong>
+            <span class="shopboard-event-bar-pill" title="51 minutes until 2:30 PM pickup">51m</span>
+            <em class="shopboard-event-bar-time">2:30 PM</em>
+          </div>
+          <div class="shopboard-alert">
+            <span>AirShop alert</span>
+            <strong>Quote won</strong>
+            <p>Northline Fab Accepted "CNC bracket run".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shopboard-section shopboard-section--features container">
+      <div class="shopboard-feature-heading">
+        <p class="shopboard-section-kicker">What it does</p>
+        <h2 class="section-title">Built for the wall, not the inbox.</h2>
+        <p class="section-subtitle">Shopboard turns operational noise into a few high-contrast signals your team can read while moving.</p>
+      </div>
+      <div class="shopboard-feature-layout">
+        <article class="shopboard-feature-card shopboard-feature-card--large">
+          <div class="shopboard-feature-copy">
+            <span class="shopboard-feature-badge">
+              <i class="material-icons" aria-hidden="true">campaign</i>
+              Floor alerts
+            </span>
+            <h3>Live alerts that feel impossible to miss.</h3>
+            <p>Post alerts and messages from phones on the floor. Queue, dismiss, and quick-alert shortcuts stay tuned for how your team actually works.</p>
+            <div class="shopboard-mini-display shopboard-mini-display--secondary" aria-hidden="true">
+              <span>Live alert</span>
+              <strong>Rush order approved</strong>
+              <em>Move the Oak Street job ahead of the batch queue.</em>
+            </div>
+          </div>
+          <div class="shopboard-feature-visual" aria-hidden="true">
+            <div class="shopboard-mini-display">
+              <span>Live alert</span>
+              <strong>Pickup window changed</strong>
+              <em>Front office needs bay 2 cleared by 3:15 PM.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="shopboard-feature-card shopboard-feature-card--calendar">
+          <span class="shopboard-feature-badge">
+            <i class="material-icons" aria-hidden="true">event</i>
+            Calendar sync
+          </span>
+          <h3>Deadlines show up where work happens.</h3>
+          <p>Subscribe with any iCal URL: Google, Apple, Outlook. Deadlines and pickups sit beside the rest of the day.</p>
+          <div class="shopboard-signal-stack" aria-hidden="true">
+            <span><strong>2:30</strong> UPS pickup</span>
+            <span><strong>4:00</strong> Client arrival</span>
+          </div>
+        </article>
+
+        <article class="shopboard-feature-card shopboard-feature-card--airshop">
+          <span class="shopboard-feature-badge">
+            <i class="material-icons" aria-hidden="true">bolt</i>
+            AirShop live sync
+          </span>
+          <h3>Business wins become team-visible moments.</h3>
+          <p>On a paid AirShop plan, pipe business events to Shopboard: new inquiries, quote wins, and more signals over time.</p>
+          <div class="shopboard-win-meter" aria-hidden="true">
+            <span>Quote won</span>
+            <strong>$8.4k</strong>
+          </div>
+          <span class="shopboard-coming-soon-tag">Coming soon</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="shopboard-section shopboard-section--videos container">
+      <div class="shopboard-feature-heading">
+        <p class="shopboard-section-kicker">Watch it work</p>
+        <h2 class="section-title">See Shopboard in action.</h2>
+        <p class="section-subtitle">Short clips from the floor show how alerts and daily signals look on a live display.</p>
+      </div>
+      <div class="shopboard-video-grid">
+        <article class="shopboard-video-card">
+          <iframe
+            src="https://www.youtube.com/embed/huzjTl6B0Eg"
+            title="Shopboard demo short on YouTube"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </article>
+        <article class="shopboard-video-card">
+          <iframe
+            src="https://www.youtube.com/embed/H1E2FqIxIz8"
+            title="Shopboard setup short on YouTube"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </article>
+      </div>
+    </section>
+
+    <section class="pricing container">
+      <div class="pricing-header shopboard-feature-heading">
+        <p class="shopboard-section-kicker">Pricing</p>
+        <h2 class="section-title">Choose your Shopboard path.</h2>
+        <p class="section-subtitle">Paid AirShop plans include Shopboard and AirShop Live Sync. Personal use can still download the image, and standalone commercial use has a one-time license.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card-outer">
+          <div class="pricing-card-inner">
+            <h3>Hobby / personal</h3>
+            <p class="plan-subtext">Personal use</p>
+            <div class="price">Free</div>
+            <p class="price-meta">AirShop account required to download the Pi image.</p>
+            <ul class="price-features">
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Announcements, iCal, Shopify, Home Assistant</li>
+              <li class="price-feature-row--omit" aria-label="Not included: AirShop Live Sync"><i class="material-icons price-feature-x" aria-hidden="true">close</i> AirShop Live Sync</li>
+              <li class="price-feature-row--omit" aria-label="Not included: Open API"><i class="material-icons price-feature-x" aria-hidden="true">close</i> Open API disabled</li>
+            </ul>
+            <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+          </div>
+        </div>
+
+        <div class="pricing-card-outer popular">
+          <div class="pricing-card-inner">
+            <h3>AirShop Plans</h3>
+            <p class="plan-subtext">Best fit</p>
+            <div class="price">Included</div>
+            <p class="price-meta">All plans include Shopboard access, integration features, updates, and support.</p>
+            <ul class="price-features">
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Inquiry alerts and quote wins</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> AirShop Live Sync included</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Continuous Shopboard updates</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Routing for multiple displays where supported</li>
+            </ul>
+            <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+          </div>
+        </div>
+
+        <div class="pricing-card-outer">
+          <div class="pricing-card-inner">
+            <h3>Commercial license</h3>
+            <p class="plan-subtext">One-time purchase</p>
+            <div class="price">$99 <span class="price-launch-tag">Launch price</span></div>
+            <p class="price-meta">For businesses that want Shopboard without a paid AirShop plan. Includes one year of updates.</p>
+            <ul class="price-features">
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> All on-device integrations: iCal, Shopify, Home Assistant</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Open API access</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> 1-year of Shopboard Pi updates</li>
+            </ul>
+            <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="shopboard-copy-panel">
+        <h3>AirShop integration <span class="shopboard-coming-soon-tag">Coming soon</span></h3>
+        <p>When AirShop is your system of record, Shopboard is the glanceable layer on the floor: inquiries, wins, and the kinds of beats that deserve a big read at a distance.</p>
+      </div>
+    </section>
+
+    <section class="shopboard-section container">
+      <div class="shopboard-feature-heading">
+        <p class="shopboard-section-kicker">Setup</p>
+        <h2 class="section-title">Flash, WiFi, browser.</h2>
+        <p class="section-subtitle">No terminal and no IT ticket. Shopboard is built to get from image to wall display without turning setup into a project.</p>
+      </div>
+      <div class="shopboard-steps">
+        <div class="shopboard-step">
+          <div class="shopboard-step-num">1</div>
+          <h3>Flash the image</h3>
+          <p>Balena Etcher or Raspberry Pi Imager. WiFi can be pre-provisioned in Imager advanced options.</p>
+        </div>
+        <div class="shopboard-step">
+          <div class="shopboard-step-num">2</div>
+          <h3>Connect to WiFi</h3>
+          <p>First boot joins the network you baked in, or use the on-device wizard.</p>
+        </div>
+        <div class="shopboard-step">
+          <div class="shopboard-step-num">3</div>
+          <h3>Open the wizard</h3>
+          <p>Point any browser at <strong>shopboard.local:3000</strong> to set passwords, pair AirShop, and wire integrations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="shopboard-copy-panel">
+        <h3>Connect your tools <span class="shopboard-coming-soon-tag">Coming soon</span></h3>
+        <p>Bring Shopboard into the systems your business already uses. Paid AirShop plans can show events from tools like Zapier, Make, Jobber, and more, so the right updates land on the floor without another tab to check.</p>
+      </div>
+    </section>
+
+    <section class="faq-section container">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        <div class="faq-item expanded">
+          <button type="button" class="faq-question" id="shopboard-faq-question-1" aria-expanded="true" aria-controls="shopboard-faq-answer-1">Does Shopboard need the internet?</button>
+          <div class="faq-answer" id="shopboard-faq-answer-1" role="region" aria-labelledby="shopboard-faq-question-1">
+            <p>Initial download, license check-ins, and AirShop features need connectivity. Day-to-day display keeps running with cached data.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" id="shopboard-faq-question-2" aria-expanded="false" aria-controls="shopboard-faq-answer-2">Multiple screens?</button>
+          <div class="faq-answer" id="shopboard-faq-answer-2" role="region" aria-labelledby="shopboard-faq-question-2">
+            <p>A Raspberry Pi 4 can mirror the same view on two HDMI outputs today. Routing different content to separate displays is coming soon.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" id="shopboard-faq-question-3" aria-expanded="false" aria-controls="shopboard-faq-answer-3">Can I use it without AirShop?</button>
+          <div class="faq-answer" id="shopboard-faq-answer-3" role="region" aria-labelledby="shopboard-faq-question-3">
+            <p>Yes. Standalone installs can run local announcements, iCal, Shopify, and Home Assistant. Deep AirShop automation requires a paid plan.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" id="shopboard-faq-question-4" aria-expanded="false" aria-controls="shopboard-faq-answer-4">Which Pi models?</button>
+          <div class="faq-answer" id="shopboard-faq-answer-4" role="region" aria-labelledby="shopboard-faq-question-4">
+            <p>Target whichever Pi generation you standardize on for kiosk browsers. Supported hardware will be spelled out alongside the downloadable image.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" id="shopboard-faq-question-5" aria-expanded="false" aria-controls="shopboard-faq-answer-5">Where are the docs?</button>
+          <div class="faq-answer" id="shopboard-faq-answer-5" role="region" aria-labelledby="shopboard-faq-question-5">
+            <p>Shopboard documentation lives at <strong>docs.airshop.work</strong> alongside the rest of the AirShop docs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/cal-embed.js"></script>
+  <script src="../js/load-footer.js?v=20260304"></script>
+  <script>
+    document.querySelectorAll('.shopboard-page .faq-item').forEach(function(item) {
+      var questionBtn = item.querySelector('.faq-question');
+      if (!questionBtn) return;
+      questionBtn.addEventListener('click', function() {
+        var expanded = item.classList.toggle('expanded');
+        questionBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+  </script>
+</body>
+</html>

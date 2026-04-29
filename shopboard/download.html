@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download AirShop Shopboard image</title>
+  <meta name="description" content="Download the Shopboard Raspberry Pi image with an AirShop account or paid plan.">
+  <link rel="canonical" href="https://airshopapp.com/shopboard/download.html">
+  <script src="../js/ga.js"></script>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../airshop-landing-shared.css?v=20260428">
+  <link rel="stylesheet" href="../footer.css?v=20260311">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="../" class="logo"><img src="../AirShop_Dark.svg" alt="AirShop"></a>
+      <div class="nav-links">
+        <a href="/shopboard/">SHOPBOARD</a>
+        <a href="https://airshop.work/onboarding">SEE PLANS</a>
+        <a href="https://airshop.work" target="_blank" rel="noopener">LOGIN</a>
+      </div>
+    </nav>
+
+    <div class="hero container">
+      <div class="hero-content">
+        <h1>Download Shopboard</h1>
+        <p>Flashable images are gated through AirShop. Sign in, open <strong>Account → Shopboard</strong>, and copy the signed download token.</p>
+        <a class="btn btn-primary" href="https://airshop.work/onboarding" target="_blank" rel="noopener">Choose a plan</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="built-by container">
+      <div class="built-by-content">
+        <h3>Signed download token</h3>
+        <p>Tokens expire quickly. If the download fails, generate a fresh one from your AirShop account.</p>
+        <p>
+          <label for="token">Token</label><br>
+          <input class="roi-input" type="text" id="token" name="token" placeholder="Token" autocomplete="off">
+        </p>
+        <button type="button" class="btn btn-primary" id="go">Download image</button>
+        <p id="err" hidden>Paste a download token from your AirShop account.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/load-footer.js?v=20260304"></script>
+  <script>
+(function() {
+  var go = document.getElementById('go');
+  var tokenEl = document.getElementById('token');
+  var err = document.getElementById('err');
+  go.addEventListener('click', function() {
+    err.hidden = true;
+    var t = (tokenEl.value || '').trim();
+    if (!t) {
+      err.hidden = false;
+      return;
+    }
+    window.location.href = '/api/shopboard-download?t=' + encodeURIComponent(t);
+  });
+})();
+  </script>
+</body>
+</html>
