@@ -9,6 +9,13 @@
 
 const LEADS_SEGMENT_ID = '20235748-374c-4d2f-b560-e5cb88f183fe';
 const SHOPBOARD_TOPIC = 'Shopboard';
+const DEFAULT_SHOPBOARD_TOPIC_ID = '1f892393-5011-4fdf-8e04-c075199fa714';
+
+/** Resend returns 422 "The `id` must be a valid UUID" if env has whitespace, a key, or a non-UUID. */
+function isUuidString(value) {
+    return typeof value === 'string' &&
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.trim());
+}
 
 function parseRequestBody(body) {
     if (!body || typeof body !== 'string') {
@@ -27,7 +34,18 @@ function getTopicId(topic) {
         return '';
     }
 
-    return process.env.RESEND_TOPIC_SHOPBOARD_ID || process.env.SHOPBOARD_RESEND_TOPIC_ID || '1f892393-5011-4fdf-8e04-c075199fa714';
+    const raw = process.env.RESEND_TOPIC_SHOPBOARD_ID || process.env.SHOPBOARD_RESEND_TOPIC_ID;
+    const trimmed = raw != null ? String(raw).trim() : '';
+    const candidate = trimmed || DEFAULT_SHOPBOARD_TOPIC_ID;
+
+    if (!isUuidString(candidate)) {
+        console.error(
+            'RESEND_TOPIC_SHOPBOARD_ID must be a UUID copied from Resend; falling back to default topic id'
+        );
+        return DEFAULT_SHOPBOARD_TOPIC_ID;
+    }
+
+    return candidate.toLowerCase();
 }
 
 async function optIntoTopic(email, topicId, resendApiKey) {
