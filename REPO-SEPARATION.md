@@ -45,11 +45,18 @@
 - **Current setup:** Form points at `airshop.work` → this file is unused in production.
 - **Use it for:** Copying the email template/layout when updating the AirShop API.
 
+### Shopboard Signup Form (`/shopboard/`)
+
+- Collects: email (honeypot: website)
+- **POSTs to:** `https://airshop.work/api/leads/shopboard-signup` (AirShop API)
+- Handler: **js/shopboard-signup.js**
+- No Resend, no env vars — just `fetch()` to the API
+
 ### api/signup-lead.js — Reference / Fallback Only
 
 - **Not deployed by airshop-land.** Same as api/send-estimate.js.
 - **Purpose:** Standalone serverless option (e.g. if you didn’t use the AirShop API).
-- **Current setup:** Guide signup form POSTs to `airshop.work` → this file is unused in production.
+- **Current setup:** Shopboard signup form POSTs to `airshop.work` → this file is unused in production.
 
 ---
 
@@ -90,6 +97,10 @@ ROI Calculator Form
                                             ├─ Resend: add contact to LEADS, opt into topic
                                             ├─ Resend: send welcome email (lead_welcome_1)
                                             └─ Supabase: subscription_email_sends
+
+Shopboard Signup Form
+  └─ fetch(POST) ──────────────────────► /api/leads/shopboard-signup
+                                            └─ Resend: add contact to LEADS, LeadType: Shopboard Signup
 ```
 
 ---

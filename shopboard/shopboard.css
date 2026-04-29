@@ -69,6 +69,23 @@
   font-size: 0.7rem;
 }
 
+.shopboard-page .shopboard-nav-cta {
+  background: transparent;
+  border: 0;
+  color: var(--light-gray);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  opacity: 0.68;
+  padding: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.shopboard-page .shopboard-nav-cta:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
 .shopboard-page .is-disabled {
   cursor: not-allowed;
   opacity: 0.62;
@@ -795,6 +812,153 @@
   margin: 0;
 }
 
+.shopboard-page.shopboard-signup-open {
+  overflow: hidden;
+}
+
+.shopboard-signup-modal {
+  align-items: center;
+  background: rgba(6, 10, 14, 0.72);
+  backdrop-filter: blur(8px);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  padding: var(--spacing-md);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.shopboard-signup-modal[hidden] {
+  display: none;
+}
+
+.shopboard-signup-card {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 89, 24, 0.18), transparent 32%),
+    linear-gradient(180deg, #192532 0%, #101418 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+  color: var(--light-gray);
+  max-width: 520px;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  position: relative;
+  width: min(100%, 520px);
+}
+
+.shopboard-signup-close {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.55rem;
+  height: 38px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 38px;
+}
+
+.shopboard-signup-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.shopboard-signup-kicker {
+  color: #8de2d4;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.shopboard-signup-card h2 {
+  color: #ffffff;
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0 2.75rem 1rem 0;
+}
+
+.shopboard-signup-card p {
+  color: #c4cad2;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin-bottom: 1.35rem;
+}
+
+.shopboard-signup-form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.shopboard-signup-form label {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.shopboard-signup-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.shopboard-signup-row input[type="email"] {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  color: var(--light-gray);
+  flex: 1;
+  font-size: 1rem;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+}
+
+.shopboard-signup-row input[type="email"]::placeholder {
+  color: var(--med-gray);
+}
+
+.shopboard-signup-row .btn {
+  white-space: nowrap;
+}
+
+.shopboard-signup-honeypot {
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.shopboard-signup-trust {
+  color: var(--med-gray);
+  font-size: 0.92rem;
+  margin: 0.85rem 0 0;
+}
+
+.shopboard-signup-message {
+  font-size: 0.98rem;
+  margin: 0.75rem 0 0;
+}
+
+.shopboard-signup-message.success {
+  color: #8de2d4;
+}
+
+.shopboard-signup-message.error {
+  color: #e57373;
+}
+
 @container (max-width: 380px) {
   .shopboard-page .shopboard-stats--today,
   .shopboard-page .shopboard-stats--rush {
@@ -829,5 +993,15 @@
 
   .shopboard-page .shopboard-steps {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .shopboard-signup-row {
+    flex-direction: column;
+  }
+
+  .shopboard-signup-row .btn {
+    width: 100%;
   }
 }

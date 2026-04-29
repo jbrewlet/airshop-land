@@ -27,7 +27,7 @@
       <a href="../" class="logo"><img src="../AirShop_Dark.svg" alt="AirShop"></a>
       <div class="nav-links">
         <a href="../#how">HOW IT WORKS</a>
-        <a aria-disabled="true">COMING SOON</a>
+        <button type="button" class="shopboard-nav-cta" data-shopboard-signup-open>GET UPDATES</button>
         <span class="nav-link-muted">SEE PLANS</span>
         <span class="nav-link-muted">LOGIN</span>
       </div>
@@ -39,7 +39,8 @@
         <h1>Shop floor alerts – right when you need it.</h1>
         <p>Shopboard turns a Raspberry Pi into a live workshop display for custom alerts, Shopify sales, and calendar events. <br><br>On AirShop plans, it also shows the business intelligence your team should see without opening another dashboard.</p>
         <div class="shopboard-hero-actions">
-          <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+          <button type="button" class="btn btn-primary" data-shopboard-signup-open>Get updates</button>
+          <a class="shopboard-secondary-link" href="https://airshop.work/onboarding">Try AirShop</a>
         </div>
       </div>
       <div class="shopboard-device" aria-label="Shopboard display preview">
@@ -184,7 +185,7 @@
               <li class="price-feature-row--omit" aria-label="Not included: AirShop Live Sync"><i class="material-icons price-feature-x" aria-hidden="true">close</i> AirShop Live Sync</li>
               <li class="price-feature-row--omit" aria-label="Not included: Open API"><i class="material-icons price-feature-x" aria-hidden="true">close</i> Open API disabled</li>
             </ul>
-            <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+            <button type="button" class="btn btn-primary" data-shopboard-signup-open>Get updates</button>
           </div>
         </div>
 
@@ -200,7 +201,7 @@
               <li><i class="material-icons" aria-hidden="true">check_circle</i> Continuous Shopboard updates</li>
               <li><i class="material-icons" aria-hidden="true">check_circle</i> Routing for multiple displays where supported</li>
             </ul>
-            <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+            <button type="button" class="btn btn-primary" data-shopboard-signup-open>Get updates</button>
           </div>
         </div>
 
@@ -215,7 +216,7 @@
               <li><i class="material-icons" aria-hidden="true">check_circle</i> Open API access</li>
               <li><i class="material-icons" aria-hidden="true">check_circle</i> 1-year of Shopboard Pi updates</li>
             </ul>
-            <a class="btn btn-primary is-disabled" aria-disabled="true">Coming soon</a>
+            <button type="button" class="btn btn-primary" data-shopboard-signup-open>Get updates</button>
           </div>
         </div>
       </div>
@@ -297,9 +298,29 @@
     </section>
   </main>
 
+  <div id="shopboard-signup-modal" class="shopboard-signup-modal" role="dialog" aria-modal="true" aria-labelledby="shopboard-signup-title" hidden>
+    <div class="shopboard-signup-card" role="document">
+      <button type="button" class="shopboard-signup-close" aria-label="Close signup form" data-shopboard-signup-close>&times;</button>
+      <span class="shopboard-signup-kicker">Shopboard updates</span>
+      <h2 id="shopboard-signup-title">Be first to use Shopboard</h2>
+      <p>Join the Shopboard list for early access notes, release timing, and pricing updates.</p>
+      <form id="shopboard-signup-form" class="shopboard-signup-form" novalidate>
+        <input type="text" name="website" class="shopboard-signup-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="shopboard-signup-email">Email address</label>
+        <div class="shopboard-signup-row">
+          <input type="email" name="email" id="shopboard-signup-email" placeholder="you@company.com" autocomplete="email" required>
+          <button type="submit" class="btn btn-primary">Sign up</button>
+        </div>
+      </form>
+      <p class="shopboard-signup-trust">No spam. Unsubscribe anytime.</p>
+      <p id="shopboard-signup-message" class="shopboard-signup-message" aria-live="polite"></p>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
   <script src="../js/cal-embed.js"></script>
   <script src="../js/load-footer.js?v=20260304"></script>
+  <script src="../js/shopboard-signup.js?v=20260429"></script>
   <script>
     document.querySelectorAll('.shopboard-page .faq-item').forEach(function(item) {
       var questionBtn = item.querySelector('.faq-question');

@@ -118,3 +118,7 @@ When you add `POST /api/leads/send-estimate` to the AirShop API, point the form 
 **Estimate (current):** Zapier Catch Hook → Resend Send Email.  
 **Estimate (after):** Form → `https://airshop.work/api/leads/send-estimate` → Resend.  
 **Signup:** Form → `https://airshop.work/api/leads/guide-signup` → Resend (contact, segment, topic, welcome email).
+
+## Shopboard Signup
+
+The `/shopboard/` modal POSTs to `https://airshop.work/api/leads/shopboard-signup`, adds contacts to the Resend Leads segment, and opts them into the Shopboard topic. The Shopboard topic ID is `1f892393-5011-4fdf-8e04-c075199fa714`; `RESEND_TOPIC_SHOPBOARD_ID` can override it in the AirShop app environment if needed.
