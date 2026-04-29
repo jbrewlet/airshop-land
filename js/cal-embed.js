@@ -2,7 +2,16 @@
  * Cal.com popup-on-click embed for demo CTAs.
  * Opens scheduler in modal instead of new tab.
  * GA4 events: demo_cta_click (open), demo_booking_completed, demo_booking_rescheduled, demo_booking_cancelled.
+ *
+ * On pages that only link to the demo calendar (e.g. Shopboard), use:
+ *   <script src=".../cal-embed.js" data-cal-variant="demo-only"></script>
+ * to skip the Donuts namespace and preloads, which avoids loading unused Cal chunks.
  */
+var calEmbedVariant = (function () {
+  var s = document.currentScript;
+  return s ? s.getAttribute('data-cal-variant') || '' : '';
+})();
+
 (function (C, A, L) {
   var p = function (a, ar) {
     a.q.push(ar);
@@ -43,14 +52,15 @@ Cal.ns['demo']('ui', {
   theme: 'dark',
   styles: { branding: { brandColor: '#FF5918' } },
 });
-Cal.ns['demo']('preload', { calLink: 'airshop/demo' });
-
-Cal('init', 'donuts', { origin: 'https://cal.com' });
-Cal.ns['donuts']('ui', {
-  theme: 'dark',
-  styles: { branding: { brandColor: '#FF5918' } },
-});
-Cal.ns['donuts']('preload', { calLink: 'airshop/donuts' });
+if (calEmbedVariant !== 'demo-only') {
+  Cal.ns['demo']('preload', { calLink: 'airshop/demo' });
+  Cal('init', 'donuts', { origin: 'https://cal.com' });
+  Cal.ns['donuts']('ui', {
+    theme: 'dark',
+    styles: { branding: { brandColor: '#FF5918' } },
+  });
+  Cal.ns['donuts']('preload', { calLink: 'airshop/donuts' });
+}
 
 function fireCalEvent(eventName, eventLabel, eventParams) {
   if (typeof gtag === 'function') {

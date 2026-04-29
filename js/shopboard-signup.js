@@ -17,7 +17,6 @@
         document.body.classList.add('shopboard-signup-open');
         messageEl.textContent = '';
         messageEl.className = 'shopboard-signup-message';
-        formLoadTime = Date.now();
         window.setTimeout(function() {
             emailInput.focus();
         }, 0);
