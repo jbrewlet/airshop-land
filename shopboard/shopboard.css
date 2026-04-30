@@ -996,6 +996,16 @@
   }
 }
 
+@media (max-width: 865px) {
+  .shopboard-page .nav {
+    justify-content: center;
+  }
+
+  .shopboard-page .nav-links {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   .shopboard-signup-row {
     flex-direction: column;
@@ -1003,5 +1013,32 @@
 
   .shopboard-signup-row .btn {
     width: 100%;
+  }
+
+  .shopboard-page .faq-section {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+
+  .shopboard-page .faq-list {
+    margin-left: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+  }
+
+  .shopboard-page .pricing-card-outer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .shopboard-page .shopboard-copy-panel {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .shopboard-page .shopboard-video-card {
+    padding: 0.5rem;
+  }
+
+  .shopboard-page .pricing-grid {
+    gap: var(--spacing-sm);
   }
 }
