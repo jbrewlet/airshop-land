@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirShop Product Updates and Changelog | AirShop</title>
+
+    <meta name="title" content="AirShop Product Updates and Changelog | AirShop">
+    <meta name="description" content="Follow the latest AirShop product updates for quoting, inventory, imports, labels, docs, integrations, and shop-floor workflows.">
+    <meta name="author" content="AirShop">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+
+    <link rel="canonical" href="https://airshopapp.com/updates/">
+
+    <meta property="og:title" content="AirShop Product Updates and Changelog">
+    <meta property="og:description" content="Latest AirShop releases and improvements for quoting, inventory, imports, labels, docs, and shop-floor workflows.">
+    <meta property="og:image" content="https://airshopapp.com/AirShop-OPG.png">
+    <meta property="og:url" content="https://airshopapp.com/updates/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AirShop">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AirShop Product Updates and Changelog">
+    <meta name="twitter:description" content="Latest AirShop releases and improvements for quoting, inventory, imports, labels, docs, and shop-floor workflows.">
+    <meta name="twitter:image" content="https://airshopapp.com/AirShop-OPG.png">
+
+    <script src="../js/ga.js"></script>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./updates.css?v=20260517q">
+</head>
+<body class="updates-page">
+    <header class="header">
+        <nav class="nav container">
+            <a href="../" class="logo">
+                <img src="../AirShop_Dark.svg" alt="AirShop">
+            </a>
+            <div class="nav-links">
+                <a href="../#how">HOW IT WORKS</a>
+                <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
+                <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Latest Updates</h1>
+            <p class="lede">Product updates, workflow improvements, and release notes for AirShop quoting, inventory, labels, imports, docs, and integrations.</p>
+        </header>
+
+        <noscript>
+            <p style="color:#F2F2F2;text-align:center;padding:2rem;background:rgba(3,54,109,0.25);border-radius:12px;border:1px solid rgba(255,255,255,0.06);margin-bottom:2rem;font-size:0.95rem;">Turn on JavaScript to see the newest updates listed below.</p>
+        </noscript>
+
+        <section id="updates-timeline" class="timeline" aria-live="polite"></section>
+
+        <div class="blog-cta">
+            <h2>Try it in AirShop</h2>
+            <p>Quotes, inquiries, inventory, and shop-floor visibility in one workspace.</p>
+            <a href="https://airshop.work/onboarding" class="btn btn-primary" role="button">
+                START A TRIAL
+            </a>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../js/cal-embed.js"></script>
+    <script src="../js/load-footer.js?v=20260304"></script>
+    <script>
+        (function () {
+            /** @typedef {{type:'image'|'gif'|'video', src:string, alt?:string, poster?:string, caption?:string}} MediaEntry */
+            /** @typedef {{heading?: string, items?: string[]}} DetailSection */
+            /** @typedef {{
+             * id:string,
+             * date:string,
+             * title:string,
+             * summary:string,
+             * category:string,
+             * featured:boolean,
+             * helpsWith?: string,
+             * publicUrl?: string,
+             * ctaLabel?: string,
+             * ctaUrl?: string,
+             * details?: DetailSection[],
+             * media?: MediaEntry[]
+             * }} FeedItem */
+
+            /** @typedef {{ version: string, lastUpdated?: string, items?: FeedItem[] }} FeedPayload */
+
+            const timeline = document.getElementById('updates-timeline');
+
+            /** Relative + same-origin https → current tab; other hosts → new tab */
+            function applyAnchoredLinkBehaviour(anchor, href) {
+                var resolved = href == null ? '' : String(href).trim();
+                if (!resolved) {
+                    anchor.removeAttribute('href');
+                    anchor.removeAttribute('target');
+                    anchor.removeAttribute('rel');
+                    return;
+                }
+                anchor.href = resolved;
+                var openNewTab = false;
+                try {
+                    if (/^https?:\/\//i.test(resolved)) {
+                        var u = new URL(resolved);
+                        openNewTab = u.origin !== window.location.origin;
+                    }
+                } catch (ignore) {
+                    openNewTab = true;
+                }
+                if (openNewTab) {
+                    anchor.target = '_blank';
+                    anchor.rel = 'noopener noreferrer';
+                } else {
+                    anchor.removeAttribute('target');
+                    anchor.removeAttribute('rel');
+                }
+            }
+
+            function pathnameKey(pathname) {
+                var p = (pathname || '/').replace(/\/+$/, '') || '/';
+                return p.toLowerCase();
+            }
+
+            function normalizedLinkKey(href) {
+                var trimmed = href == null ? '' : String(href).trim();
+                if (!trimmed) {
+                    return '';
+                }
+                try {
+                    var probe = document.createElement('a');
+                    probe.href = trimmed;
+                    return (probe.origin + pathnameKey(probe.pathname)).toLowerCase();
+                } catch (e) {
+                    return '';
+                }
+            }
+
+            function sameDestination(hrefA, hrefB) {
+                var ka = normalizedLinkKey(hrefA);
+                var kb = normalizedLinkKey(hrefB);
+                return ka !== '' && ka === kb;
+            }
+
+            /** Relative paths resolve vs current URL; skips circular "Learn more" on /updates/. */
+            function resolvesToCurrentPage(href) {
+                var trimmed = href == null ? '' : String(href).trim();
+                if (!trimmed) {
+                    return false;
+                }
+                try {
+                    var probe = document.createElement('a');
+                    probe.href = trimmed;
+                    if (probe.origin !== window.location.origin) {
+                        return false;
+                    }
+                    return pathnameKey(probe.pathname) === pathnameKey(window.location.pathname);
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            function showError(message) {
+                timeline.innerHTML = '';
+                var err = document.createElement('div');
+                err.className = 'timeline-error';
+                err.setAttribute('role', 'alert');
+                err.textContent = message || 'Updates could not be loaded.';
+                timeline.appendChild(err);
+            }
+
+            function updateAnchorId(entry) {
+                return 'update-' + String(entry.id || entry.title || entry.date || 'item').replace(/[^\w\-]+/g, '-');
+            }
+
+            function absoluteUpdateUrl(anchorId) {
+                try {
+                    var url = new URL(window.location.href);
+                    url.search = '';
+                    url.hash = anchorId ? anchorId : '';
+                    return url.toString();
+                } catch (e) {
+                    return 'https://airshopapp.com/updates/' + (anchorId ? '#' + anchorId : '');
+                }
+            }
+
+            function absoluteHref(href) {
+                var raw = href == null ? '' : String(href).trim();
+                if (!raw) {
+                    return '';
+                }
+                try {
+                    return new URL(raw, window.location.href).toString();
+                } catch (e) {
+                    return raw;
+                }
+            }
+
+            function updateCanonicalUrl(entry, anchorId) {
+                var publicTrim = (entry.publicUrl && String(entry.publicUrl).trim()) ? String(entry.publicUrl).trim() : '';
+                return publicTrim ? absoluteHref(publicTrim) : absoluteUpdateUrl(anchorId);
+            }
+
+            function updateStructuredData(items, lastUpdated) {
+                var existing = document.getElementById('updates-json-ld');
+                if (existing) {
+                    existing.remove();
+                }
+                var cleanItems = Array.isArray(items) ? items : [];
+                var graph = [
+                    {
+                        '@type': 'WebPage',
+                        '@id': 'https://airshopapp.com/updates/#webpage',
+                        url: 'https://airshopapp.com/updates/',
+                        name: 'AirShop Product Updates and Changelog',
+                        description: 'Latest AirShop product updates for quoting, inventory, imports, labels, docs, integrations, and shop-floor workflows.',
+                        isPartOf: {
+                            '@type': 'WebSite',
+                            name: 'AirShop',
+                            url: 'https://airshopapp.com/'
+                        },
+                        dateModified: lastUpdated || undefined
+                    },
+                    {
+                        '@type': 'ItemList',
+                        '@id': 'https://airshopapp.com/updates/#updates-list',
+                        name: 'AirShop product updates',
+                        itemListOrder: 'https://schema.org/ItemListOrderDescending',
+                        itemListElement: cleanItems.map(function (entry, index) {
+                            var anchorId = updateAnchorId(entry);
+                            return {
+                                '@type': 'ListItem',
+                                position: index + 1,
+                                url: updateCanonicalUrl(entry, anchorId),
+                                name: entry.title || 'AirShop update',
+                                description: entry.summary || '',
+                                datePublished: entry.date || undefined
+                            };
+                        })
+                    }
+                ];
+                var script = document.createElement('script');
+                script.id = 'updates-json-ld';
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@graph': graph
+                });
+                document.head.appendChild(script);
+            }
+
+            function copyTextToClipboard(text) {
+                if (navigator.clipboard && window.isSecureContext) {
+                    return navigator.clipboard.writeText(text);
+                }
+
+                return new Promise(function (resolve, reject) {
+                    var area = document.createElement('textarea');
+                    area.value = text;
+                    area.setAttribute('readonly', '');
+                    area.style.position = 'fixed';
+                    area.style.top = '-999px';
+                    area.style.left = '-999px';
+                    document.body.appendChild(area);
+                    area.select();
+                    try {
+                        var copied = document.execCommand('copy');
+                        document.body.removeChild(area);
+                        copied ? resolve() : reject(new Error('copy_failed'));
+                    } catch (e) {
+                        document.body.removeChild(area);
+                        reject(e);
+                    }
+                });
+            }
+
+            function wireCopyUpdateLink(button, anchorId) {
+                button.addEventListener('click', function () {
+                    var link = button.getAttribute('data-copy-url') || absoluteUpdateUrl(anchorId);
+                    copyTextToClipboard(link)
+                        .then(function () {
+                            button.classList.add('is-copied');
+                            button.setAttribute('aria-label', 'Copied link to update');
+                            window.setTimeout(function () {
+                                button.classList.remove('is-copied');
+                                button.setAttribute('aria-label', 'Copy link to update');
+                            }, 1800);
+                        })
+                        .catch(function () {
+                            button.classList.add('is-failed');
+                            button.setAttribute('aria-label', 'Copy failed');
+                            window.setTimeout(function () {
+                                button.classList.remove('is-failed');
+                                button.setAttribute('aria-label', 'Copy link to update');
+                            }, 1800);
+                        });
+                });
+            }
+
+            function youtubeEmbedUrl(src) {
+                var raw = src == null ? '' : String(src).trim();
+                if (!raw) {
+                    return '';
+                }
+                try {
+                    var url = new URL(raw);
+                    var host = url.hostname.replace(/^www\./, '').toLowerCase();
+                    var videoId = '';
+                    if (host === 'youtu.be') {
+                        videoId = url.pathname.split('/').filter(Boolean)[0] || '';
+                    } else if (host === 'youtube.com' || host === 'm.youtube.com') {
+                        if (url.pathname === '/watch') {
+                            videoId = url.searchParams.get('v') || '';
+                        } else if (url.pathname.indexOf('/embed/') === 0 || url.pathname.indexOf('/shorts/') === 0) {
+                            videoId = url.pathname.split('/').filter(Boolean)[1] || '';
+                        }
+                    }
+                    return videoId ? 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) : '';
+                } catch (e) {
+                    return '';
+                }
+            }
+
+            function renderMedia(m) {
+                var wrap = document.createElement('div');
+                wrap.className = 'media-block';
+                var youtubeSrc = m.type === 'video' ? youtubeEmbedUrl(m.src) : '';
+                if (youtubeSrc) {
+                    wrap.className += ' media-block-embed';
+                    var iframe = document.createElement('iframe');
+                    iframe.src = youtubeSrc;
+                    iframe.title = (m.alt && m.alt.trim()) || 'AirShop update video';
+                    iframe.loading = 'lazy';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+                    wrap.appendChild(iframe);
+                } else if (m.type === 'video') {
+                    var v = document.createElement('video');
+                    v.controls = true;
+                    v.preload = 'metadata';
+                    v.setAttribute('playsinline', '');
+                    v.src = m.src;
+                    if (m.poster) {
+                        v.poster = m.poster;
+                    }
+                    var label = (m.alt && m.alt.trim()) || 'AirShop update video';
+                    v.setAttribute('aria-label', label);
+                    wrap.appendChild(v);
+                } else {
+                    var img = document.createElement('img');
+                    img.src = m.src;
+                    img.alt = (m.alt || '').trim() || '';
+                    wrap.appendChild(img);
+                }
+                if (m.caption) {
+                    var cap = document.createElement('p');
+                    cap.className = 'media-caption';
+                    cap.textContent = m.caption;
+                    wrap.appendChild(cap);
+                }
+                return wrap;
+            }
+
+            function renderDetails(sections) {
+                if (!Array.isArray(sections) || !sections.length) {
+                    return null;
+                }
+
+                var wrap = document.createElement('div');
+                wrap.className = 'timeline-details';
+                sections.forEach(function (section) {
+                    if (!section || !Array.isArray(section.items) || !section.items.length) {
+                        return;
+                    }
+
+                    var group = document.createElement('section');
+                    group.className = 'timeline-detail-section';
+                    if (section.heading && String(section.heading).trim()) {
+                        var heading = document.createElement('h3');
+                        heading.textContent = String(section.heading).trim();
+                        group.appendChild(heading);
+                    }
+
+                    var list = document.createElement('ul');
+                    section.items.forEach(function (item) {
+                        var text = item == null ? '' : String(item).trim();
+                        if (!text) {
+                            return;
+                        }
+                        var li = document.createElement('li');
+                        li.textContent = text;
+                        list.appendChild(li);
+                    });
+
+                    if (list.childNodes.length) {
+                        group.appendChild(list);
+                        wrap.appendChild(group);
+                    }
+                });
+
+                return wrap.childNodes.length ? wrap : null;
+            }
+
+            function renderItem(entry) {
+                var block = document.createElement('article');
+                var anchorId = updateAnchorId(entry);
+                var headingId = anchorId + '-title';
+                block.id = anchorId;
+                block.className = 'timeline-item';
+                block.setAttribute('aria-labelledby', headingId);
+
+                var date = document.createElement('time');
+                date.className = 'timeline-date';
+                date.setAttribute('datetime', entry.date);
+                try {
+                    var parts = entry.date.split('-');
+                    var d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+                    date.textContent = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                } catch (e) {
+                    date.textContent = entry.date;
+                }
+                block.appendChild(date);
+
+                var heading = document.createElement('h2');
+                heading.id = headingId;
+                var headingText = document.createElement('span');
+                headingText.textContent = entry.title || 'Update';
+                var copyButton = document.createElement('button');
+                copyButton.type = 'button';
+                copyButton.className = 'timeline-copy-icon material-icons';
+                copyButton.textContent = 'content_copy';
+                copyButton.setAttribute('aria-label', 'Copy link to update');
+                copyButton.setAttribute('data-copy-url', updateCanonicalUrl(entry, anchorId));
+                wireCopyUpdateLink(copyButton, anchorId);
+                heading.appendChild(headingText);
+                heading.appendChild(copyButton);
+                block.appendChild(heading);
+
+                var body = document.createElement('p');
+                body.className = 'timeline-body';
+                body.textContent = entry.summary || '';
+                block.appendChild(body);
+
+                function appendOutboundButton(href, label) {
+                    if (!href || !String(href).trim()) {
+                        return;
+                    }
+                    var h = String(href).trim();
+                    if (resolvesToCurrentPage(h)) {
+                        return;
+                    }
+                    var a = document.createElement('a');
+                    a.className = 'btn btn-primary';
+                    applyAnchoredLinkBehaviour(a, h);
+                    a.textContent = String(label).trim().toUpperCase();
+                    actions.appendChild(a);
+                }
+
+                var actions = document.createElement('div');
+                actions.className = 'timeline-actions';
+
+                var publicTrim = (entry.publicUrl && String(entry.publicUrl).trim()) ? String(entry.publicUrl).trim() : '';
+                var ctaHrefTrim = (entry.ctaUrl && String(entry.ctaUrl).trim()) ? String(entry.ctaUrl).trim() : '';
+                var ctaLabelTrim = (entry.ctaLabel && String(entry.ctaLabel).trim()) ? String(entry.ctaLabel).trim() : '';
+
+                /** Index: single primary CTA only (no secondary links). */
+                var singleTarget = publicTrim && ctaHrefTrim && sameDestination(publicTrim, ctaHrefTrim);
+
+                if (singleTarget) {
+                    var text = ctaLabelTrim || 'Learn more';
+                    appendOutboundButton(publicTrim, text);
+                } else if (!publicTrim && ctaHrefTrim && ctaLabelTrim) {
+                    appendOutboundButton(ctaHrefTrim, ctaLabelTrim);
+                } else if (publicTrim) {
+                    appendOutboundButton(publicTrim, 'Learn more');
+                } else if (ctaHrefTrim && ctaLabelTrim) {
+                    appendOutboundButton(ctaHrefTrim, ctaLabelTrim);
+                }
+
+                if (actions.childNodes.length) {
+                    block.appendChild(actions);
+                }
+
+                timeline.appendChild(block);
+            }
+
+            fetch('./updates.json?v=20260517q')
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Network');
+                    }
+                    return response.json();
+                })
+                .then(function (/** @type {FeedPayload} */ data) {
+                    if (!timeline) {
+                        return;
+                    }
+                    timeline.innerHTML = '';
+                    var items = (data.items || []).slice();
+                    if (!items.length) {
+                        showError('No updates published yet.');
+                        return;
+                    }
+                    updateStructuredData(items, data.lastUpdated);
+                    items.forEach(renderItem);
+                })
+                .catch(function () {
+                    showError('We could not load updates right now.');
+                });
+        })();
+    </script>
+</body>
+</html>

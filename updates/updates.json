@@ -1,0 +1,96 @@
+{
+  "version": "1",
+  "lastUpdated": "2026-05-17",
+  "items": [
+    {
+      "id": "2026-05-latest-updates-feed",
+      "date": "2026-05-17",
+      "title": "Latest Updates changelog added",
+      "summary": "This changelog page mirrors the short list on your AirShop home dashboard. Same notes, fewer places to hunt.",
+      "featured": true,
+      "publicUrl": "/updates/latest-updates-changelog-added/",
+      "appArea": "Home",
+      "media": []
+    },
+    {
+      "id": "2026-05-catch-up-recent-product-updates",
+      "date": "2026-05-01",
+      "title": "Catch-up: recent product updates",
+      "summary": "A number of these updates have been sitting in my personal notes with every intention of sharing them sooner. Since AirShop Latest is just getting started, this first catch-up brings the recent work into one place: faster quoting, better inventory workflows, cleaner printing, stronger imports, and more useful navigation throughout the app. More regular updates from here on out. - Justin",
+      "featured": false,
+      "publicUrl": "/updates/catch-up-recent-product-updates/",
+      "appArea": "AirShop",
+      "details": [
+        {
+          "heading": "Faster quoting and sales workflows",
+          "items": [
+            "The quote builder has been significantly optimized, reducing interruptions while building or revising a quote.",
+            "Quotes can now be duplicated, making repeat work and similar jobs faster to start without rebuilding from scratch.",
+            "Inquiries can open in Fusion, and won quotes can trigger a webhook for workflows through Zapier into tools like Xero or QuickBooks."
+          ]
+        },
+        {
+          "heading": "Inventory improvements",
+          "items": [
+            "Inventory fields now support simple math where it is useful, such as entering 5x2 for quantities, prices, or lead-time style fields.",
+            "The item page save and discard experience now makes pending changes clearer before they are kept or discarded.",
+            "Items can now be duplicated to create similar inventory records faster."
+          ]
+        },
+        {
+          "heading": "Kanban cards, labels, and printing",
+          "items": [
+            "Kanban cards and bin labels now print directly instead of relying on PDF export, keeping output much closer to the web preview.",
+            "Kanban cards now include an ORDER field, a refined field order with Cold moved below Deliver, and tooltips for mapped inventory fields.",
+            "Search and filtering were added for Kanban cards, bin labels, and location tags. Location tag printing is also available."
+          ]
+        },
+        {
+          "heading": "Label readability guidance",
+          "items": [
+            "Best: 0 to 18 characters, for the largest and most readable text.",
+            "Fits: 19 to 35 characters, still on one line but at a smaller size.",
+            "Wraps: 36 or more characters, wrapping to two lines."
+          ]
+        },
+        {
+          "heading": "QR navigation, docs, and imports",
+          "items": [
+            "The QR code scanner can be used anywhere in the app for instant navigation.",
+            "The new docs site at docs.airshop.work is included in search.",
+            "Bulk imports are available on the Imports page, with QuickBooks import mapping for contacts and businesses."
+          ]
+        },
+        {
+          "heading": "Customers, support, insights, and cleanup",
+          "items": [
+            "The new Customer Detail page brings customer information into a more focused view, and support chat is available in the app.",
+            "Insights are available at /stats.",
+            "Locations can be merged from the main grid or from the three-dot menu on a Location detail page.",
+            "Roll-up items were improved around saving, optional selections, and multiple-choice behavior."
+          ]
+        }
+      ],
+      "ctaLabel": "Watch label walkthrough",
+      "ctaUrl": "https://www.youtube.com/watch?v=4OGeVnE-n-8",
+      "media": [
+        {
+          "type": "video",
+          "src": "https://www.youtube.com/watch?v=4OGeVnE-n-8",
+          "alt": "AirShop label readability walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "2026-02-docs-and-confidence",
+      "date": "2026-02-19",
+      "title": "How-tos and product reference",
+      "summary": "Step-by-step walkthroughs, FAQs, and field-by-field guidance live at docs.airshop.work. Use it anytime you want written instructions while you work in AirShop.",
+      "featured": false,
+      "publicUrl": "/updates/how-tos-product-reference/",
+      "ctaLabel": "Open docs",
+      "ctaUrl": "https://docs.airshop.work/",
+      "media": []
+    }
+  ]
+}

@@ -1,0 +1,523 @@
+@import url("../footer.css?v=20260311");
+
+@font-face {
+    font-family: "Action Sans";
+    src: url("../ActionSans-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --navy: #03366d;
+    --orange: #ff5918;
+    --light-gray: #f2f2f2;
+    --med-gray: #808080;
+    --dark-gray: #222222;
+    --teal: #008376;
+    --accent: #2dd4bf;
+    --page-bg: #1a1a1e;
+    --surface: rgba(255, 255, 255, 0.035);
+    --line: rgba(255, 255, 255, 0.08);
+    --line-soft: rgba(255, 255, 255, 0.05);
+    --text-primary: #ececef;
+    --text-secondary: #9c9caa;
+    --text-tertiary: #6b6b7b;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    background: var(--page-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Layout ── */
+
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+main.container {
+    width: 100%;
+    overflow-x: clip;
+}
+
+/* ── Nav ── */
+
+.header {
+    background: linear-gradient(180deg, var(--navy) 40%, var(--page-bg) 100%);
+    padding: var(--spacing-md) 0;
+}
+
+.header .nav {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    font-size: 0.7rem;
+    display: flex;
+    gap: 1.5em;
+}
+
+.nav-links a {
+    color: var(--light-gray);
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
+
+/* ── Index page header ── */
+
+.page-header {
+    padding: 3.5rem 0 0;
+    margin-bottom: 0;
+}
+
+.page-header h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.page-header .lede {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 0;
+}
+
+/* ── Timeline (index cards) ── */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 2.5rem 0 var(--spacing-lg);
+}
+
+.timeline-item {
+    position: relative;
+    display: block;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line-soft);
+    transition: background-color 0.15s ease;
+}
+
+.timeline-date {
+    display: block;
+    color: var(--text-tertiary);
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-item h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--text-primary);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+}
+
+.timeline-body {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.85rem;
+}
+
+.timeline-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+/* ── Copy button ── */
+
+.timeline-copy-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    font-size: 0.82rem;
+    opacity: 0;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.timeline-item:hover .timeline-copy-icon,
+.timeline-item:focus-within .timeline-copy-icon,
+.timeline-copy-icon:hover,
+.timeline-copy-icon:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--line);
+    color: var(--text-secondary);
+    opacity: 1;
+}
+
+.timeline-copy-icon.is-copied {
+    color: var(--accent);
+    background: rgba(45, 212, 191, 0.08);
+    border-color: rgba(45, 212, 191, 0.25);
+    opacity: 1;
+}
+
+.timeline-copy-icon.is-failed {
+    color: var(--orange);
+    border-color: rgba(255, 89, 24, 0.25);
+    opacity: 1;
+}
+
+/* ── Post pages ── */
+
+.post-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-tertiary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin: 2rem 0 0;
+    transition: color 0.15s ease;
+}
+
+.post-back-link svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.post-back-link:hover,
+.post-back-link:focus {
+    color: var(--text-primary);
+}
+
+.update-post {
+    padding-bottom: var(--spacing-xl);
+}
+
+.update-post-header {
+    padding: 2rem 0 0;
+    margin-bottom: 0;
+}
+
+.update-post-kicker {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 0.65rem;
+}
+
+.update-post-header h1 {
+    font-size: clamp(1.6rem, 4.5vw, 2.15rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+}
+
+.update-post-summary {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.update-post-content {
+    max-width: 100%;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--line-soft);
+}
+
+.update-post-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+
+.update-post-content h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+    margin: 2.25rem 0 0.65rem;
+}
+
+.update-post-content h2:first-child {
+    margin-top: 0;
+}
+
+.update-post-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0;
+    margin: 0 0 1.25rem;
+    list-style: none;
+}
+
+.update-post-content li {
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    padding-left: 1rem;
+}
+
+.update-post-content li::before {
+    content: "";
+    position: absolute;
+    top: 0.58em;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+}
+
+.update-post-content code {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+    font-size: 0.88em;
+}
+
+.update-post-note {
+    border-left: 2px solid var(--accent);
+    padding: 0.75rem 1rem;
+    margin: 1.25rem 0;
+    background: rgba(45, 212, 191, 0.04);
+    border-radius: 0 5px 5px 0;
+}
+
+.update-post-note p:last-child {
+    margin-bottom: 0;
+}
+
+.update-post-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line-soft);
+}
+
+/* ── Media ── */
+
+.media-block {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.3);
+    margin: 1.5rem 0 1.75rem;
+}
+
+.media-block img,
+.media-block video {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.media-block-embed {
+    aspect-ratio: 16 / 9;
+}
+
+.media-block-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.timeline-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.media-caption {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    padding: 0.5rem 0.75rem 0.6rem;
+}
+
+/* ── Buttons (scoped: wins over any stray global .btn from injected assets) ── */
+
+.updates-page a.btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    line-height: 1.05;
+    padding: 0.28rem 0.65rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+        background-color 0.12s ease,
+        border-color 0.12s ease,
+        color 0.12s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.updates-page a.btn-primary {
+    background: var(--orange);
+    color: white;
+}
+
+.updates-page a.btn-primary:hover {
+    background: #e04d0a;
+}
+
+.updates-page a.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border-color: var(--line);
+}
+
+.updates-page a.btn-ghost:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Misc ── */
+
+.timeline-error {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.blog-cta {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    margin: 2rem auto var(--spacing-lg);
+}
+
+.blog-cta h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+    color: var(--text-primary);
+}
+
+.blog-cta p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 640px) {
+    .container,
+    .header .nav {
+        padding-left: 1.15rem;
+        padding-right: 1.15rem;
+    }
+
+    .page-header {
+        padding: 2.5rem 0 0;
+    }
+
+    .update-post-header {
+        padding: 1.5rem 0 0;
+    }
+
+    .timeline-copy-icon {
+        opacity: 1;
+    }
+
+    .blog-cta {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .nav-links {
+        gap: 0.75em;
+    }
+}
