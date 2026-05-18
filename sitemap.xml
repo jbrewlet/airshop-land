@@ -25,13 +25,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://airshopapp.com/updates/catch-up-recent-product-updates/</loc>
+    <loc>https://airshopapp.com/updates/catch-up-recent-airshop-updates/</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://airshopapp.com/updates/how-tos-product-reference/</loc>
+    <loc>https://airshopapp.com/updates/location-tags/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airshopapp.com/updates/how-tos-airshop-guides/</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

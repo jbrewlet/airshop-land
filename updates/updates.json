@@ -13,12 +13,12 @@
       "media": []
     },
     {
-      "id": "2026-05-catch-up-recent-product-updates",
+      "id": "2026-05-catch-up-recent-airshop-updates",
       "date": "2026-05-01",
-      "title": "Catch-up: recent product updates",
+      "title": "Catch-up: recent AirShop updates",
       "summary": "A number of these updates have been sitting in my personal notes with every intention of sharing them sooner. Since AirShop Latest is just getting started, this first catch-up brings the recent work into one place: faster quoting, better inventory workflows, cleaner printing, stronger imports, and more useful navigation throughout the app. More regular updates from here on out. - Justin",
       "featured": false,
-      "publicUrl": "/updates/catch-up-recent-product-updates/",
+      "publicUrl": "/updates/catch-up-recent-airshop-updates/",
       "appArea": "AirShop",
       "details": [
         {
@@ -82,12 +82,55 @@
       ]
     },
     {
+      "id": "2026-03-location-tags-shop-floor-navigation",
+      "date": "2026-03-18",
+      "title": "Location tags for shop-floor navigation",
+      "summary": "Location tags let you queue and print QR-backed labels for shop areas, shelves, and bins, then scan a tag to jump straight to that location in AirShop.",
+      "featured": false,
+      "publicUrl": "/updates/location-tags/",
+      "appArea": "Inventory",
+      "details": [
+        {
+          "heading": "Print tags for real locations",
+          "items": [
+            "Queue locations for tag printing from the locations workflow.",
+            "Preview each tag before printing so the name, code, and QR layout are easy to check.",
+            "Choose default tag size and orientation in inventory settings."
+          ]
+        },
+        {
+          "heading": "Scan to open the right place",
+          "items": [
+            "Location QR codes now resolve to the matching location detail page.",
+            "Scanner input and global search both understand location URLs.",
+            "Location pages make it easier to review items assigned to that area."
+          ]
+        }
+      ],
+      "ctaLabel": "Open Location Tags",
+      "ctaUrl": "https://airshop.work/inventory/location-tags",
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/location-tags/location-detail-location-tag-sidebar.png",
+          "alt": "AirShop location detail page with Location Tag sidebar showing orientation, tag size, queue option, and Print Tag.",
+          "caption": "Configure orientation and tag size from any location, then print."
+        },
+        {
+          "type": "image",
+          "src": "/updates/location-tags/location-tag-print-dialog.png",
+          "alt": "Browser print preview of a 3 by 5 inch location tag with QR code and location code.",
+          "caption": "Print preview aligned with Kanban-style vinyl labels."
+        }
+      ]
+    },
+    {
       "id": "2026-02-docs-and-confidence",
       "date": "2026-02-19",
-      "title": "How-tos and product reference",
+      "title": "How-tos and AirShop guides",
       "summary": "Step-by-step walkthroughs, FAQs, and field-by-field guidance live at docs.airshop.work. Use it anytime you want written instructions while you work in AirShop.",
       "featured": false,
-      "publicUrl": "/updates/how-tos-product-reference/",
+      "publicUrl": "/updates/how-tos-airshop-guides/",
       "ctaLabel": "Open docs",
       "ctaUrl": "https://docs.airshop.work/",
       "media": []

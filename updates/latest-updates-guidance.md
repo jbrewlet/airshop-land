@@ -39,6 +39,7 @@ We ship product notes as **static update pages** plus a **single JSON feed**. Th
 - If **`publicUrl` and `ctaUrl` resolve to the same place**, only **one** button is shown (label prefers **`ctaLabel`**, else “Learn more”).
 - If **`publicUrl` points at the current `/updates/` page**, the primary “Learn more” is **hidden** so we do not circular-link.
 - If **`publicUrl` is omitted** but **`ctaUrl` + `ctaLabel`** are set, a **single** labeled button is shown.
+- Static update post pages should end with the shared **`update-post-cta`** block: “See how this fits your shop,” with **Open AirShop** and **Book a walkthrough** actions.
 
 **In-app row click**
 

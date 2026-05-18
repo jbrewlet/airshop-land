@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirShop Product Updates and Changelog | AirShop</title>
+    <title>AirShop Updates and Changelog | AirShop</title>
 
-    <meta name="title" content="AirShop Product Updates and Changelog | AirShop">
-    <meta name="description" content="Follow the latest AirShop product updates for quoting, inventory, imports, labels, docs, integrations, and shop-floor workflows.">
+    <meta name="title" content="AirShop Updates and Changelog | AirShop">
+    <meta name="description" content="Follow the latest AirShop updates for quoting, inventory, imports, labels, docs, integrations, and shop-floor workflows.">
     <meta name="author" content="AirShop">
     <meta name="robots" content="index,follow,max-image-preview:large">
 
     <link rel="canonical" href="https://airshopapp.com/updates/">
 
-    <meta property="og:title" content="AirShop Product Updates and Changelog">
-    <meta property="og:description" content="Latest AirShop releases and improvements for quoting, inventory, imports, labels, docs, and shop-floor workflows.">
+    <meta property="og:title" content="AirShop Updates and Changelog">
+    <meta property="og:description" content="Latest AirShop improvements for quoting, inventory, imports, labels, docs, and shop-floor workflows.">
     <meta property="og:image" content="https://airshopapp.com/AirShop-OPG.png">
     <meta property="og:url" content="https://airshopapp.com/updates/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AirShop">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AirShop Product Updates and Changelog">
-    <meta name="twitter:description" content="Latest AirShop releases and improvements for quoting, inventory, imports, labels, docs, and shop-floor workflows.">
+    <meta name="twitter:title" content="AirShop Updates and Changelog">
+    <meta name="twitter:description" content="Latest AirShop improvements for quoting, inventory, imports, labels, docs, and shop-floor workflows.">
     <meta name="twitter:image" content="https://airshopapp.com/AirShop-OPG.png">
 
     <script src="../js/ga.js"></script>
@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./updates.css?v=20260517q">
+    <link rel="stylesheet" href="./updates.css?v=20260517u">
 </head>
 <body class="updates-page">
     <header class="header">
@@ -50,7 +50,7 @@
     <main class="container">
         <header class="page-header">
             <h1>Latest Updates</h1>
-            <p class="lede">Product updates, workflow improvements, and release notes for AirShop quoting, inventory, labels, imports, docs, and integrations.</p>
+            <p class="lede">Workflow improvements, release notes, and new AirShop capabilities for quoting, inventory, labels, imports, docs, and integrations.</p>
         </header>
 
         <noscript>
@@ -217,8 +217,8 @@
                         '@type': 'WebPage',
                         '@id': 'https://airshopapp.com/updates/#webpage',
                         url: 'https://airshopapp.com/updates/',
-                        name: 'AirShop Product Updates and Changelog',
-                        description: 'Latest AirShop product updates for quoting, inventory, imports, labels, docs, integrations, and shop-floor workflows.',
+                        name: 'AirShop Updates and Changelog',
+                        description: 'Latest AirShop improvements for quoting, inventory, imports, labels, docs, integrations, and shop-floor workflows.',
                         isPartOf: {
                             '@type': 'WebSite',
                             name: 'AirShop',
@@ -229,7 +229,7 @@
                     {
                         '@type': 'ItemList',
                         '@id': 'https://airshopapp.com/updates/#updates-list',
-                        name: 'AirShop product updates',
+                        name: 'AirShop updates',
                         itemListOrder: 'https://schema.org/ItemListOrderDescending',
                         itemListElement: cleanItems.map(function (entry, index) {
                             var anchorId = updateAnchorId(entry);
@@ -489,7 +489,7 @@
                 timeline.appendChild(block);
             }
 
-            fetch('./updates.json?v=20260517q')
+            fetch('./updates.json?v=20260517s')
                 .then(function (response) {
                     if (!response.ok) {
                         throw new Error('Network');
