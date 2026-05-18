@@ -10,7 +10,14 @@
       "featured": true,
       "publicUrl": "/updates/latest-updates-changelog-added/",
       "appArea": "Home",
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "./latest-updates-changelog-added/home-airshop-latest-panel.png",
+          "alt": "AirShop home dashboard showing the AirShop Latest card with recent changelog entries.",
+          "caption": "The same entries appear on airshopapp.com/updates and on your home dashboard."
+        }
+      ]
     },
     {
       "id": "2026-05-catch-up-recent-airshop-updates",
