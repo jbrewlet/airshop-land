@@ -107,7 +107,7 @@ document.addEventListener(
     var el = e.target.closest('[data-cal-link]');
     if (el) {
       e.preventDefault();
-      var label = el.textContent.trim().slice(0, 50) || 'cal_demo';
+      var label = (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 50) || 'cal_demo';
       if (typeof gtag === 'function') {
         var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
         gtag('event', 'demo_cta_click', {
@@ -129,3 +129,18 @@ document.addEventListener(
   },
   true
 );
+
+/** Enter / Space on demo triggers (href="#" links) */
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Enter' && e.key !== ' ') {
+    return;
+  }
+  var el = e.target.closest('[data-cal-link]');
+  if (!el) {
+    return;
+  }
+  if (e.key === ' ') {
+    e.preventDefault();
+  }
+  el.click();
+});

@@ -12,9 +12,12 @@
     --navy: #03366D;
     --orange: #FF5918;
     --light-gray: #F2F2F2;
-    --med-gray: #808080;
+    --med-gray: #b8b8c6;
+    --text-body: #d4d4dc;
+    --text-muted: #b8b8c6;
     --dark-gray: #222222;
     --teal: #008376;
+    --focus-ring: var(--orange);
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
@@ -41,8 +44,49 @@ body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     background-color: var(--dark-gray);
-    color: var(--light-gray);
+    color: var(--text-body);
     line-height: 1.6;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0.75rem;
+    z-index: 10000;
+    padding: 0.55rem 0.85rem;
+    border-radius: 4px;
+    background: var(--orange);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 2px solid var(--light-gray);
+    text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    left: 0.75rem;
+    outline: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none;
+        transition: none;
+    }
 }
 
 .container {
@@ -70,14 +114,14 @@ body {
 }
 
 .nav-links a {
-    color: var(--light-gray);
-    opacity: .5;
-    transition: all 0.4s ease;
+    color: var(--text-body);
+    opacity: 1;
+    transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
     color: var(--light-gray);
-    opacity: 1;
 }
 
 .logo {
@@ -117,6 +161,10 @@ body {
     background-color: #e04d0a;
 }
 
+.btn:focus-visible {
+    outline-color: #fff;
+}
+
 .article-content a.btn-primary {
     color: white;
     text-decoration: none;
@@ -142,7 +190,7 @@ body {
 }
 
 .page-header p {
-    color: var(--med-gray);
+    color: var(--text-body);
     font-size: 1.1rem;
 }
 
@@ -170,6 +218,11 @@ body {
     background: linear-gradient(165deg, rgba(3,54,109,0.25), rgba(34,34,34,0.15));
 }
 
+.article-card:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
 .article-card-category {
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -187,7 +240,7 @@ body {
 }
 
 .article-card p {
-    color: var(--med-gray);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
     flex: 1;
@@ -230,7 +283,7 @@ body {
 }
 
 .blog-cta p {
-    color: var(--med-gray);
+    color: var(--text-body);
     font-size: 1.1rem;
     margin-bottom: var(--spacing-md);
     max-width: 500px;
@@ -254,7 +307,7 @@ body {
 }
 
 .article-meta {
-    color: var(--med-gray);
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -287,7 +340,7 @@ body {
     font-size: 1.1rem;
     font-weight: 400;
     line-height: 1.8;
-    color: rgba(242, 242, 242, 0.9);
+    color: var(--text-body);
 }
 
 .article-content ul,
@@ -301,6 +354,7 @@ body {
     font-size: 1.1rem;
     font-weight: 400;
     line-height: 1.7;
+    color: var(--text-body);
 }
 
 .article-content blockquote {
@@ -308,7 +362,7 @@ body {
     padding-left: var(--spacing-md);
     margin: var(--spacing-md) 0;
     font-style: italic;
-    color: var(--med-gray);
+    color: var(--text-muted);
 }
 
 .article-content strong {
@@ -321,7 +375,8 @@ body {
     text-decoration: none;
 }
 
-.article-content a:hover {
+.article-content a:hover,
+.article-content a:focus-visible {
     text-decoration: underline;
 }
 
@@ -354,8 +409,21 @@ body {
 
 .article-content figure.article-figure figcaption {
     font-size: 0.9rem;
-    color: var(--med-gray);
+    color: var(--text-muted);
     margin-top: 0.5rem;
+}
+
+.article-content .video-embed figcaption,
+.article-content figure.video-embed figcaption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.video-transcript-link {
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
 }
 
 /* Highlight Box */
@@ -486,7 +554,7 @@ body {
 }
 
 .article-cta p {
-    color: var(--med-gray);
+    color: var(--text-body);
     margin-bottom: var(--spacing-md);
 }
 
@@ -597,8 +665,7 @@ body {
     color: var(--med-gray);
 }
 
-.email-signup-form input[type="email"]:focus {
-    outline: none;
+.email-signup-form input[type="email"]:focus-visible {
     border-color: var(--teal);
 }
 
@@ -692,13 +759,14 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--med-gray);
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: var(--spacing-md);
     transition: color 0.2s;
 }
 
-.back-link:hover {
+.back-link:hover,
+.back-link:focus-visible {
     color: var(--light-gray);
 }
 

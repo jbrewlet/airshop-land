@@ -66,27 +66,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
 
     <!-- Blog Styles -->
-    <link rel="stylesheet" href="./articles.css?v=20260310">
+    <link rel="stylesheet" href="./articles.css?v=20260518a11y">
 </head>
 <body class="main">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav container" aria-label="Site">
             <a href="../" class="logo">
                 <img src="../AirShop_Dark.svg" alt="AirShop">
             </a>
             <div class="nav-links">
                 <a href="../#how">HOW IT WORKS</a>
                 <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
-                <a href="https://airshop.work" target="_blank">LOGIN</a>
+                <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
             </div>
         </nav>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container">
         <article>
             <div class="article-header">
                 <a href="./" class="back-link">
-                    <i class="material-icons">arrow_back</i>
+                    <i class="material-icons" aria-hidden="true">arrow_back</i>
                     All Articles
                 </a>
                 <h1>2-Clicks to Fusion</h1>
@@ -94,9 +95,10 @@
             </div>
 
             <div class="article-content">
-                <div class="video-embed">
+                <figure class="video-embed">
                     <iframe src="https://www.youtube.com/embed/s1xGJR5OVVg" title="Open 3D files in Fusion from AirShop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
+                    <figcaption>Demo: open Fusion from an AirShop inquiry. <a class="video-transcript-link" href="https://www.youtube.com/watch?v=s1xGJR5OVVg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a> (enable captions in the player).</figcaption>
+                </figure>
 
                 <p>Open files in Fusion with no upload or lag from AirShop Inquiries. A quick walkthrough is on YouTube or send a message to try it yourself.</p>
 
@@ -127,7 +129,7 @@
                 <div class="article-cta">
                     <h2>Try it yourself</h2>
                     <p>See Open in Fusion in action or get a demo of AirShop.</p>
-                    <a href="https://airshop.work/onboarding" class="btn btn-primary" role="button">
+                    <a href="https://airshop.work/onboarding" class="btn btn-primary">
                         GET A DEMO
                     </a>
                 </div>

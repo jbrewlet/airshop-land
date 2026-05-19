@@ -31,11 +31,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./updates.css?v=20260517u">
+    <link rel="stylesheet" href="./updates.css?v=20260518a11y">
 </head>
 <body class="updates-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav container" aria-label="Site">
             <a href="../" class="logo">
                 <img src="../AirShop_Dark.svg" alt="AirShop">
             </a>
@@ -47,22 +48,51 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container">
         <header class="page-header">
             <h1>Latest Updates</h1>
             <p class="lede">Workflow improvements, release notes, and new AirShop capabilities for quoting, inventory, labels, imports, docs, and integrations.</p>
         </header>
 
         <noscript>
-            <p style="color:#F2F2F2;text-align:center;padding:2rem;background:rgba(3,54,109,0.25);border-radius:12px;border:1px solid rgba(255,255,255,0.06);margin-bottom:2rem;font-size:0.95rem;">Turn on JavaScript to see the newest updates listed below.</p>
+            <div class="noscript-updates-fallback">
+                <p>JavaScript is off. Here are the latest updates:</p>
+                <ul>
+                    <li>
+                        <time class="fallback-date" datetime="2026-05-18">May 18, 2026</time>
+                        <a href="./vendor-labels-priority-ordering/"><span class="fallback-title">Vendor labels, drawer ordering, and source priority column</span></a>
+                        <span class="fallback-summary">Optional labels on each vendor, order from the inventory drawer, and a priority column on Source detail.</span>
+                    </li>
+                    <li>
+                        <time class="fallback-date" datetime="2026-05-17">May 17, 2026</time>
+                        <a href="./latest-updates-changelog-added/"><span class="fallback-title">Latest Updates changelog added</span></a>
+                        <span class="fallback-summary">This changelog page mirrors the short list on your AirShop home dashboard.</span>
+                    </li>
+                    <li>
+                        <time class="fallback-date" datetime="2026-05-01">May 1, 2026</time>
+                        <a href="./catch-up-recent-airshop-updates/"><span class="fallback-title">Catch-up: recent AirShop updates</span></a>
+                        <span class="fallback-summary">Recent work across quoting, inventory, printing, QR navigation, imports, docs, and more.</span>
+                    </li>
+                    <li>
+                        <time class="fallback-date" datetime="2026-03-18">March 18, 2026</time>
+                        <a href="./location-tags/"><span class="fallback-title">Location tags for shop-floor navigation</span></a>
+                        <span class="fallback-summary">Print QR-backed location tags and scan them to open the matching location in AirShop.</span>
+                    </li>
+                    <li>
+                        <time class="fallback-date" datetime="2026-02-19">February 19, 2026</time>
+                        <a href="./how-tos-airshop-guides/"><span class="fallback-title">How-tos and AirShop guides</span></a>
+                        <span class="fallback-summary">Step-by-step walkthroughs and FAQs at docs.airshop.work.</span>
+                    </li>
+                </ul>
+            </div>
         </noscript>
 
-        <section id="updates-timeline" class="timeline" aria-live="polite"></section>
+        <section id="updates-timeline" class="timeline" aria-live="polite" aria-busy="true"></section>
 
         <div class="blog-cta">
             <h2>Try it in AirShop</h2>
             <p>Quotes, inquiries, inventory, and shop-floor visibility in one workspace.</p>
-            <a href="https://airshop.work/onboarding" class="btn btn-primary" role="button">
+            <a href="https://airshop.work/onboarding" class="btn btn-primary">
                 START A TRIAL
             </a>
         </div>
@@ -327,7 +357,7 @@
             }
 
             function renderMedia(m) {
-                var wrap = document.createElement('div');
+                var wrap = document.createElement(m.caption ? 'figure' : 'div');
                 wrap.className = 'media-block';
                 var youtubeSrc = m.type === 'video' ? youtubeEmbedUrl(m.src) : '';
                 if (youtubeSrc) {
@@ -358,7 +388,7 @@
                     wrap.appendChild(img);
                 }
                 if (m.caption) {
-                    var cap = document.createElement('p');
+                    var cap = document.createElement('figcaption');
                     cap.className = 'media-caption';
                     cap.textContent = m.caption;
                     wrap.appendChild(cap);
@@ -432,8 +462,12 @@
                 headingText.textContent = entry.title || 'Update';
                 var copyButton = document.createElement('button');
                 copyButton.type = 'button';
-                copyButton.className = 'timeline-copy-icon material-icons';
-                copyButton.textContent = 'content_copy';
+                copyButton.className = 'timeline-copy-icon';
+                var copyGlyph = document.createElement('span');
+                copyGlyph.className = 'material-icons timeline-copy-icon-glyph';
+                copyGlyph.setAttribute('aria-hidden', 'true');
+                copyGlyph.textContent = 'content_copy';
+                copyButton.appendChild(copyGlyph);
                 copyButton.setAttribute('aria-label', 'Copy link to update');
                 copyButton.setAttribute('data-copy-url', updateCanonicalUrl(entry, anchorId));
                 wireCopyUpdateLink(copyButton, anchorId);
@@ -489,7 +523,7 @@
                 timeline.appendChild(block);
             }
 
-            fetch('./updates.json?v=20260517s')
+            fetch('./updates.json?v=20260518s')
                 .then(function (response) {
                     if (!response.ok) {
                         throw new Error('Network');
@@ -508,6 +542,7 @@
                     }
                     updateStructuredData(items, data.lastUpdated);
                     items.forEach(renderItem);
+                    timeline.setAttribute('aria-busy', 'false');
                 })
                 .catch(function () {
                     showError('We could not load updates right now.');

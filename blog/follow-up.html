@@ -67,27 +67,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
     
     <!-- Blog Styles -->
-    <link rel="stylesheet" href="./articles.css">
+    <link rel="stylesheet" href="./articles.css?v=20260518a11y">
 </head>
 <body class="main">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav container" aria-label="Site">
             <a href="../" class="logo">
                 <img src="../AirShop_Dark.svg" alt="AirShop">
             </a>
             <div class="nav-links">
                 <a href="../#how">HOW IT WORKS</a>
                 <a href="#" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a demo">DEMO</a>
-                <a href="https://airshop.work" target="_blank">LOGIN</a>
+                <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
             </div>
         </nav>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container">
         <article>
             <div class="article-header">
                 <a href="./" class="back-link">
-                    <i class="material-icons">arrow_back</i>
+                    <i class="material-icons" aria-hidden="true">arrow_back</i>
                     All Articles
                 </a>
                 <h1>5 reasons slow follow-up is costing you jobs</h1>
@@ -167,7 +168,7 @@
                 <div class="article-cta">
                     <h2>Follow up at the right time</h2>
                     <p>Capture inquiries, build clean quotes faster, and see when customers view them so your team can follow up with better timing.</p>
-                    <a href="https://airshop.work/onboarding" class="btn btn-primary" role="button">
+                    <a href="https://airshop.work/onboarding" class="btn btn-primary">
                         SEE HOW IT WORKS
                     </a>
                 </div>

@@ -1,13 +1,58 @@
 {
   "version": "1",
-  "lastUpdated": "2026-05-17",
+  "lastUpdated": "2026-05-18",
   "items": [
+    {
+      "id": "2026-05-vendor-labels-priority-ordering",
+      "date": "2026-05-18",
+      "title": "Source labels make ordering easier",
+      "summary": "Vendor labels, quicker ways to order, and source priority make picking the right vendor easier without digging deep into an item.",
+      "featured": true,
+      "publicUrl": "/updates/vendor-labels-priority-ordering/",
+      "appArea": "Inventory",
+      "details": [
+        {
+          "heading": "Vendor labels",
+          "items": [
+            "Add optional labels per vendor on Item detail Procurement: presets or custom text.",
+            "Labels appear in call-to-order and copy-to-clipboard flows."
+          ]
+        },
+        {
+          "heading": "Order without opening the full item",
+          "items": [
+            "Order buttons use your existing vendor order (1st, 2nd) and optional labels.",
+            "Each button follows that vendor’s first procurement method."
+          ]
+        },
+        {
+          "heading": "Source detail priority column",
+          "items": [
+            "The # column on Source Items shows 1st, 2nd, 3rd preference per linked item."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/vendor-labels-priority-ordering/inventory-item-vendor-labels.png",
+          "alt": "AirShop Item Detail Procurement with Primary, Cheapest, and Secondary vendor labels on source rows.",
+          "caption": "Vendor labels are most useful on the Item Detail page, where the team can see why each source is attached to the item."
+        },
+        {
+          "type": "image",
+          "src": "/updates/vendor-labels-priority-ordering/inventory-drawer-ordering.png",
+          "alt": "AirShop inventory item panel with Order section showing 1st and 2nd vendor buttons with labels.",
+          "caption": "Order from the item panel with 1st, 2nd, and optional labels visible."
+        }
+      ]
+    },
     {
       "id": "2026-05-latest-updates-feed",
       "date": "2026-05-17",
       "title": "Latest Updates changelog added",
       "summary": "This changelog page mirrors the short list on your AirShop home dashboard. Same notes, fewer places to hunt.",
-      "featured": true,
+      "featured": false,
       "publicUrl": "/updates/latest-updates-changelog-added/",
       "appArea": "Home",
       "media": [

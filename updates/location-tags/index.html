@@ -54,11 +54,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../updates.css?v=20260517u">
+    <link rel="stylesheet" href="../updates.css?v=20260518a11y">
 </head>
 <body class="updates-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav container" aria-label="Site">
             <a href="../../" class="logo">
                 <img src="../../AirShop_Dark.svg" alt="AirShop">
             </a>
@@ -70,8 +71,8 @@
         </nav>
     </header>
 
-    <main class="container update-post">
-        <a class="post-back-link" href="../"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Updates</a>
+    <main id="main-content" class="container update-post">
+        <a class="post-back-link" href="../"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Updates</a>
         <article>
             <header class="update-post-header">
                 <time class="update-post-kicker" datetime="2026-03-18">March 18, 2026</time>
@@ -119,7 +120,7 @@
                 <p>Open AirShop to try this in context, or book a quick walkthrough to see where it fits in your workflow.</p>
                 <div class="update-post-cta-actions">
                     <a class="btn btn-primary" href="https://airshop.work" target="_blank" rel="noopener noreferrer">Open AirShop</a>
-                    <a class="btn btn-ghost cal-demo-trigger" href="#" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button">Book a walkthrough</a>
+                    <a class="btn btn-ghost cal-demo-trigger" href="#" data-cal-namespace="demo" data-cal-link="airshop/demo" role="button" aria-label="Book a walkthrough">Book a walkthrough</a>
                 </div>
             </aside>
         </article>

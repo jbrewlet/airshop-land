@@ -1,7 +1,7 @@
 .footer {
     padding: var(--spacing-lg, 4rem) 0 var(--spacing-md, 2rem);
     margin-top: var(--spacing-lg, 4rem);
-    color: var(--med-gray, #808080);
+    color: var(--med-gray, #b8b8c6);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .footer-col a {
-    color: var(--med-gray, #808080);
+    color: var(--med-gray, #b8b8c6);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s ease;
