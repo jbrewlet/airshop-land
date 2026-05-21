@@ -23,14 +23,15 @@
 </head>
 <body class="shopboard-page">
   <header class="header">
-    <nav class="nav container">
+    <nav class="nav container" aria-label="Shopboard">
       <a href="../" class="logo"><img src="../AirShop_Dark.svg" alt="AirShop"></a>
       <div class="nav-links">
-        <a href="../#how">HOW IT WORKS</a>
-        <button type="button" class="shopboard-nav-cta" data-shopboard-signup-open data-ga-label="shopboard_cta_nav">GET UPDATES</button>
-        <a href="account.html">PAIR</a>
-        <span class="nav-link-muted">SEE PLANS</span>
-        <span class="nav-link-muted">LOGIN</span>
+        <a href="../" class="shopboard-nav-back">
+          <i class="material-icons" aria-hidden="true">arrow_back</i>
+          AIRSHOP
+        </a>
+        <a href="#pricing">SEE PLANS</a>
+        <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
       </div>
     </nav>
 
@@ -168,7 +169,7 @@
       </div>
     </section>
 
-    <section class="pricing container">
+    <section id="pricing" class="pricing container">
       <div class="pricing-header shopboard-feature-heading">
         <p class="shopboard-section-kicker">Pricing</p>
         <h2 class="section-title">Choose your Shopboard path.</h2>

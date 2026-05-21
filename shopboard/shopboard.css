@@ -62,28 +62,15 @@
   opacity: 1;
 }
 
-.shopboard-page .nav-link-muted {
-  color: var(--light-gray);
-  opacity: 0.5;
-  cursor: default;
-  font-size: 0.7rem;
+.shopboard-page .nav-links .shopboard-nav-back {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+  text-transform: uppercase;
 }
 
-.shopboard-page .shopboard-nav-cta {
-  background: transparent;
-  border: 0;
-  color: var(--light-gray);
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.7rem;
-  opacity: 0.68;
-  padding: 0;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.shopboard-page .shopboard-nav-cta:hover {
-  color: var(--orange);
-  opacity: 1;
+.shopboard-page .nav-links .shopboard-nav-back .material-icons {
+  font-size: 0.95rem;
 }
 
 .shopboard-page .is-disabled {
