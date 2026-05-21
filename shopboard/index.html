@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AirShop Shopboard — Shop floor display for Raspberry Pi</title>
-  <meta name="description" content="Turn a Raspberry Pi into a live shop floor display. Free for personal use. Commercial use included with any paid AirShop plan.">
+  <meta name="description" content="Turn a Raspberry Pi into a live shop floor display. Free for hobby / personal use. Included with paid AirShop plans for work / teams.">
   <meta property="og:title" content="AirShop Shopboard — Shop floor display for Raspberry Pi">
   <meta property="og:description" content="Live alerts, calendar events, Shopify, Home Assistant, and AirShop when you are on a paid plan.">
   <meta property="og:url" content="https://airshopapp.com/shopboard/">
@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../airshop-landing-shared.css?v=20260428">
-  <link rel="stylesheet" href="./shopboard.css?v=20260428">
+  <link rel="stylesheet" href="./shopboard.css?v=20260520h">
   <link rel="stylesheet" href="../footer.css?v=20260311">
 </head>
 <body class="shopboard-page">
@@ -38,7 +38,7 @@
       <div class="shopboard-hero-copy">
         <p class="shopboard-eyebrow">Shopboard by AirShop</p>
         <h1>Shop floor alerts – right when you need it.</h1>
-        <p>Shopboard turns a Raspberry Pi into a live workshop display for custom alerts, Shopify sales, and calendar events. <br><br>On AirShop plans, it also shows the business intelligence your team should see without opening another dashboard.</p>
+        <p>Shopboard turns a Raspberry Pi into a live workshop display for floor alerts, recurring reminders, and daily signals on your network. <br><br>On AirShop plans, connect Shopify, calendars, Home Assistant, and the business intelligence your team should see without opening another dashboard.</p>
         <div class="shopboard-hero-actions">
           <button type="button" class="btn btn-primary" data-shopboard-signup-open data-ga-label="shopboard_cta_hero">Get updates</button>
           <a class="shopboard-secondary-link" href="https://airshop.work/onboarding" data-ga-label="shopboard_cta_hero_try_airshop">Try AirShop</a>
@@ -95,7 +95,7 @@
               Floor alerts
             </span>
             <h3>Live alerts that feel impossible to miss.</h3>
-            <p>Post alerts and messages from phones on the floor. Queue, dismiss, and quick-alert shortcuts stay tuned for how your team actually works.</p>
+            <p>Post alerts and messages from phones on the floor. Recurring reminders stay local on your network. Queue, dismiss, and quick-alert shortcuts stay tuned for how your team actually works.</p>
             <div class="shopboard-mini-display shopboard-mini-display--secondary" aria-hidden="true">
               <span>Live alert</span>
               <strong>Rush order approved</strong>
@@ -172,19 +172,22 @@
       <div class="pricing-header shopboard-feature-heading">
         <p class="shopboard-section-kicker">Pricing</p>
         <h2 class="section-title">Choose your Shopboard path.</h2>
-        <p class="section-subtitle">Paid AirShop plans include Shopboard with full integration features and continuous updates. Personal use is free. Hardware not included.</p>
+        <p class="section-subtitle">Hobby / personal use is free. Work / teams use is included with any paid AirShop plan. Hardware not included.</p>
       </div>
       <div class="pricing-grid">
-        <div class="pricing-card-outer">
+        <div class="pricing-card-outer pricing-card-secondary">
           <div class="pricing-card-inner">
             <h3>Hobby / personal</h3>
-            <p class="plan-subtext">Personal use</p>
-            <div class="price">Free</div>
-            <p class="price-meta">AirShop account required to download the Pi image.</p>
+            <p class="plan-subtext">Non-commercial</p>
+            <div class="price price--deemphasized">Free</div>
+            <p class="price-meta">Non-commercial use. Get access with AirShop login.</p>
             <ul class="price-features">
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Announcements, iCal, Shopify, Home Assistant</li>
-              <li class="price-feature-row--omit" aria-label="Not included: AirShop Live Sync"><i class="material-icons price-feature-x" aria-hidden="true">close</i> AirShop Live Sync</li>
-              <li class="price-feature-row--omit" aria-label="Not included: Open API"><i class="material-icons price-feature-x" aria-hidden="true">close</i> Open API disabled</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Local announcements and recurring reminders</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> iCal calendar sync</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Home Assistant button controls</li>
+              <li class="price-feature-row--omit" aria-label="Not included: Work / team use"><i class="material-icons price-feature-x" aria-hidden="true">close</i> Work / team use</li>
+              <li class="price-feature-row--omit" aria-label="Not included: Shopify sync"><i class="material-icons price-feature-x" aria-hidden="true">close</i> Shopify sync</li>
+              <li class="price-feature-row--omit" aria-label="Not included: AirShop events and Open API"><i class="material-icons price-feature-x" aria-hidden="true">close</i> AirShop events &amp; Open API</li>
             </ul>
             <button type="button" class="btn btn-primary" data-shopboard-signup-open data-ga-label="shopboard_cta_pricing_personal">Get updates</button>
           </div>
@@ -192,15 +195,17 @@
 
         <div class="pricing-card-outer popular">
           <div class="pricing-card-inner">
-            <h3>AirShop Plans</h3>
-            <p class="plan-subtext">Best fit</p>
+            <h3>Work / teams</h3>
+            <p class="plan-subtext">Best value</p>
             <div class="price">Included</div>
-            <p class="price-meta">All plans include Shopboard access, integration features, updates, and support.</p>
+            <p class="price-meta">Requires a paid AirShop plan. Work / team use, integrations, and support included.</p>
             <ul class="price-features">
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Inquiry alerts and quote wins</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> AirShop Live Sync included</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Continuous Shopboard updates</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Routing for multiple displays where supported</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Local announcements and recurring reminders</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Shopify sales and order signals</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> iCal calendar sync</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Home Assistant button controls</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i><span class="price-feature-label">Inquiry alerts and quote wins <span class="shopboard-coming-soon-tag shopboard-coming-soon-tag--pricing">Coming soon</span></span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> Open API access</li>
             </ul>
             <button type="button" class="btn btn-primary" data-shopboard-signup-open data-ga-label="shopboard_cta_pricing_airshop">Get updates</button>
           </div>
@@ -266,7 +271,7 @@
         <div class="faq-item">
           <button type="button" class="faq-question" id="shopboard-faq-question-3" aria-expanded="false" aria-controls="shopboard-faq-answer-3">Can I use it without AirShop?</button>
           <div class="faq-answer" id="shopboard-faq-answer-3" role="region" aria-labelledby="shopboard-faq-question-3">
-            <p>Yes. Standalone installs can run local announcements, iCal, Shopify, and Home Assistant. Deep AirShop automation requires a paid plan.</p>
+            <p>Yes. For hobby / personal use, Shopboard runs as a closed, local display with floor announcements, recurring reminders, iCal sync, and Home Assistant button controls on your network. For work / teams, Shopify sync and deep AirShop automation require a paid AirShop plan.</p>
           </div>
         </div>
         <div class="faq-item">

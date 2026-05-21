@@ -119,9 +119,95 @@
   width: 100%;
 }
 
+.shopboard-page .pricing-grid {
+  gap: clamp(0.75rem, 2vw, var(--spacing-md));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-inline: auto;
+  max-width: 52rem;
+  width: 100%;
+}
+
 .shopboard-page .pricing-card-outer {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
+  min-height: 0;
+  min-width: 0;
+  padding-inline: clamp(1rem, 2vw, 1.75rem);
+}
+
+.shopboard-page .pricing-card-outer.pricing-card-secondary {
+  align-self: center;
+  background: rgba(24, 26, 30, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+  padding-block: clamp(0.85rem, 1.6vw, 1.25rem);
+  padding-inline: clamp(0.85rem, 1.5vw, 1.15rem);
+}
+
+.shopboard-page .pricing-card-secondary h3 {
+  color: var(--med-gray);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  margin-bottom: 0.2rem;
+}
+
+.shopboard-page .pricing-card-secondary .plan-subtext {
+  color: var(--med-gray);
+  font-size: 0.78rem;
+  margin-bottom: 0.65rem;
+  opacity: 0.82;
+}
+
+.shopboard-page .pricing-card-secondary .price--deemphasized {
+  color: var(--med-gray);
+  font-size: clamp(1.3rem, 1.9vw, 1.55rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  margin-block: 0.35rem;
+  text-transform: none;
+}
+
+.shopboard-page .pricing-card-secondary .price-meta {
+  font-size: clamp(0.72rem, 0.2vw + 0.62rem, 0.8rem);
+  line-height: 1.4;
+}
+
+.shopboard-page .pricing-card-secondary .price-features {
+  margin-block: 0.65rem;
+}
+
+.shopboard-page .pricing-card-secondary .price-features li {
+  color: var(--med-gray);
+  font-size: clamp(0.72rem, 0.18vw + 0.62rem, 0.82rem);
+  line-height: 1.3;
+  margin-bottom: 0.35rem;
+}
+
+.shopboard-page .pricing-card-secondary .price-features li .material-icons {
+  font-size: 0.85rem;
+}
+
+.shopboard-page .pricing-card-secondary .btn {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  margin-top: 0.5rem;
+  opacity: 0.82;
+  padding-block: 0.48rem;
+}
+
+.shopboard-page .pricing-card-outer.popular {
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 18px 50px rgba(0, 0, 0, 0.28);
+  min-height: 0;
+  padding-bottom: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  transform: none;
+}
+
+.shopboard-page .pricing-card-inner {
+  min-width: 0;
+}
+.shopboard-page .pricing .price-features li {
+  font-size: clamp(0.8125rem, 0.28vw + 0.72rem, 1rem);
+  line-height: 1.35;
 }
 
 .shopboard-page .price-features li.price-feature-row--omit {
@@ -682,6 +768,21 @@
   top: -1px;
 }
 
+.shopboard-page .pricing .price-feature-label {
+  display: inline;
+}
+
+.shopboard-page .pricing .shopboard-coming-soon-tag--pricing {
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  margin-left: 0.35rem;
+  padding: 0.18rem 0.45rem;
+  position: relative;
+  top: -0.05rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 .shopboard-page .shopboard-steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -963,6 +1064,37 @@
   .shopboard-page .shopboard-stats--today,
   .shopboard-page .shopboard-stats--rush {
     width: min(108px, 32vw);
+  }
+}
+
+@media (max-width: 1260px) {
+  .shopboard-page .pricing.container {
+    box-sizing: border-box;
+    margin-inline: 0;
+    max-width: none;
+    padding-inline: clamp(1.25rem, 5vw, 3rem);
+    width: 100%;
+  }
+
+  .shopboard-page .pricing-grid {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .shopboard-page .pricing-grid {
+    gap: var(--spacing-md);
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+    max-width: min(36rem, 100%);
+  }
+
+  .shopboard-page .pricing-card-outer.popular {
+    order: -1;
+  }
+
+  .shopboard-page .pricing-card-outer.pricing-card-secondary {
+    align-self: stretch;
   }
 }
 
