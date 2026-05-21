@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopboard pairing — Account</title>
+  <meta name="description" content="Generate a pairing code to connect AirShop to your Shopboard display.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://airshopapp.com/shopboard/account.html">
+  <script src="../js/ga.js"></script>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../airshop-landing-shared.css?v=20260428">
+  <link rel="stylesheet" href="../footer.css?v=20260311">
+  <style>
+    .sb-pair-form label { display: block; font-weight: 600; margin: 14px 0 6px; color: #e8e8e8; }
+    .sb-pair-form input[type="password"], .sb-pair-form input[type="text"], .sb-pair-form select {
+      width: 100%; max-width: 420px; padding: 10px 12px; border-radius: 8px;
+      border: 1px solid #444; background: #1a1a1a; color: #fafafa;
+    }
+    .sb-pair-form .muted { font-size: 14px; color: #aaa; margin-top: 6px; line-height: 1.45; }
+    .sb-pair-banner { padding: 12px 16px; background: rgba(209,167,71,.12); border: 1px solid rgba(209,167,71,.35); border-radius: 10px; color: #e8dcd0; margin: 18px 0; line-height: 1.5; font-size: 14px; }
+    .built-by.dark section a { color: #9ecbff; }
+  </style>
+</head>
+<body class="shopboard-page">
+  <header class="header">
+    <nav class="nav container">
+      <a href="../" class="logo"><img src="../AirShop_Dark.svg" alt="AirShop"></a>
+      <div class="nav-links">
+        <a href="/shopboard/">SHOPBOARD</a>
+        <a href="https://airshop.work/settings/integrations/shopboard" target="_blank" rel="noopener">DOWNLOAD</a>
+        <a href="https://airshop.work" target="_blank" rel="noopener">LOGIN</a>
+      </div>
+    </nav>
+
+    <div class="hero container">
+      <div class="hero-content">
+        <h1>Pair your Shopboard</h1>
+        <p>Pairing links your AirShop account tier to a Shopboard on your network. Codes are <strong>one-time</strong> and expire in <strong>15 minutes</strong>.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="built-by dark container" style="padding-bottom: 3rem;">
+      <div class="built-by-content">
+        <h2>Where this lives in the product</h2>
+        <p>When you use the main AirShop app (after sign-in), open <strong>Settings → Integrations → Shopboard</strong> to generate a code and manage downloads. That experience runs on <strong>airshop.work</strong> — this page is a <strong>fallback / operator</strong> form for teams wiring the integration before the in-app screen ships.</p>
+
+        <div class="sb-pair-banner" role="note">
+          <strong>Security:</strong> The mint secret is equivalent to a password. Do not store it in the browser, share it in screenshots, or commit it to git. Use only over HTTPS.
+        </div>
+
+        <h2>Generate a pairing code</h2>
+        <p class="muted" style="margin-bottom: 12px;">Enter the operator mint secret, how the shop should appear on the Pi, and submit. You will see a code to type on the Shopboard first-boot wizard or in <strong>Admin → AirShop → Pair</strong>.</p>
+
+        <form class="sb-pair-form" method="post" action="/api/shopboard-pair-mint" autocomplete="off">
+          <input type="hidden" name="format" value="html">
+          <label for="mint_secret">Mint secret</label>
+          <input id="mint_secret" name="mint_secret" type="password" required autocomplete="off" placeholder="SHOPBOARD_PAIR_MINT_SECRET">
+          <p class="muted">From your deployment environment (Vercel / host env). Not your AirShop login password.</p>
+
+          <label for="shop_name">Shop name (optional)</label>
+          <input id="shop_name" name="shop_name" type="text" maxlength="120" placeholder="e.g. PDX CNC" autocomplete="organization">
+
+          <label for="tier">License tier</label>
+          <select id="tier" name="tier">
+            <option value="personal">personal (free / hobby)</option>
+            <option value="airshop" selected>airshop (paid AirShop plan — commercial use)</option>
+          </select>
+          <p class="muted">Must match entitlements — this reference API trusts the mint caller.</p>
+
+          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;">
+            <button type="submit" class="btn btn-primary">Create pairing code</button>
+            <a class="btn" href="/shopboard/" role="button" style="padding:14px 20px;display:inline-flex;align-items:center;text-decoration:none;">Back to Shopboard</a>
+          </div>
+        </form>
+
+        <h3 style="margin-top:42px;">API reference</h3>
+        <p class="muted">See <strong>docs/shopboard-pairing-api.md</strong> in the airshop-land repo for programmatic mint/redeem and Pi <code>AIRSHOP_PAIR_URL</code> / <code>AIRSHOP_LICENSE_URL</code> values.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/load-footer.js"></script>
+</body>
+</html>

@@ -1,17 +1,50 @@
 /**
- * Validates a short-lived HMAC-signed download token and redirects to the image URL.
+ * Validates a short-lived HMAC-signed download token (minted by AirShop after login),
+ * enforces one-time use via jti, then redirects to SHOPBOARD_IMAGE_URL.
  *
- * AirShop mints tokens with the same secret:
- *   payloadB64 = base64url(JSON.stringify({ exp, sub }))
- *   sigB64 = base64url(HMAC-SHA256(secret, payloadB64))
- *   token = payloadB64 + '.' + sigB64
+ * Host the .img on GitHub (Releases asset or unlisted Pages path) — not Supabase.
+ * The image URL stays in this env var only; users receive a one-time gate link.
  *
- * Environment:
- *   SHOPBOARD_DOWNLOAD_SECRET — shared secret (required)
- *   SHOPBOARD_IMAGE_URL       — HTTPS URL to the .img (required)
+ * Environment (airshop-land / Vercel):
+ *   SHOPBOARD_DOWNLOAD_SECRET — shared with AirShop (required)
+ *   SHOPBOARD_IMAGE_URL       — HTTPS URL to the .img.xz on GitHub CDN (required)
+ *   UPSTASH_REDIS_REST_*      — recommended for one-time jti across serverless instances
  */
 
 import crypto from 'crypto';
+import { consumeDownloadJti } from './lib/shopboard-download-store.js';
+
+function verifyToken(token, secret) {
+  const parts = token.split('.');
+  if (parts.length !== 2) return null;
+
+  const [payloadB64, sigB64] = parts;
+  const expectedMac = crypto.createHmac('sha256', secret).update(payloadB64).digest();
+
+  let sigBuf;
+  try {
+    sigBuf = Buffer.from(sigB64, 'base64url');
+  } catch {
+    return null;
+  }
+
+  if (sigBuf.length !== expectedMac.length || !crypto.timingSafeEqual(sigBuf, expectedMac)) {
+    return null;
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(Buffer.from(payloadB64, 'base64url').toString('utf8'));
+  } catch {
+    return null;
+  }
+
+  const exp = Number(payload.exp);
+  if (!Number.isFinite(exp) || Math.floor(Date.now() / 1000) > exp) return null;
+  if (!payload.jti || typeof payload.jti !== 'string') return null;
+
+  return payload;
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -27,40 +60,20 @@ export default async function handler(req, res) {
 
   const raw = req.query && req.query.t;
   const token = typeof raw === 'string' ? raw : Array.isArray(raw) ? raw[0] : '';
-  if (!token || typeof token !== 'string') {
-    return res.status(400).json({ error: 'Missing token' });
+  if (!token) {
+    return res.status(400).json({ error: 'Missing download link' });
   }
 
-  const parts = token.split('.');
-  if (parts.length !== 2) {
-    return res.status(400).json({ error: 'Invalid token' });
+  const payload = verifyToken(token, secret);
+  if (!payload) {
+    return res.status(403).json({ error: 'Invalid or expired download link' });
   }
 
-  const [payloadB64, sigB64] = parts;
-  const expectedMac = crypto.createHmac('sha256', secret).update(payloadB64).digest();
-
-  let sigBuf;
-  try {
-    sigBuf = Buffer.from(sigB64, 'base64url');
-  } catch {
-    return res.status(403).json({ error: 'Invalid signature' });
-  }
-
-  if (sigBuf.length !== expectedMac.length || !crypto.timingSafeEqual(sigBuf, expectedMac)) {
-    return res.status(403).json({ error: 'Invalid signature' });
-  }
-
-  let payload;
-  try {
-    const json = Buffer.from(payloadB64, 'base64url').toString('utf8');
-    payload = JSON.parse(json);
-  } catch {
-    return res.status(400).json({ error: 'Invalid payload' });
-  }
-
-  const exp = Number(payload.exp);
-  if (!Number.isFinite(exp) || Math.floor(Date.now() / 1000) > exp) {
-    return res.status(403).json({ error: 'Token expired' });
+  const now = Math.floor(Date.now() / 1000);
+  const ttlLeft = Math.max(60, payload.exp - now);
+  const firstUse = await consumeDownloadJti(payload.jti, ttlLeft);
+  if (!firstUse) {
+    return res.status(403).json({ error: 'Download link already used or expired' });
   }
 
   return res.redirect(302, imageUrl);
