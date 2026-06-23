@@ -1,7 +1,48 @@
 {
   "version": "1",
-  "lastUpdated": "2026-05-18",
+  "lastUpdated": "2026-06-22",
   "items": [
+    {
+      "id": "2026-06-labor-categories-cost-and-price",
+      "date": "2026-06-22",
+      "title": "Labor categories now set cost and price",
+      "summary": "Give each labor category a default cost and price per hour so quote labor items prefill with the right margin. A change log tracks every edit, and existing quotes keep the rates they were built with.",
+      "featured": true,
+      "publicUrl": "/updates/labor-categories-cost-and-price/",
+      "ctaLabel": "Read the docs",
+      "ctaUrl": "https://docs.airshop.work/quote-settings/#labor-categories",
+      "appArea": "Quotes",
+      "details": [
+        {
+          "heading": "Cost and price on every category",
+          "items": [
+            "Each labor category now has a name, default cost / hr, and default price / hr.",
+            "Labor items in the Quote Builder prefill with the cost and price you set, so margin is right from the start."
+          ]
+        },
+        {
+          "heading": "Existing quotes keep their rates",
+          "items": [
+            "Editing a category's name, cost, or price updates defaults for new line items only.",
+            "Quotes that already include labor keep the cost and price they were created with."
+          ]
+        },
+        {
+          "heading": "A change log for your labor rates",
+          "items": [
+            "A paginated log records who changed a category, what changed (name, cost, or price), and when."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/labor-categories-cost-and-price/labor-categories-quote-settings.png",
+          "alt": "AirShop Quote Settings Labor Categories with default cost and price per hour fields, Add Labor Category button, and paginated change log.",
+          "caption": "Set default cost and price per hour for each labor category. The change log records who updated each rate and when."
+        }
+      ]
+    },
     {
       "id": "2026-05-vendor-labels-priority-ordering",
       "date": "2026-05-18",
