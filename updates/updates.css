@@ -592,6 +592,19 @@ main.container {
     object-fit: contain;
 }
 
+/* Narrower, centered variant for tall/cropped UI captures that look oversized full-width. */
+.media-block--narrow {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    .media-block--narrow {
+        max-width: 100%;
+    }
+}
+
 .media-block-embed {
     aspect-ratio: 16 / 9;
 }

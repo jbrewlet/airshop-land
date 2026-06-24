@@ -1,7 +1,55 @@
 {
   "version": "1",
-  "lastUpdated": "2026-06-22",
+  "lastUpdated": "2026-06-23",
   "items": [
+    {
+      "id": "2026-06-reorder-queue-notifications",
+      "date": "2026-06-23",
+      "title": "Reorder Queue alerts and a daily digest",
+      "summary": "AirShop now watches your stock for you. Every item carries a reorder status, the Reorder Queue gives you a ranked shortlist of what needs attention, and a daily digest email keeps the right people ahead of stockouts.",
+      "featured": true,
+      "publicUrl": "/updates/reorder-queue-notifications/",
+      "ctaLabel": "Read the docs",
+      "ctaUrl": "https://docs.airshop.work/inventory/reorder-queue/",
+      "appArea": "Inventory",
+      "details": [
+        {
+          "heading": "A status for every item",
+          "items": [
+            "Order Now, Order Soon, On Order, and Stocked show where each item stands at a glance.",
+            "The Reorder Queue filters Inventory Items to what needs attention, ranked most-urgent first."
+          ]
+        },
+        {
+          "heading": "Alerts that come to you",
+          "items": [
+            "An in-app notice summarizes inventory changes since your last visit, surfacing Order Now and Order Soon first.",
+            "A daily reorder digest email groups items by status with quantity and threshold, and only sends when something needs attention."
+          ]
+        },
+        {
+          "heading": "You control who hears about what",
+          "items": [
+            "Admins set org defaults: toggle the notice and digest, choose which statuses count, and pick recipients.",
+            "Each person can fine-tune their own alerts and override which statuses appear in their digest, with a Send test preview."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/reorder-queue-notifications/recent-inventory-activity.png",
+          "alt": "AirShop Recent Inventory Activity popup listing items needing attention with ORDER NOW and STOCKED status pills, a checked-off item, and Reorder Queue and View buttons.",
+          "caption": "The Recent Inventory Activity notice surfaces what changed since your last visit, most urgent first, with a jump straight to the Reorder Queue."
+        },
+        {
+          "type": "image",
+          "src": "/updates/reorder-queue-notifications/inventory-reorder-notifications.png",
+          "alt": "AirShop Inventory Notifications settings with organization defaults for the in-app notice, daily reorder digest, included statuses, and email recipients, alongside personal preferences.",
+          "caption": "Admins set org-wide defaults and recipients; each user tailors their own alerts and digest categories."
+        }
+      ]
+    },
     {
       "id": "2026-06-labor-categories-cost-and-price",
       "date": "2026-06-22",
