@@ -900,6 +900,18 @@
   margin: 0;
 }
 
+.shopboard-page .faq-answer a {
+  color: var(--orange);
+  text-decoration: none;
+  border-bottom: 1px solid var(--orange);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.shopboard-page .faq-answer a:hover {
+  color: var(--light-gray);
+  border-color: var(--light-gray);
+}
+
 .shopboard-page.shopboard-signup-open {
   overflow: hidden;
 }
