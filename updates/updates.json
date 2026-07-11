@@ -1,7 +1,40 @@
 {
   "version": "1",
-  "lastUpdated": "2026-06-23",
+  "lastUpdated": "2026-06-27",
   "items": [
+    {
+      "id": "2026-06-live-viewing-editing-avatars",
+      "date": "2026-06-27",
+      "title": "See who's viewing or editing with you",
+      "summary": "User icons now show which teammates are on the same inventory item, quote, customer, or inquiry right now, and whether they're just looking or already editing, so nobody quietly overwrites someone else's work.",
+      "featured": true,
+      "publicUrl": "/updates/live-viewing-editing-avatars/",
+      "appArea": "Team",
+      "details": [
+        {
+          "heading": "Know before you save",
+          "items": [
+            "User icons appear on inventory items, locations, sources, customers, inquiries, quotes, and stocktakes whenever a teammate is also on that record.",
+            "A small edit badge on a user icon means that person is actively editing, not just looking."
+          ]
+        },
+        {
+          "heading": "No setup, no clutter",
+          "items": [
+            "User icons only show up when someone else is actually there; the rest of the time the page looks exactly as it does today.",
+            "Hover a user icon to see who it is and whether they're viewing or editing."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/live-viewing-editing-avatars/presence-avatars-item-detail.png",
+          "alt": "AirShop inventory item detail page with two user icons, JR and CK, in the header next to the List button, with a tooltip reading Casey Kim is editing.",
+          "caption": "Two teammates on the same item: one just looking, one actively editing (orange badge)."
+        }
+      ]
+    },
     {
       "id": "2026-06-reorder-queue-notifications",
       "date": "2026-06-23",
