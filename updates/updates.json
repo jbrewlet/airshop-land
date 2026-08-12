@@ -1,7 +1,41 @@
 {
   "version": "1",
-  "lastUpdated": "2026-07-11",
+  "lastUpdated": "2026-08-12",
   "items": [
+    {
+      "id": "2026-08-shop-issues",
+      "date": "2026-08-12",
+      "title": "Track shop issues without leaving AirShop",
+      "summary": "Report broken equipment, assign it to a teammate, and track it to done from the same dashboard where you manage inventory and quotes.",
+      "featured": true,
+      "publicUrl": "/updates/shop-issues/",
+      "appArea": "Operations",
+      "details": [
+        {
+          "heading": "Report it in seconds",
+          "items": [
+            "Give it a title, then optionally add a description, photos, an assignee, and a priority.",
+            "Report it from your dashboard or straight from the inventory item it's about. AirShop links the item automatically."
+          ]
+        },
+        {
+          "heading": "Assign it and track it to done",
+          "items": [
+            "Add one or more teammates as assignees so everyone knows who owns what.",
+            "Issues move through Open → In Progress → Resolved → Done, so everyone can see what's outstanding.",
+            "Set an optional due date; overdue or soon-due issues surface first on the dashboard's new Shop Issues card."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/shop-issues/home-shop-issues-card.png",
+          "alt": "Shop Issues card on the AirShop Home dashboard, listing open issues with age and assignee.",
+          "caption": "The Shop Issues card on Home surfaces overdue and high-priority work first."
+        }
+      ]
+    },
     {
       "id": "2026-07-live-viewing-editing-avatars",
       "date": "2026-07-11",
