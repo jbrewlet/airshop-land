@@ -1,7 +1,50 @@
 {
   "version": "1",
-  "lastUpdated": "2026-08-12",
+  "lastUpdated": "2026-08-16",
   "items": [
+    {
+      "id": "2026-08-files-page",
+      "date": "2026-08-16",
+      "title": "Every customer file in one place",
+      "summary": "Browse customer uploads, inquiry attachments, and Help Scout files in one grid. Preview CAD, download, open in Fusion, and jump to the linked ticket or inquiry.",
+      "featured": true,
+      "publicUrl": "/updates/files-page/",
+      "ctaLabel": "Read the docs",
+      "ctaUrl": "https://docs.airshop.work/guides/files/",
+      "appArea": "Inquiries",
+      "details": [
+        {
+          "heading": "One grid for every upload path",
+          "items": [
+            "Customer upload links, inquiry form attachments, and staff inquiry uploads appear together.",
+            "Search by filename or customer, filter by type, and sort by date or size."
+          ]
+        },
+        {
+          "heading": "Preview, download, and open in Fusion",
+          "items": [
+            "The detail drawer shows thumbnails for photos and 3D models, including STEP and STL previews.",
+            "View full-screen, download a copy, or open compatible CAD in Fusion without a manual download step.",
+            "Source, customer, ticket, and inquiry links stay attached below the preview."
+          ]
+        },
+        {
+          "heading": "Help Scout links forward automatically",
+          "items": [
+            "Sidebar thumbs and internal upload notes still work the same way.",
+            "Staff view URLs now use /files; legacy /uploads links redirect."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "/updates/files-page/files-drawer.png",
+          "alt": "AirShop Files page with a grid of customer uploads and a detail drawer showing a STEP preview, View and Download actions, Open in Fusion, linked Help Scout ticket and inquiry, and customer organization.",
+          "caption": "Click any row to preview the file, download it, open it in Fusion, or jump to the linked ticket or inquiry."
+        }
+      ]
+    },
     {
       "id": "2026-08-shop-issues",
       "date": "2026-08-12",

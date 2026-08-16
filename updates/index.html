@@ -59,6 +59,11 @@
                 <p>JavaScript is off. Here are the latest updates:</p>
                 <ul>
                     <li>
+                        <time class="fallback-date" datetime="2026-08-16">August 16, 2026</time>
+                        <a href="./files-page/"><span class="fallback-title">Every customer file in one place</span></a>
+                        <span class="fallback-summary">Browse customer uploads, inquiry attachments, and Help Scout files in one grid with previews and Fusion launch.</span>
+                    </li>
+                    <li>
                         <time class="fallback-date" datetime="2026-07-11">July 11, 2026</time>
                         <a href="./live-viewing-editing-avatars/"><span class="fallback-title">See who's viewing or editing with you</span></a>
                         <span class="fallback-summary">User icons show which teammates are on the same record right now, and whether they're viewing or editing.</span>
@@ -528,7 +533,7 @@
                 timeline.appendChild(block);
             }
 
-            fetch('./updates.json?v=20260812a')
+            fetch('./updates.json?v=20260816a')
                 .then(function (response) {
                     if (!response.ok) {
                         throw new Error('Network');

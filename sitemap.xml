@@ -14,9 +14,15 @@
   </url>
   <url>
     <loc>https://airshopapp.com/updates/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://airshopapp.com/updates/files-page/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://airshopapp.com/updates/shop-issues/</loc>
