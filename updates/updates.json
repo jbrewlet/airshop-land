@@ -5,31 +5,32 @@
     {
       "id": "2026-08-files-page",
       "date": "2026-08-16",
-      "title": "Every customer file in one place",
-      "summary": "Browse customer uploads, inquiry attachments, and Help Scout files in one grid. Preview CAD, download, open in Fusion, and jump to the linked ticket or inquiry.",
+      "title": "Customer upload links and a Files page",
+      "summary": "Send a customer upload link from Help Scout or AirShop. Customers drop photos, video, and CAD. Browse every file on Inquiries → Files: preview, download, or open in Fusion.",
       "featured": true,
       "publicUrl": "/updates/files-page/",
       "ctaLabel": "Read the docs",
-      "ctaUrl": "https://docs.airshop.work/guides/files/",
+      "ctaUrl": "https://docs.airshop.work/setup/customer-uploads/",
       "appArea": "Inquiries",
       "details": [
         {
-          "heading": "One grid for every upload path",
+          "heading": "A link they can actually use",
           "items": [
-            "Customer upload links, inquiry form attachments, and staff inquiry uploads appear together.",
-            "Search by filename or customer, filter by type, and sort by date or size."
+            "Create a link from the Help Scout sidebar, an inquiry drawer (Customer upload link), or a customer record (Upload link under Inquiries → Customers).",
+            "Customers drop photos, video, CAD, or PDFs on a branded page. No AirShop account. Up to 50 MB per file.",
+            "When an inquiry is tied to Help Scout, the sidebar and inquiry drawer reuse the same URL until it expires or you reset it."
           ]
         },
         {
-          "heading": "Preview, download, and open in Fusion",
+          "heading": "Then find every file in one place",
           "items": [
-            "The detail drawer shows thumbnails for photos and 3D models, including STEP and STL previews.",
-            "View full-screen, download a copy, or open compatible CAD in Fusion without a manual download step.",
-            "Source, customer, ticket, and inquiry links stay attached below the preview."
+            "Customer upload links, inquiry form attachments, and staff inquiry uploads appear together on Inquiries → Files.",
+            "Customer uploads also list under Attachments on the linked inquiry, with in-app notifications when a file arrives.",
+            "Preview CAD, download, delete, or open STEP, IGES, and STL in Fusion. Ticket and inquiry links stay attached."
           ]
         },
         {
-          "heading": "Help Scout links forward automatically",
+          "heading": "Help Scout still works the same way",
           "items": [
             "Sidebar thumbs and internal upload notes still work the same way.",
             "Staff view URLs now use /files; legacy /uploads links redirect."
@@ -37,6 +38,13 @@
         }
       ],
       "media": [
+        {
+          "type": "video",
+          "src": "/updates/files-page/customer-upload-page.mp4",
+          "poster": "/updates/files-page/customer-upload-page-poster.jpg",
+          "alt": "Customer upload page: choose a file, upload, then confirmation",
+          "caption": "What the customer sees: drop files or choose files, then a confirmation on the same page."
+        },
         {
           "type": "image",
           "src": "/updates/files-page/files-drawer.png",

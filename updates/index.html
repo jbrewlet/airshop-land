@@ -60,8 +60,8 @@
                 <ul>
                     <li>
                         <time class="fallback-date" datetime="2026-08-16">August 16, 2026</time>
-                        <a href="./files-page/"><span class="fallback-title">Every customer file in one place</span></a>
-                        <span class="fallback-summary">Browse customer uploads, inquiry attachments, and Help Scout files in one grid with previews and Fusion launch.</span>
+                        <a href="./files-page/"><span class="fallback-title">Customer upload links and a Files page</span></a>
+                        <span class="fallback-summary">Send a Help Scout upload link. Customers drop photos, video, and CAD. Then browse every file in one grid.</span>
                     </li>
                     <li>
                         <time class="fallback-date" datetime="2026-07-11">July 11, 2026</time>
@@ -533,7 +533,7 @@
                 timeline.appendChild(block);
             }
 
-            fetch('./updates.json?v=20260816a')
+            fetch('./updates.json?v=20260816c')
                 .then(function (response) {
                     if (!response.ok) {
                         throw new Error('Network');
