@@ -29,11 +29,28 @@
 
 .imts-page .imts-find-justin {
   width: min(320px, 100%);
-  padding: 1.75rem 1.6rem;
+  padding: 0;
   text-align: left;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
+  overflow: hidden;
+}
+
+.imts-page .imts-find-justin-photo {
+  margin: 0;
+  line-height: 0;
+}
+
+.imts-page .imts-find-justin-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.imts-page .imts-find-justin-body {
+  padding: 1.25rem 1.6rem 1.75rem;
 }
 
 .imts-page .imts-find-justin-kicker {
@@ -101,12 +118,37 @@
   background: linear-gradient(180deg, rgba(3, 54, 109, 0.22), rgba(17, 17, 17, 0.4));
 }
 
-.imts-page .imts-tools-copy h2 {
+.imts-page .imts-tools-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
   font-family: 'Action Sans', 'Roboto', sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.15rem);
   color: var(--light-gray);
   line-height: 1.2;
   margin-bottom: 0.85rem;
+}
+
+.imts-page .imts-feature-badge,
+.imts-page .imts-offer-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 89, 24, 0.18);
+  border: 1px solid rgba(255, 89, 24, 0.55);
+  color: var(--orange);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.imts-page .imts-tools-heading .imts-feature-badge {
+  font-size: 0.62rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .imts-page .imts-tools-lead {
@@ -145,67 +187,102 @@
   margin: 0 auto;
   padding: var(--spacing-lg) var(--spacing-md) 0;
   display: grid;
-  gap: var(--spacing-md);
-  justify-items: center;
+  gap: var(--spacing-lg);
+  align-items: center;
 }
 
-.imts-page .imts-tools-support img {
+.imts-page .imts-tools-support-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 34rem;
+}
+
+.imts-page .imts-roadmap-heading {
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  color: var(--light-gray);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.imts-page .imts-roadmap-lead {
+  color: var(--text-body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.imts-page .imts-tools-support-media {
+  margin: 0;
+  justify-self: center;
+}
+
+.imts-page .imts-tools-support-media img {
   width: min(420px, 100%);
   height: auto;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
-}
-
-.imts-page .imts-roadmap-note {
-  color: var(--med-gray);
-  font-size: 0.88rem;
-  text-align: center;
-  max-width: 36rem;
+  display: block;
 }
 
 .imts-page .imts-offer {
-  padding: 0 0 var(--spacing-xl);
+  padding: 0 var(--spacing-md) var(--spacing-xl);
 }
 
-.imts-page .imts-offer-band {
-  position: relative;
-  min-height: 460px;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-}
-
-.imts-page .imts-offer-band > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 20% center;
-}
-
-.imts-page .imts-offer-scrim {
-  position: relative;
-  width: min(560px, 100%);
+.imts-page .imts-offer-card {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: var(--spacing-lg) var(--spacing-md);
-  background: linear-gradient(90deg, rgba(17, 17, 17, 0.92) 0%, rgba(17, 17, 17, 0.72) 70%, rgba(17, 17, 17, 0.15) 100%);
+  display: grid;
+  gap: var(--spacing-lg);
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.imts-page .imts-offer-scrim h2 {
+.imts-page .imts-offer-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 34rem;
+}
+
+.imts-page .imts-offer-heading {
   font-family: 'Action Sans', 'Roboto', sans-serif;
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
   color: var(--light-gray);
-  line-height: 1.15;
-  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  margin: 0;
 }
 
-.imts-page .imts-offer-scrim p {
+.imts-page .imts-offer-lead {
   color: var(--text-body);
   font-size: 1.05rem;
   line-height: 1.55;
-  margin-bottom: 1.25rem;
-  max-width: 28rem;
+  margin: 0;
+}
+
+.imts-page .imts-offer-copy .btn {
+  align-self: flex-start;
+  width: auto;
+  margin-top: 0.35rem;
+}
+
+.imts-page .imts-offer-media {
+  margin: 0;
+  justify-self: center;
+}
+
+.imts-page .imts-offer-media img {
+  width: min(420px, 100%);
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  display: block;
 }
 
 .imts-page .pricing-header {
@@ -259,21 +336,23 @@
   }
 
   .imts-page .imts-tools-support {
-    grid-template-columns: minmax(280px, 380px) 1fr;
-    align-items: center;
-    justify-items: start;
+    grid-template-columns: 1fr minmax(280px, 380px);
+    gap: var(--spacing-xl);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
   }
 
-  .imts-page .imts-roadmap-note {
-    text-align: left;
+  .imts-page .imts-tools-support-media {
+    justify-self: end;
   }
 
-  .imts-page .imts-offer-band {
-    min-height: 520px;
-    align-items: center;
+  .imts-page .imts-offer-card {
+    grid-template-columns: 1fr minmax(280px, 380px);
+    gap: var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
   }
 
-  .imts-page .imts-offer-scrim {
-    padding: var(--spacing-xl);
+  .imts-page .imts-offer-media {
+    justify-self: end;
   }
 }

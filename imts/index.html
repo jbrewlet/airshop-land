@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260908p">
   <link rel="stylesheet" href="/footer.css?v=20260311">
-  <link rel="stylesheet" href="/imts/imts.css?v=20260908e">
+  <link rel="stylesheet" href="/imts/imts.css?v=20260908k">
 </head>
 <body class="imts-page">
   <header class="header">
@@ -41,12 +41,20 @@
         <p class="imts-eyebrow">IMTS 2026, Chicago, Sept 14 to 19</p>
         <h1>Add, manage, and label CNC tools.</h1>
         <p class="imts-subline">A tool library in AirShop, printed CNC Tool Tags on the floor, plus quotes and inventory in the same shop system.</p>
-        <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start your AirShop account</a>
+        <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Get the IMTS deal</a>
       </div>
       <aside class="imts-find-justin">
-        <p class="imts-find-justin-kicker">On the show floor</p>
-        <p class="imts-find-justin-title">Find Justin at IMTS 2026</p>
-        <p class="imts-find-justin-note">Get a surprise.</p>
+        <figure class="imts-find-justin-photo">
+          <picture>
+            <source srcset="/imts/justin-2025.webp?v=20260908n" type="image/webp">
+            <img src="/imts/justin-2025.jpg?v=20260908n" alt="Justin at the machine" width="640" height="640">
+          </picture>
+        </figure>
+        <div class="imts-find-justin-body">
+          <p class="imts-find-justin-kicker">On the show floor</p>
+          <p class="imts-find-justin-title">Find Justin at IMTS 2026</p>
+          <p class="imts-find-justin-note">Get a surprise.</p>
+        </div>
       </aside>
     </div>
   </header>
@@ -54,17 +62,16 @@
   <main>
     <section class="imts-tools" aria-labelledby="imts-tools-heading">
       <div class="imts-tools-split">
-        <figure class="imts-tools-media">
-          <img src="/imts/pdx-bt30-tag-on-holder.jpg" alt="Orange PDX CNC Edgeview tool tag on a BT30 holder">
-        </figure>
         <div class="imts-tools-copy">
-          <p class="imts-eyebrow">New in AirShop</p>
-          <h2 id="imts-tools-heading">Your CNC tools, in the app and on the rack</h2>
+          <h2 id="imts-tools-heading" class="imts-tools-heading">
+            <span class="imts-feature-badge">New:</span>
+            Add, manage, &amp; label CNC tools
+          </h2>
           <p class="imts-tools-lead">Stop hunting holders. Build the library once, keep specs with the tool, and print labels that match the tower on the machine.</p>
           <ul class="imts-tools-points">
             <li>
               <span class="imts-tools-point-label">Add</span>
-              Import a CSV or create tools in the library. Each record gets a code the floor can scan.
+              Import your Airtable tool library CSV to build the library fast, or add tools one at a time. Each record gets a code the floor can scan.
             </li>
             <li>
               <span class="imts-tools-point-label">Manage</span>
@@ -76,22 +83,33 @@
             </li>
           </ul>
         </div>
+        <figure class="imts-tools-media">
+          <img src="/imts/pdx-bt30-tag-on-holder.jpg" alt="Orange PDX CNC Edgeview tool tag on a BT30 holder">
+        </figure>
       </div>
       <div class="imts-tools-support">
-        <img src="/imts/pdx-edgeview-tool-tags-cat40.jpg" alt="PDX CNC Edgeview tool tags on CAT40 holders with fit and edge-view callouts">
-        <p class="imts-roadmap-note">Usage tracking and Fusion tool library sync are on the roadmap. Not shipped yet.</p>
+        <div class="imts-tools-support-copy">
+          <span class="imts-feature-badge">Coming soon</span>
+          <h3 class="imts-roadmap-heading">From rack to CAM, one library</h3>
+          <p class="imts-roadmap-lead">Usage tracking and Fusion tool library sync are in development. Know how long tools have run and keep your CAM library matched to what is on the rack.</p>
+        </div>
+        <figure class="imts-tools-support-media">
+          <img src="/imts/pdx-edgeview-tool-tags-cat40.jpg" alt="PDX CNC Edgeview tool tags on CAT40 holders with fit and edge-view callouts">
+        </figure>
       </div>
     </section>
 
     <section class="imts-offer" aria-labelledby="imts-offer-heading">
-      <div class="imts-offer-band">
-        <img src="/imts/pdx-tool-tag-tower-hero.jpg" alt="" aria-hidden="true">
-        <div class="imts-offer-scrim">
-          <p class="imts-eyebrow">The IMTS offer</p>
-          <h2 id="imts-offer-heading">First Tool Tag Tower is on us</h2>
-          <p>New organizations get a checkout code for a free PDX CNC Tool Tag Tower. Add more towers and CNC Tool Tags for the rest of the shop.</p>
+      <div class="imts-offer-card">
+        <div class="imts-offer-copy">
+          <span class="imts-offer-badge">IMTS offer</span>
+          <h2 id="imts-offer-heading" class="imts-offer-heading">Your first Tool Tag Tower is free</h2>
+          <p class="imts-offer-lead">New organizations get a checkout code for a free PDX CNC Tool Tag Tower when you start with AirShop. Add more towers and CNC Tool Tags as you label the floor.</p>
           <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Claim the tower</a>
         </div>
+        <figure class="imts-offer-media">
+          <img src="/imts/pdx-tool-tag-tower-hero.jpg" alt="PDX CNC Tool Tag Tower with labeled tool holders at a machine">
+        </figure>
       </div>
     </section>
 
@@ -114,13 +132,14 @@
             <h3>Solo</h3>
             <p class="plan-subtext">For the all-hats wearer.</p>
             <p class="price-promo billing-promo" data-monthly="$35/mo" data-annual="$35/mo">$35/mo</p>
-            <p class="price-meta billing-meta" data-monthly="1 user. 10 quotes a month." data-annual="1 user. 10 quotes a month.">1 user. 10 quotes a month.</p>
+            <p class="price-meta billing-meta" data-monthly="1 user. 10 quotes a month. 10 orders a month." data-annual="1 user. 10 quotes a month. 10 orders a month.">1 user. 10 quotes a month. 10 orders a month.</p>
             <ul class="price-features">
               <li><i class="material-icons" aria-hidden="true">check_circle</i> 1 user</li>
               <li><i class="material-icons" aria-hidden="true">check_circle</i> 10 quotes per month</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> 10 orders per month</li>
               <li><i class="material-icons" aria-hidden="true">check_circle</i> Docs only</li>
             </ul>
-            <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start Free Trial</a>
+            <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start with IMTS offer</a>
           </div>
         </div>
         <div class="pricing-card-outer popular">
@@ -135,7 +154,7 @@
               <li><i class="material-icons" aria-hidden="true">check_circle</i> All core features</li>
               <li><i class="material-icons" aria-hidden="true">check_circle</i> Email &amp; chat support</li>
             </ul>
-            <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start Free Trial</a>
+            <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start with IMTS offer</a>
           </div>
         </div>
         <div class="pricing-card-outer">
@@ -150,7 +169,7 @@
               <li><i class="material-icons" aria-hidden="true">check_circle</i> All core features</li>
               <li><i class="material-icons" aria-hidden="true">check_circle</i> Priority email &amp; chat support</li>
             </ul>
-            <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start Free Trial</a>
+            <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start with IMTS offer</a>
           </div>
         </div>
       </div>
