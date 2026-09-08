@@ -662,10 +662,73 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: var(--spacing-md);
             margin-top: var(--spacing-md);
             align-items: start;
+        }
+        .plan-badge {
+            display: inline-block;
+            width: fit-content;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .plan-badge-new {
+            background: rgba(255, 89, 24, 0.18);
+            border: 1px solid rgba(255, 89, 24, 0.55);
+            color: var(--orange);
+        }
+        .pricing-card-new {
+            position: relative;
+        }
+        .pricing-card-new .plan-badge-new {
+            position: absolute;
+            top: 0.7rem;
+            right: 0.7rem;
+            margin: 0;
+            transform: none;
+            z-index: 1;
+        }
+        .pricing-pro-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1.15rem 1.35rem;
+            background: rgba(31, 34, 38, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+        }
+        .pricing-pro-bar-copy h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.35rem;
+            color: var(--light-gray);
+        }
+        .pricing-pro-bar-copy p {
+            color: var(--med-gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .pricing-pro-bar .btn {
+            width: auto;
+            margin-top: 0;
+            min-width: 140px;
+        }
+        .pricing-pro-bar .btn.btn-primary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+            color: #ffffff;
+        }
+        .pricing-pro-bar .btn.btn-primary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.7);
         }
         .pricing-controls {
             display: flex;
@@ -711,23 +774,27 @@
             color: #111;
         }
         .pricing-card-outer {
+            display: flex;
+            flex-direction: column;
             background: #1f2226;
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
             padding: var(--spacing-md);
             text-align: center;
-            min-height: 420px;
+        }
+
+        .pricing-card-outer:not(.popular) {
+            min-height: 30.25rem;
         }
 
         .pricing-card-outer.popular {
             position: relative;
+            min-height: 32.25rem;
             border-color: rgba(255, 255, 255, 0.55);
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
-            transform: translateY(-12px);
-            padding-top: calc(var(--spacing-md) + 0.35rem);
-            padding-bottom: calc(var(--spacing-md) + 0.35rem);
-            min-height: 504px;
-            align-self: start;
+            transform: translateY(-10px);
+            padding-top: calc(var(--spacing-md) + 0.2rem);
+            padding-bottom: calc(var(--spacing-md) + 0.9rem);
         }
 
         .pricing-card-outer.popular::before {
@@ -735,8 +802,9 @@
         }
 
         .pricing-card-outer h3 {
-            font-size:1.2rem;
+            font-size: 1.2rem;
             margin-bottom: 0.35rem;
+            color: var(--light-gray);
         }
         .plan-subtext {
             color: var(--text-muted);
@@ -810,6 +878,18 @@
         .pricing-card-outer .btn.btn-primary:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pricing-card-outer.popular .btn.btn-primary {
+            background-color: var(--orange);
+            color: white;
+            border: none;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card-outer.popular .btn.btn-primary:hover {
+            color: white;
+            background-color: #e04d0a;
         }
 
         .price-features {
@@ -2668,14 +2748,16 @@
             margin-right: 0;
             padding-right: 0.9rem;
         }
-        .pricing-card-outer {
-            min-height: 0;
-        }
         .pricing-card-outer.popular {
             transform: none;
-            padding-top: var(--spacing-md);
-            padding-bottom: var(--spacing-md);
-            min-height: 0;
+        }
+        .pricing-pro-bar {
+            flex-direction: column;
+            align-items: stretch;
+            text-align: center;
+        }
+        .pricing-pro-bar .btn {
+            width: 100%;
         }
     }
 
@@ -3190,7 +3272,6 @@
             <h2 class="section-title">Let's get started</h2>
             <p class="section-subtitle">Select a plan that fits your team needs.</p>
             <div class="pricing-controls">
-                <div class="promo-pill">LIMITED-TIME:&nbsp;&nbsp;50% OFF 6-MONTHS</div>
                 <div class="pricing-toggle" role="group" aria-label="Billing cycle">
                     <button type="button" class="pricing-toggle-btn active" data-billing="monthly">Monthly</button>
                     <button type="button" class="pricing-toggle-btn" data-billing="annual">Annual</button>
@@ -3198,14 +3279,28 @@
             </div>
         </div>
         <div class="pricing-grid">
-            <div class="pricing-card-outer">
+            <div class="pricing-card-outer pricing-card-new">
+                <div class="pricing-card-inner">
+                    <span class="plan-badge plan-badge-new">New</span>
+                    <h3>Solo</h3>
+                    <p class="plan-subtext">For the all-hats wearer.</p>
+                    <p class="price-promo billing-promo" data-monthly="$35/mo" data-annual="$35/mo">$35/mo</p>
+                    <p class="price-meta billing-meta" data-monthly="1 user. 10 quotes a month." data-annual="1 user. 10 quotes a month.">1 user. 10 quotes a month.</p>
+                    <ul class="price-features">
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> 1 user</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> 10 quotes per month</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Docs only</li>
+                    </ul>
+                    <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
+                </div>
+            </div>
+            <div class="pricing-card-outer popular">
                 <div class="pricing-card-inner">
                     <h3>Starter</h3>
                     <p class="plan-subtext">For small shops getting organized.</p>
-                    <p class="price-original billing-original" data-monthly="$99/mo" data-annual="$99/mo">$99/mo</p>
-                    <p class="price-promo billing-promo" data-monthly="$49/mo" data-annual="$41/mo">$49/mo</p>
-                    <p class="price-meta billing-meta" data-monthly="6 months, then $99/mo" data-annual="6 months, then $99/mo">6 months, then $99/mo</p>
-                    <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $96/YEAR"></span>
+                    <p class="price-promo billing-promo" data-monthly="$99/mo" data-annual="$83/mo">$99/mo</p>
+                    <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed annually">Billed monthly</p>
+                    <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $192/YEAR"></span>
                     <ul class="price-features">
                         <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Up to 2 users</li>
                         <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
@@ -3214,14 +3309,13 @@
                     <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
                 </div>
             </div>
-            <div class="pricing-card-outer popular">
+            <div class="pricing-card-outer">
                 <div class="pricing-card-inner">
                     <h3>Team</h3>
                     <p class="plan-subtext">For growing teams ready to scale.</p>
-                    <p class="price-original billing-original" data-monthly="$299/mo" data-annual="$299/mo">$299/mo</p>
-                    <p class="price-promo billing-promo" data-monthly="$149/mo" data-annual="$124/mo">$149/mo</p>
-                    <p class="price-meta billing-meta" data-monthly="6 months, then $299/mo" data-annual="6 months, then $299/mo">6 months, then $299/mo</p>
-                    <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $300/YEAR"></span>
+                    <p class="price-promo billing-promo" data-monthly="$299/mo" data-annual="$249/mo">$299/mo</p>
+                    <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed annually">Billed monthly</p>
+                    <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $600/YEAR"></span>
                     <ul class="price-features">
                         <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Up to 10 users</li>
                         <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
@@ -3230,20 +3324,13 @@
                     <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
                 </div>
             </div>
-            <div class="pricing-card-outer">
-                <div class="pricing-card-inner">
-                    <h3>Pro</h3>
-                    <p class="plan-subtext">For larger teams with advanced needs.</p>
-                    <p class="price-promo">Custom</p>
-                    <p class="price-meta">Contact us for pricing.</p>
-                    <ul class="price-features">
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Unlimited users</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Dedicated support</li>
-                    </ul>
-                    <a href="https://cal.com/airshop/demo" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Contact Us</a>
-                </div>
+        </div>
+        <div class="pricing-pro-bar">
+            <div class="pricing-pro-bar-copy">
+                <h3>Pro</h3>
+                <p>Unlimited users, all core features, and dedicated support. Custom pricing.</p>
             </div>
+            <a href="https://cal.com/airshop/demo" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Contact Us</a>
         </div>
         <p class="cta-inline-links pricing-secondary-cta"><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
     </section>
@@ -3437,7 +3524,7 @@
             <div class="faq-item">
                 <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">What does this cost?</button>
                 <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
-                    <p>Starts at $99/month for small teams. Get a discount for paying annually.</p>
+                    <p>Starts at $35/month for Solo, $99/month for Starter. Get a discount for paying annually.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -3504,39 +3591,7 @@
     <script src="js/cal-embed.js"></script>
     <script src="js/load-footer.js?v=20260304"></script>
     <script src="js/guide-signup.js"></script>
-    <script>
-        (function setupPricingToggle() {
-            var toggleButtons = document.querySelectorAll('.pricing-toggle-btn');
-            if (!toggleButtons.length) return;
-
-            function setBillingMode(mode) {
-                toggleButtons.forEach(function(btn) {
-                    btn.classList.toggle('active', btn.getAttribute('data-billing') === mode);
-                });
-
-                document.querySelectorAll('.billing-original, .billing-promo, .billing-meta').forEach(function(el) {
-                    var nextValue = el.getAttribute('data-' + mode);
-                    if (nextValue) {
-                        el.textContent = nextValue;
-                    }
-                });
-
-                document.querySelectorAll('.billing-plan-savings').forEach(function(el) {
-                    var nextValue = el.getAttribute('data-' + mode) || '';
-                    el.textContent = nextValue;
-                    el.classList.toggle('is-active', Boolean(nextValue));
-                });
-
-            }
-
-            toggleButtons.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var mode = btn.getAttribute('data-billing') || 'monthly';
-                    setBillingMode(mode);
-                });
-            });
-        })();
-    </script>
+    <script src="js/pricing-toggle.js"></script>
 
     <!-- Save Estimate Modal -->
     <div class="roi-modal-overlay" id="save-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="save-modal-title" aria-describedby="save-modal-description">
