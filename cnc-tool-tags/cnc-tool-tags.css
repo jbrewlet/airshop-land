@@ -237,6 +237,17 @@
   letter-spacing: 0.02em;
 }
 
+.ctt-page .ctt-proof-grid .feature-icon {
+  color: var(--orange);
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.ctt-page .ctt-proof-grid .feature-icon .material-icons {
+  font-size: inherit;
+}
+
 .ctt-page .ctt-pain-grid h3,
 .ctt-page .ctt-proof-grid strong {
   display: block;
@@ -421,13 +432,9 @@
   margin-top: var(--spacing-sm);
 }
 
-.ctt-page .ctt-proof-inner .ctt-hero-actions {
-  justify-content: flex-start;
-  margin-top: 1.75rem;
-}
-
-.ctt-page .ctt-pains-inner .faq-cta {
-  margin-top: 1.75rem;
+.ctt-page .ctt-pains-inner .faq-cta,
+.ctt-page .ctt-proof-inner .faq-cta {
+  margin-top: var(--spacing-lg);
 }
 
 .ctt-page .ctt-tools-copy .ctt-hero-actions {
