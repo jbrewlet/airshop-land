@@ -59,15 +59,16 @@
     .page-intro p { color: var(--med-gray); }
 
     .detailed-features {
-      padding: var(--spacing-lg) 0;
+      padding: var(--spacing-lg) var(--spacing-md);
       margin-top: var(--spacing-lg);
       border-radius: 24px;
     }
     .feature-categories {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
       gap: var(--spacing-lg);
       margin-top: var(--spacing-lg);
+      padding: 0 var(--spacing-sm);
     }
     .feature-category {
       background: linear-gradient(165deg, rgba(3,54,109,.2), rgba(34,34,34,.1));
@@ -238,12 +239,24 @@
                         <p>Know your cost and profit on each item before you send.</p>
                     </li>
                     <li>
-                        <h4>2D / 3D / PDF Viewer<span class="badge badge-new">NEW</span></h4>
+                        <h4>2D / 3D / PDF Viewer</h4>
                         <p>View drawings and models directly in your inquiries and on customer quotes to convert faster and impress your customers.</p>
                     </li>
                     <li>
-                        <h4>Get Paid Faster<span class="badge badge-soon">SOON</span></h4>
+                        <h4>Get Paid Faster<span class="badge badge-new">NEW</span></h4>
                         <p>Take partial or full payments instantly after quote acceptance with built-in Stripe integration (ACH and credit card).</p>
+                    </li>
+                    <li>
+                        <h4>Built-in Email Composer</h4>
+                        <p>Write and send mail inside AirShop. Pick a template, fill smart placeholders from contacts and items, preview, then send via AirShop email or your mail client.</p>
+                    </li>
+                    <li>
+                        <h4>Reusable Email Templates</h4>
+                        <p>Create templates for customer updates, courier and freight requests, vendor purchase orders, and general messages.</p>
+                    </li>
+                    <li>
+                        <h4>Drafts, Sent &amp; Labels</h4>
+                        <p>Save work in progress, schedule sends, review sent history, and organize mail with custom labels.</p>
                     </li>
                 </ul>
             </div>
@@ -264,6 +277,10 @@
                         <p>Moving to a new system sucks, we've built a quick bulk import tool to make that easy.</p>
                     </li>
                     <li>
+                        <h4>CNC Tool Library<span class="badge badge-new">NEW</span></h4>
+                        <p>Build your CNC tool library, keep specs with each holder, and print tool tags with QR codes and AirShop Codes for fast floor lookup.</p>
+                    </li>
+                    <li>
                         <h4>Kanban Cards & Labels</h4>
                         <p>Print physical cards & labels in multiple sizes to trigger reorders and manage inventory visually.</p>
                     </li>
@@ -276,11 +293,11 @@
                         <p>No more copying data between spreadsheets or from your Amazon orders. Use your items directly in your quotes.</p>
                     </li>
                     <li>
-                        <h4>Duplicate Finder<span class="badge badge-new">NEW</span></h4>
+                        <h4>Duplicate Finder</h4>
                         <p>Keep your inventory clean with automated duplicate detection and merging tools.</p>
                     </li>
                     <li>
-                        <h4>Stocktake<span class="badge badge-new">NEW</span></h4>
+                        <h4>Stocktake</h4>
                         <p>Perform fast, accurate inventory counts using a desktop or mobile device. Keep your stock levels in sync without the paperwork. <em>Great for end of year count.</em></p>
                     </li>
                     <li>
@@ -314,11 +331,11 @@
                         <p>Stop jumping between tabs. See customer data right in your Help Scout sidebar, and keep your notes and status in sync automatically.</p>
                     </li>
                     <li>
-                        <h4>Bulk Contact & Org Import<span class="badge badge-new">NEW</span></h4>
+                        <h4>Bulk Contact & Org Import</h4>
                         <p>Get started fast by uploading your contacts and organizations into AirShop.</p>
                     </li>
                     <li>
-                        <h4>Organization Overview<span class="badge badge-new">NEW</span></h4>
+                        <h4>Organization Overview</h4>
                         <p>See contacts in an organization and all their activity.</p>
                     </li>
                 </ul>
