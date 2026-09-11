@@ -1101,6 +1101,10 @@
         transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
+    a.feature-card {
+        color: inherit;
+    }
+
     .feature-card h3 {
         font-family: Action Sans, sans-serif;
         font-size: 1.35rem;
@@ -2602,6 +2606,14 @@
         flex: 0 0 260px;
     }
 
+    .shopboard-promo-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        display: block;
+    }
+
     .shopboard-promo-screen-box {
         background: #0d0d0d;
         border: 1px solid rgba(255,255,255,0.12);
@@ -3265,11 +3277,11 @@
                 <p>Create professional quotes in minutes with intelligent templates, automated pricing calculations, and material cost tracking.</p>
             </div>
 
-            <div class="feature-card">
+            <a class="feature-card" href="/cnc-tool-tags/">
                 <div class="feature-icon"><i class="material-icons">precision_manufacturing</i></div>
                 <h3>CNC Tool Library<span class="badge badge-new">NEW</span></h3>
                 <p>Build your CNC tool library, keep specs with each holder, and print tool tags with QR codes and AirShop Codes for fast floor lookup.</p>
-            </div>
+            </a>
 
             <div class="feature-card">
                 <div class="feature-icon"><i class="material-icons">mail</i></div>
@@ -3331,7 +3343,23 @@
                 style="margin-top: calc(var(--spacing-lg) * 2); display: block; width: fit-content; margin-left: auto; margin-right: auto;">
             Start Free Trial
         </a>
-        <p class="cta-inline-links"><a href="/features-and-integrations/">See all features</a><span class="divider">·</span><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
+        <p class="cta-inline-links"><a href="/features-and-integrations/">See all features</a><span class="divider">·</span><a href="/cnc-tool-tags/">CNC tool tags</a><span class="divider">·</span><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Let's Chat</a></p>
+    </section>
+
+    <section class="shopboard-promo container">
+        <div class="shopboard-promo-inner">
+            <div class="shopboard-promo-copy">
+                <span class="shopboard-promo-badge">New</span>
+                <h3>CNC tool tags from your library</h3>
+                <p>Build the CNC tool library in AirShop, print labels, and fold them onto PDX CNC Edgeview tags. The holder on the rack matches the record.</p>
+                <a href="/cnc-tool-tags/" class="shopboard-promo-link">
+                    See CNC tool tags <i class="material-icons" aria-hidden="true">arrow_forward</i>
+                </a>
+            </div>
+            <div class="shopboard-promo-visual">
+                <img src="/cnc-tool-tags/pdx-tool-tag-tower-hero.jpg" alt="PDX CNC Tool Tag Tower with labeled holders at a machine">
+            </div>
+        </div>
     </section>
 
 

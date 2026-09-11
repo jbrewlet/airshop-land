@@ -87,6 +87,7 @@
     .feature-list li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
     .feature-list h4 { color: var(--light-gray); margin-bottom: 0.35rem; font-size: 1.05rem; }
     .feature-list p { color: var(--med-gray); font-size: 0.95rem; line-height: 1.6; }
+    .feature-list .integration-link { margin-top: 0.45rem; }
     .badge { font-size: 0.6em; margin-left: 8px; font-weight: bold; }
     .badge-soon { color: var(--orange); }
     .badge-new { color: var(--green); }
@@ -279,6 +280,7 @@
                     <li>
                         <h4>CNC Tool Library<span class="badge badge-new">NEW</span></h4>
                         <p>Build your CNC tool library, keep specs with each holder, and print tool tags with QR codes and AirShop Codes for fast floor lookup.</p>
+                        <a class="integration-link" href="/cnc-tool-tags/">See CNC tool tags <span aria-hidden="true">→</span></a>
                     </li>
                     <li>
                         <h4>Kanban Cards & Labels</h4>
@@ -381,6 +383,12 @@
       <h2>Integrations</h2>
       <p class="integrations-intro">Plug AirShop into the tools your team already uses, so quoting, support, and payment workflows stay connected from first inquiry to final handoff.</p>
       <div class="integration-grid">
+        <article class="integration-card">
+          <span class="integration-type">CNC Floor</span>
+          <h3>CNC Tool Tags</h3>
+          <p>Build the tool library in AirShop and print labels that fold onto PDX CNC Edgeview tags and the Tool Tag Tower.</p>
+          <a class="integration-link" href="/cnc-tool-tags/">Explore CNC tool tags <span aria-hidden="true">→</span></a>
+        </article>
         <article class="integration-card">
           <span class="integration-type">CAD Workflow</span>
           <h3>Open in Autodesk Fusion</h3>
