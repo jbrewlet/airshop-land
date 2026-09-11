@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260908p">
+  <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260911f">
   <link rel="stylesheet" href="/footer.css?v=20260311">
   <link rel="stylesheet" href="/imts/imts.css?v=20260908k">
 </head>
@@ -38,9 +38,9 @@
 
     <div class="imts-hero container">
       <div class="imts-hero-copy">
-        <p class="imts-eyebrow">IMTS 2026, Chicago, Sept 14 to 19</p>
-        <h1>Add, manage, and label CNC tools.</h1>
-        <p class="imts-subline">A tool library in AirShop, printed CNC Tool Tags on the floor, plus quotes and inventory in the same shop system.</p>
+        <p class="imts-eyebrow" data-imts-eyebrow>IMTS 2026, Chicago, Sept 14 to 19</p>
+        <h1 data-imts-title>Add, manage, and label CNC tools.</h1>
+        <p class="imts-subline" data-imts-subline>A tool library in AirShop, printed CNC Tool Tags on the floor, plus quotes and inventory in the same shop system.</p>
         <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Get the IMTS deal</a>
       </div>
       <aside class="imts-find-justin">
@@ -53,7 +53,7 @@
         <div class="imts-find-justin-body">
           <p class="imts-find-justin-kicker">On the show floor</p>
           <p class="imts-find-justin-title">Find Justin at IMTS 2026</p>
-          <p class="imts-find-justin-note">Get a surprise.</p>
+          <p class="imts-find-justin-note" data-imts-justin-note>Get a surprise.</p>
         </div>
       </aside>
     </div>
@@ -132,12 +132,11 @@
             <h3>Solo</h3>
             <p class="plan-subtext">For the all-hats wearer.</p>
             <p class="price-promo billing-promo" data-monthly="$35/mo" data-annual="$35/mo">$35/mo</p>
-            <p class="price-meta billing-meta" data-monthly="1 user. 10 quotes a month. 10 orders a month." data-annual="1 user. 10 quotes a month. 10 orders a month.">1 user. 10 quotes a month. 10 orders a month.</p>
+            <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed monthly">Billed monthly</p>
             <ul class="price-features">
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> 1 user</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> 10 quotes per month</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> 10 orders per month</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Docs only</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="One AirShop login seat for your organization." tabindex="0">1 user</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Create and send up to 10 quotes each billing month." tabindex="0">10 quotes per month</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Track up to 10 purchase orders each billing month." tabindex="0">10 orders per month</span></li>
             </ul>
             <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start with IMTS offer</a>
           </div>
@@ -150,9 +149,10 @@
             <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed annually">Billed monthly</p>
             <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $192/YEAR"></span>
             <ul class="price-features">
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Up to 2 users</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> All core features</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Email &amp; chat support</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Two team members can log in under one organization." tabindex="0">Up to 2 users</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Quotes, inventory, inquiries, customers, payments, and integrations." tabindex="0">All core features</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Connect a Raspberry Pi shop floor display for live inquiry and quote updates from AirShop. Private beta." tabindex="0">Shopboard Sync</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Reach our team by email or in-app chat during business hours." tabindex="0">Email &amp; chat support</span></li>
             </ul>
             <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start with IMTS offer</a>
           </div>
@@ -165,9 +165,10 @@
             <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed annually">Billed monthly</p>
             <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $600/YEAR"></span>
             <ul class="price-features">
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Up to 10 users</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> All core features</li>
-              <li><i class="material-icons" aria-hidden="true">check_circle</i> Priority email &amp; chat support</li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Ten team members can log in under one organization." tabindex="0">Up to 10 users</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Quotes, inventory, inquiries, customers, payments, and integrations." tabindex="0">All core features</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Connect a Raspberry Pi shop floor display for live inquiry and quote updates from AirShop. Private beta." tabindex="0">Shopboard Sync</span></li>
+              <li><i class="material-icons" aria-hidden="true">check_circle</i> <span class="price-feature-tip" data-tooltip="Faster responses from our team by email or in-app chat." tabindex="0">Priority email &amp; chat support</span></li>
             </ul>
             <a href="https://airshop.work/onboarding?src=imts26" class="btn btn-primary">Start with IMTS offer</a>
           </div>
@@ -176,7 +177,7 @@
       <div class="pricing-pro-bar">
         <div class="pricing-pro-bar-copy">
           <h3>Pro</h3>
-          <p>Unlimited users, all core features, and dedicated support. Custom pricing.</p>
+          <p class="plan-subtext">Unlimited users and dedicated support. Custom pricing for larger teams.</p>
         </div>
         <a href="https://cal.com/airshop/demo" class="btn btn-primary">Contact Us</a>
       </div>
@@ -186,5 +187,7 @@
   <div id="footer-placeholder"></div>
   <script src="/js/load-footer.js?v=20260304"></script>
   <script src="/js/pricing-toggle.js"></script>
+  <script src="/imts/found-tag.js?v=20260911a"></script>
 </body>
 </html>
+

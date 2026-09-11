@@ -43,6 +43,8 @@
         "description": "The shop management tool built by manufacturers. Quoting, Inventory, and Payments in one place. 14-day free trial, no credit card, sample data included.",
         "featureList": [
             "Smart Quoting",
+            "CNC Tool Library",
+            "Emails",
             "Inventory Management",
             "Get Paid Faster",
             "Connected Workflow",
@@ -657,7 +659,8 @@
 
         /* Pricing Section */
         .pricing {
-            padding: var(--spacing-lg) 0;
+            padding-block: var(--spacing-lg);
+            padding-inline: clamp(2.5rem, 8vw, 5rem);
         }
 
         .pricing-grid {
@@ -665,8 +668,12 @@
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: var(--spacing-md);
             margin-top: var(--spacing-md);
+            margin-inline: auto;
             align-items: start;
+            width: 100%;
+            max-width: 100%;
         }
+
         .plan-badge {
             display: inline-block;
             width: fit-content;
@@ -695,12 +702,16 @@
         }
         .pricing-pro-bar {
             display: flex;
+            flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             gap: 1rem 1.5rem;
             margin-top: 1.5rem;
+            margin-inline: auto;
             padding: 1.15rem 1.35rem;
+            width: 100%;
+            max-width: 100%;
             background: rgba(31, 34, 38, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
@@ -869,6 +880,11 @@
         .pricing-card-outer .btn {
             width: 100%;
             margin-top: var(--spacing-sm);
+            white-space: nowrap;
+            padding-inline: 0.85rem;
+            letter-spacing: 0.4px;
+            font-size: 0.85rem;
+            max-height: none;
         }
         .pricing-card-outer .btn.btn-primary {
             background: rgba(255, 255, 255, 0.03);
@@ -904,6 +920,61 @@
         .price-features li {
             margin-bottom: 0.5rem;
             list-style: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.45rem;
+            line-height: 1.4;
+        }
+
+        .price-features li .material-icons {
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .price-feature-tip {
+            cursor: help;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.35);
+            position: relative;
+        }
+
+        .price-feature-tip:hover::after,
+        .price-feature-tip:focus-visible::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 0;
+            bottom: calc(100% + 6px);
+            background: #333;
+            border: 1px solid var(--med-gray);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            width: min(240px, 70vw);
+            z-index: 20;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            line-height: 1.4;
+            color: var(--light-gray);
+            font-weight: 400;
+            pointer-events: none;
+        }
+
+        @media (min-width: 700px) and (max-width: 899px) {
+            .pricing {
+                padding-inline: 2rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .pricing-pro-bar {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 100%;
+            }
         }
 
         /* Email Signup */
@@ -963,6 +1034,10 @@
             .container {
                 padding: 0 var(--spacing-sm);
             }
+            .pricing.container {
+                padding-block: var(--spacing-lg);
+                padding-inline: var(--spacing-md);
+            }
             
             /* Fix feature categories padding */
             .feature-categories {
@@ -1018,20 +1093,41 @@
     .feature-card {
         flex: 0 0 min(320px, 85vw);
         scroll-snap-align: start;
-        background: linear-gradient(145deg, var(--navy), var(--teal));
+        background: #1a2433;
+        border: 1px solid rgba(255, 255, 255, 0.12);
         padding: var(--spacing-md);
         border-radius: 12px;
         cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .feature-card h3 {
         font-family: Action Sans, sans-serif;
         font-size: 1.35rem;
+        color: var(--light-gray);
+    }
+
+    .feature-card p {
+        color: var(--text-muted);
+    }
+
+    .feature-card h3 .badge {
+        font-size: 0.45em;
+        margin-left: 6px;
+        vertical-align: middle;
+    }
+
+    .feature-card h3 .badge-new {
+        color: #b9f6ca;
+        background: rgba(46, 125, 50, 0.18);
+        border: 1px solid rgba(46, 125, 50, 0.45);
+        box-shadow: none;
+        animation: none;
     }
 
     .feature-card:hover {
         transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.22);
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     }
 
@@ -1471,7 +1567,7 @@
 
     .feature-categories {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
         gap: var(--spacing-lg);
         margin-top: var(--spacing-lg);
         padding: 0 var(--spacing-sm);
@@ -3168,6 +3264,18 @@
                 <h3>Smart Quoting</h3>
                 <p>Create professional quotes in minutes with intelligent templates, automated pricing calculations, and material cost tracking.</p>
             </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="material-icons">precision_manufacturing</i></div>
+                <h3>CNC Tool Library<span class="badge badge-new">NEW</span></h3>
+                <p>Build your CNC tool library, keep specs with each holder, and print tool tags with QR codes and AirShop Codes for fast floor lookup.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="material-icons">mail</i></div>
+                <h3>Emails</h3>
+                <p>Built-in composer with reusable templates, drafts, and sent history. Send customer updates, freight requests, vendor orders, and more without leaving AirShop.</p>
+            </div>
             
             <div class="feature-card">
                 <div class="feature-icon"><i class="material-icons">inventory</i></div>
@@ -3177,7 +3285,7 @@
 
             <div class="feature-card">
                 <div class="feature-icon"><i class="material-icons">payments</i></div>
-                <h3>Get Paid Faster</h3>
+                <h3>Get Paid Faster<span class="badge badge-new">NEW</span></h3>
                 <p>Professional invoicing, Stripe/ACH integration. Take deposits or full payment right inside the app.</p>
             </div>
             
@@ -3232,7 +3340,7 @@
             <div class="shopboard-promo-copy">
                 <span class="shopboard-promo-badge">New</span>
                 <h3>Shopboard — a live display for your team</h3>
-                <p>Turn a Raspberry Pi into a shop floor display with announcements, calendar events, and Shopify sales. Included with every AirShop plan.</p>
+                <p>Turn a Raspberry Pi into a shop floor display with announcements, calendar events, and Shopify sales. Live AirShop sync on Starter and above. Solo includes Shopboard in personal mode (private beta).</p>
                 <a href="/shopboard" class="shopboard-promo-link">
                     See Shopboard <i class="material-icons" aria-hidden="true">arrow_forward</i>
                 </a>
@@ -3285,12 +3393,11 @@
                     <h3>Solo</h3>
                     <p class="plan-subtext">For the all-hats wearer.</p>
                     <p class="price-promo billing-promo" data-monthly="$35/mo" data-annual="$35/mo">$35/mo</p>
-                    <p class="price-meta billing-meta" data-monthly="1 user. 10 quotes a month. 10 orders a month." data-annual="1 user. 10 quotes a month. 10 orders a month.">1 user. 10 quotes a month. 10 orders a month.</p>
+                    <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed monthly">Billed monthly</p>
                     <ul class="price-features">
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> 1 user</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> 10 quotes per month</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> 10 orders per month</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Docs only</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="One AirShop login seat for your organization." tabindex="0">1 user</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Create and send up to 10 quotes each billing month." tabindex="0">10 quotes per month</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Track up to 10 purchase orders each billing month." tabindex="0">10 orders per month</span></li>
                     </ul>
                     <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
                 </div>
@@ -3303,9 +3410,10 @@
                     <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed annually">Billed monthly</p>
                     <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $192/YEAR"></span>
                     <ul class="price-features">
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Up to 2 users</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Email &amp; chat support</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Two team members can log in under one organization." tabindex="0">Up to 2 users</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Quotes, inventory, inquiries, customers, payments, and integrations." tabindex="0">All core features</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Connect a Raspberry Pi shop floor display for live inquiry and quote updates from AirShop. Private beta." tabindex="0">Shopboard Sync</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Reach our team by email or in-app chat during business hours." tabindex="0">Email &amp; chat support</span></li>
                     </ul>
                     <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
                 </div>
@@ -3318,9 +3426,10 @@
                     <p class="price-meta billing-meta" data-monthly="Billed monthly" data-annual="Billed annually">Billed monthly</p>
                     <span class="plan-savings billing-plan-savings" data-monthly="" data-annual="SAVE $600/YEAR"></span>
                     <ul class="price-features">
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Up to 10 users</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> All core features</li>
-                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> Priority email &amp; chat support</li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Ten team members can log in under one organization." tabindex="0">Up to 10 users</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Quotes, inventory, inquiries, customers, payments, and integrations." tabindex="0">All core features</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Connect a Raspberry Pi shop floor display for live inquiry and quote updates from AirShop. Private beta." tabindex="0">Shopboard Sync</span></li>
+                        <li><i class="material-icons" style="color: var(--green); font-size: 1rem; vertical-align: middle;">check_circle</i> <span class="price-feature-tip" data-tooltip="Faster responses from our team by email or in-app chat." tabindex="0">Priority email &amp; chat support</span></li>
                     </ul>
                     <a href="https://airshop.work/onboarding" class="btn btn-primary">Start Free Trial</a>
                 </div>
@@ -3329,7 +3438,7 @@
         <div class="pricing-pro-bar">
             <div class="pricing-pro-bar-copy">
                 <h3>Pro</h3>
-                <p>Unlimited users, all core features, and dedicated support. Custom pricing.</p>
+                <p class="plan-subtext">Unlimited users and dedicated support. Custom pricing for larger teams.</p>
             </div>
             <a href="https://cal.com/airshop/demo" class="btn btn-primary cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Contact Us</a>
         </div>
@@ -3525,7 +3634,7 @@
             <div class="faq-item">
                 <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">What does this cost?</button>
                 <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
-                    <p>Starts at $35/month for Solo, $99/month for Starter. Get a discount for paying annually.</p>
+                    <p>Solo is $35/month. Starter and Team start at $99/month and $299/month, with a discount when you pay annually. Solo is monthly only.</p>
                 </div>
             </div>
             <div class="faq-item">
