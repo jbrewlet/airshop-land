@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260911f">
   <link rel="stylesheet" href="/footer.css?v=20260311">
-  <link rel="stylesheet" href="/imts/imts.css?v=20260908k">
+  <link rel="stylesheet" href="/imts/imts.css?v=20260912a">
 </head>
 <body class="imts-page">
   <header class="header">
@@ -35,6 +35,16 @@
         <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
       </div>
     </nav>
+
+    <div class="imts-found-prize" data-imts-found-prize hidden>
+      <div class="imts-found-prize-inner">
+        <span class="imts-found-prize-pill">SCAN FOR PRIZE</span>
+        <div>
+          <p class="imts-found-prize-line">This time scanning a QR pays off. Get a free Tool Tag Tower.</p>
+          <a class="imts-found-prize-claim" href="https://airshop.work/onboarding?src=imts26">Claim it.</a>
+        </div>
+      </div>
+    </div>
 
     <div class="imts-hero container">
       <div class="imts-hero-copy">
@@ -60,6 +70,35 @@
   </header>
 
   <main>
+    <section class="imts-found-story" data-imts-found-story hidden>
+      <div class="imts-found-story-inner">
+        <h2>What you just scanned</h2>
+        <p class="imts-found-story-lead">That QR is the same kind of code a shop puts on every holder. This one opens AirShop instead of a tool record. Start an account and the first PDX CNC Tool Tag Tower is free.</p>
+        <ol class="imts-found-points">
+          <li>
+            <span>1</span>
+            <div>
+              <strong>A real tool tag</strong>
+              <p>Photo, flute count, gauge length, and a scan target on 2.125 by 1 inch stock.</p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <strong>A library the floor can use</strong>
+              <p>Add tools, print labels, fold them onto Edgeview tags, and keep the rack matched to the record.</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <strong>A free tower at IMTS</strong>
+              <p>Create an account. We send the checkout code. Find Justin at the show this year.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
     <section class="imts-tools" aria-labelledby="imts-tools-heading">
       <div class="imts-tools-split">
         <div class="imts-tools-copy">
@@ -82,6 +121,7 @@
               Print CNC Tool Tag labels, QR codes, and <strong>AirShop Codes</strong> that make edits or lookup super fast.
             </li>
           </ul>
+          <p class="cta-inline-links imts-tools-more"><a href="/cnc-tool-tags/">See the CNC tool tags page</a></p>
         </div>
         <figure class="imts-tools-media">
           <img src="/imts/pdx-bt30-tag-on-holder.jpg" alt="Orange PDX CNC Edgeview tool tag on a BT30 holder">
@@ -181,13 +221,15 @@
         </div>
         <a href="https://cal.com/airshop/demo" class="btn btn-primary">Contact Us</a>
       </div>
+      <p class="cta-inline-links pricing-secondary-cta"><a href="https://cal.com/airshop/demo" class="cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Want to chat?</a></p>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
   <script src="/js/load-footer.js?v=20260304"></script>
   <script src="/js/pricing-toggle.js"></script>
-  <script src="/imts/found-tag.js?v=20260911a"></script>
+  <script src="/js/cal-embed.js" data-cal-variant="demo-only"></script>
+  <script src="/imts/found-tag.js?v=20260912a"></script>
 </body>
 </html>
 

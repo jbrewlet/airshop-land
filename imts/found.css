@@ -1,0 +1,342 @@
+.imts-found-page {
+  background: var(--dark-gray);
+  color: var(--text-body);
+}
+
+.imts-found-page .imts-found-bar {
+  background: var(--navy);
+  color: #fff;
+  padding: 1.15rem 1.25rem;
+}
+
+.imts-found-page .imts-found-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  min-width: 0;
+}
+
+.imts-found-page .imts-found-bar .logo {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.imts-found-page .imts-found-bar .logo img {
+  height: 28px;
+  width: auto;
+}
+
+.imts-found-page .imts-found-bar .nav-links {
+  flex-shrink: 0;
+}
+
+.imts-found-page .imts-found-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.imts-found-page .imts-found-learn .material-icons {
+  font-size: 0.95rem;
+}
+
+.imts-found-page .imts-found-prize {
+  display: block;
+  padding: 1.15rem 1.25rem;
+}
+
+.imts-found-page .imts-found-prize-inner {
+  gap: 1.25rem 2rem;
+}
+
+.imts-found-page .imts-found-hero {
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.imts-found-page .imts-found-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.imts-found-page .imts-found-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+}
+
+.imts-found-page .imts-found-hero h1 {
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--light-gray);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.imts-found-page .imts-found-hero-copy p {
+  color: var(--text-body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 32.5rem;
+  margin: 0;
+}
+
+.imts-found-page .imts-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.imts-found-page .imts-found-secondary {
+  display: inline-block;
+  padding: 0.55rem 1.15rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--light-gray);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.imts-found-page .imts-found-secondary:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.imts-found-page .imts-found-hero-media {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.imts-found-page .imts-found-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.imts-found-page .imts-found-story {
+  display: block;
+  padding: 0 var(--spacing-md) var(--spacing-lg);
+}
+
+.imts-found-page .imts-found-story-inner {
+  max-width: 1100px;
+}
+
+.imts-found-page .imts-found-story h2,
+.imts-found-page .imts-found-tapers h2,
+.imts-found-page .imts-offer-heading {
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  color: var(--light-gray);
+}
+
+.imts-found-page .imts-found-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.imts-found-page .imts-found-point {
+  padding: 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.imts-found-page .imts-found-point span {
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.imts-found-page .imts-found-point strong {
+  display: block;
+  color: var(--light-gray);
+  margin: 0.35rem 0 0.45rem;
+}
+
+.imts-found-page .imts-found-tapers {
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+}
+
+.imts-found-page .imts-found-tapers-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.imts-found-page .imts-found-tapers-lead {
+  color: var(--text-body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  width: max-content;
+  max-width: 100%;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.imts-found-page .imts-found-taper-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-md);
+}
+
+.imts-found-page .imts-found-taper {
+  margin: 0;
+  text-align: center;
+}
+
+.imts-found-page .imts-found-taper img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.imts-found-page .imts-found-taper figcaption {
+  margin-top: 0.65rem;
+}
+
+.imts-found-page .imts-found-taper strong {
+  display: block;
+  color: var(--light-gray);
+  font-size: 0.9rem;
+}
+
+.imts-found-page .imts-found-taper span {
+  display: block;
+  color: var(--med-gray);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.imts-found-page .imts-found-close {
+  padding: 0 var(--spacing-md) var(--spacing-lg);
+}
+
+.imts-found-page .imts-found-close-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.imts-found-page .imts-found-close .imts-offer-card {
+  margin: 0;
+  width: 100%;
+}
+
+.imts-found-page .imts-found-close .imts-offer-copy {
+  max-width: 40rem;
+}
+
+.imts-found-page .imts-found-floor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md) 3rem;
+}
+
+.imts-found-page .imts-found-floor .imts-offer-copy {
+  max-width: 22rem;
+}
+
+.imts-found-page .imts-found-floor .imts-found-kicker {
+  margin: 0;
+}
+
+.imts-found-page .imts-found-close .imts-find-justin {
+  width: min(260px, 100%);
+  flex: 0 0 auto;
+}
+
+.imts-found-page .imts-found-note {
+  padding: 1.25rem var(--spacing-md) 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--med-gray);
+  font-size: 0.8rem;
+}
+
+.imts-found-page .imts-found-note p {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.imts-found-page .imts-found-note a {
+  color: var(--light-gray);
+}
+
+.imts-found-page .imts-found-note a:hover {
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  .imts-found-page .imts-found-bar .logo img {
+    height: 32px;
+  }
+
+  .imts-found-page .imts-found-taper-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .imts-found-page .imts-found-hero-inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--spacing-lg);
+  }
+
+  .imts-found-page .imts-found-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .imts-found-page .imts-found-taper-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .imts-found-page .imts-found-close .imts-offer-card {
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 360px);
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+  }
+
+  .imts-found-page .imts-found-tapers-lead {
+    white-space: nowrap;
+  }
+
+  .imts-found-page .imts-found-floor {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .imts-found-page .imts-found-close .imts-find-justin {
+    width: 260px;
+  }
+
+}
