@@ -3,7 +3,8 @@
     var basePath = script ? new URL(script.src, location.href).pathname.replace(/\/js\/load-footer\.js.*$/, '/') : '/';
 
     var isLinksPage = /^\/links(\/|$)/.test(window.location.pathname);
-    if (!isLinksPage) {
+    var isCncToolTagsPage = /^\/cnc-tool-tags(\/|$)/.test(window.location.pathname);
+    if (!isLinksPage && !isCncToolTagsPage) {
         var tawk = document.createElement('script');
         tawk.async = true;
         tawk.src = 'https://embed.tawk.to/67c20e6c61aa0c190e3e2ea0/1il70gm2o';

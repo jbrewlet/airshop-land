@@ -140,12 +140,14 @@
 .ctt-page .ctt-tapers-inner {
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .ctt-page .ctt-taper-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 12.5rem));
   gap: var(--spacing-md);
+  justify-content: center;
 }
 
 .ctt-page .ctt-taper-tile {
@@ -154,6 +156,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   overflow: hidden;
+  text-align: left;
 }
 
 .ctt-page .ctt-taper-tile img {
@@ -199,6 +202,7 @@
 .ctt-page .ctt-proof h2,
 .ctt-page .ctt-hardware-heading,
 .ctt-page .ctt-tapers-sec h2,
+.ctt-page .ctt-demo-video h2,
 .ctt-page .ctt-videos .section-title {
   font-family: 'Action Sans', 'Roboto', sans-serif;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
@@ -269,16 +273,20 @@
 .ctt-page .ctt-tools-split {
   display: grid;
   gap: 0;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(3, 54, 109, 0.22), rgba(17, 17, 17, 0.4));
 }
 
 .ctt-page .ctt-tools-media {
-  margin: 0;
+  margin: var(--spacing-md);
+  min-width: 0;
+  aspect-ratio: 1 / 1;
   background: #ffffff;
 }
 
 .ctt-page .ctt-tools-media img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -288,7 +296,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(3, 54, 109, 0.22), rgba(17, 17, 17, 0.4));
 }
 
 .ctt-page .ctt-tools-heading {
@@ -354,7 +361,6 @@
   margin-bottom: 0.2rem;
 }
 
-.ctt-page .ctt-steps,
 .ctt-page .ctt-roadmap,
 .ctt-page .ctt-hardware-card {
   max-width: 1200px;
@@ -365,7 +371,6 @@
   align-items: center;
 }
 
-.ctt-page .ctt-steps-copy,
 .ctt-page .ctt-roadmap-copy,
 .ctt-page .ctt-hardware-copy {
   display: flex;
@@ -374,7 +379,6 @@
   max-width: 36rem;
 }
 
-.ctt-page .ctt-steps-heading,
 .ctt-page .ctt-roadmap-heading {
   font-family: 'Action Sans', 'Roboto', sans-serif;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
@@ -383,24 +387,11 @@
   margin: 0;
 }
 
-.ctt-page .ctt-step-list {
-  list-style: none;
-  display: grid;
-  gap: 1.1rem;
-}
-
-.ctt-page .ctt-step-list li {
-  color: var(--text-body);
-  line-height: 1.5;
-}
-
-.ctt-page .ctt-support-media,
 .ctt-page .ctt-hardware-media {
   margin: 0;
   justify-self: center;
 }
 
-.ctt-page .ctt-support-media img,
 .ctt-page .ctt-hardware-media img {
   width: min(420px, 100%);
   height: auto;
@@ -440,6 +431,41 @@
 .ctt-page .ctt-tools-copy .ctt-hero-actions {
   justify-content: flex-start;
   margin-top: var(--spacing-md);
+}
+
+.ctt-page .ctt-demo-video {
+  padding: 0 var(--spacing-md) var(--spacing-lg);
+}
+
+.ctt-page .ctt-demo-video-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.ctt-page .ctt-demo-video h2 {
+  text-align: center;
+}
+
+.ctt-page .ctt-demo-video-figure {
+  margin: 0;
+}
+
+.ctt-page .ctt-demo-video-figure video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  background: #111111;
+}
+
+.ctt-page .ctt-demo-video-figure figcaption {
+  margin-top: 0.85rem;
+  text-align: center;
+  color: var(--med-gray);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .ctt-page .faq-cta {
@@ -627,7 +653,170 @@
   padding-bottom: var(--spacing-xl);
 }
 
+.ctt-page .sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.ctt-page .cnc-magnet {
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px 16px 0 0;
+  bottom: 0;
+  box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.32);
+  color: var(--light-gray);
+  left: 0;
+  padding: 1.5rem 1.5rem 1.75rem;
+  position: fixed;
+  right: 0;
+  transform: translateY(110%);
+  transition: transform 0.35s ease;
+  width: 100%;
+  z-index: 40;
+}
+
+.ctt-page .cnc-magnet.is-visible {
+  transform: translateY(0);
+}
+
+.ctt-page .cnc-magnet[hidden] {
+  display: none;
+}
+
+.ctt-page .cnc-magnet-close {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.4rem;
+  height: 34px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 0.85rem;
+  top: 0.85rem;
+  width: 34px;
+}
+
+.ctt-page .cnc-magnet-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.ctt-page .cnc-magnet h2 {
+  color: #ffffff;
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 2.4rem 0.75rem 0;
+}
+
+.ctt-page .cnc-magnet-lead {
+  color: #c4cad2;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 0 1.35rem;
+}
+
+.ctt-page .cnc-magnet-form {
+  display: grid;
+  gap: 0;
+}
+
+.ctt-page .cnc-magnet-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ctt-page .cnc-magnet-row input[type="email"] {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  color: var(--light-gray);
+  font-size: 1rem;
+  min-width: 0;
+  padding: 0.75rem 0.9rem;
+}
+
+.ctt-page .cnc-magnet-row input[type="email"]::placeholder {
+  color: var(--med-gray);
+}
+
+.ctt-page .cnc-magnet-row .btn,
+.ctt-page .cnc-magnet-submit {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  min-width: 4.75rem;
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+}
+
+.ctt-page .cnc-magnet-honeypot {
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.ctt-page .cnc-magnet-trust {
+  color: rgba(242, 242, 242, 0.42);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  margin: 1rem 0 0;
+}
+
+.ctt-page .cnc-magnet-message {
+  font-size: 0.92rem;
+  margin: 0.55rem 0 0;
+}
+
+.ctt-page .cnc-magnet-message.success {
+  color: #8de2d4;
+}
+
+.ctt-page .cnc-magnet-message.error {
+  color: #e57373;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctt-page .cnc-magnet {
+    transition: none;
+  }
+}
+
 @media (min-width: 700px) {
+  .ctt-page .cnc-magnet {
+    border-radius: 16px;
+    bottom: 1.25rem;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
+    left: auto;
+    right: 1.25rem;
+    width: min(420px, calc(100vw - 2.5rem));
+  }
+
+  .ctt-page .cnc-magnet-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .ctt-page .cnc-magnet-row input[type="email"] {
+    flex: 1;
+  }
+
   .ctt-page .ctt-video-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -663,11 +852,23 @@
     grid-template-columns: 1.15fr 0.85fr;
   }
 
+  .ctt-page .ctt-tools-split-flip {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .ctt-page .ctt-tools-media {
+    margin: var(--spacing-md) var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+  }
+
+  .ctt-page .ctt-tools-split-flip .ctt-tools-media {
+    order: -1;
+    margin: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+  }
+
   .ctt-page .ctt-tools-copy {
     padding: var(--spacing-xl) var(--spacing-lg);
   }
 
-  .ctt-page .ctt-steps,
   .ctt-page .ctt-hardware-card {
     grid-template-columns: 1fr minmax(280px, 380px);
     gap: var(--spacing-xl);
@@ -675,14 +876,13 @@
     padding-right: var(--spacing-lg);
   }
 
-  /* Copy-only: do not use the steps/hardware image column. */
+  /* Copy-only: do not use the hardware image column. */
   .ctt-page .ctt-roadmap {
     grid-template-columns: 1fr;
     padding-left: var(--spacing-lg);
     padding-right: var(--spacing-lg);
   }
 
-  .ctt-page .ctt-support-media,
   .ctt-page .ctt-hardware-media {
     justify-self: end;
   }

@@ -22,9 +22,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260911f">
+  <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260913a">
   <link rel="stylesheet" href="/footer.css?v=20260311">
-  <link rel="stylesheet" href="/cnc-tool-tags/cnc-tool-tags.css?v=20260911n">
+  <link rel="stylesheet" href="/cnc-tool-tags/cnc-tool-tags.css?v=20260913h">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -129,32 +129,53 @@
       </div>
     </section>
 
-    <section class="ctt-steps" aria-labelledby="ctt-steps-heading">
-      <div class="ctt-steps-copy">
-        <h2 id="ctt-steps-heading" class="ctt-steps-heading">From library to the holder</h2>
-        <p class="ctt-lead">AirShop prints the labels. Fold them onto Edgeview tags so the holder on the floor matches the record.</p>
-        <ol class="ctt-step-list">
-          <li>
-            <span class="ctt-point-label">1. Add tools</span>
-            Keep the library in AirShop. Import the list you already have, or add a single tool and fill the specs.
-          </li>
-          <li>
-            <span class="ctt-point-label">2. Print labels</span>
-            Queue tools, then print on a Dymo LabelWriter. Standard stock is 1 &times; 2.125 in. TTS uses 1 &times; 1.5 in.
-          </li>
-          <li>
-            <span class="ctt-point-label">3. Label the tags</span>
-            Peel the thermal label and fold it over the Edgeview lip so gauge length and SKU stay readable from the edge.
-          </li>
-          <li>
-            <span class="ctt-point-label">4. Load tools and towers</span>
-            Tag stays on the holder in a drawer or on the bench. When the tool is in the spindle or carousel, the tag lives in the Tool Tag Tower.
-          </li>
-        </ol>
+    <section class="ctt-demo-video" aria-labelledby="ctt-demo-video-heading">
+      <div class="ctt-demo-video-inner">
+        <h2 id="ctt-demo-video-heading">It's really this easy</h2>
+        <figure class="ctt-demo-video-figure">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            disablepictureinpicture
+            preload="metadata"
+            poster="/cnc-tool-tags/add-cnc-tool-poster.jpg"
+            width="1100"
+            height="1100"
+            aria-label="Screen recording: add a CNC tool in AirShop. Tag preview and tool diagram update as you enter specs."
+          >
+            <source src="/cnc-tool-tags/add-cnc-tool.webm" type="video/webm">
+            <source src="/cnc-tool-tags/add-cnc-tool.mp4" type="video/mp4">
+          </video>
+          <figcaption>This is real speed (with typos). Build your tool, the tag and tool preview live.</figcaption>
+        </figure>
       </div>
-      <figure class="ctt-support-media ctt-product">
-        <img src="/cnc-tool-tags/pdx-bt30-tag-on-holder.jpg" alt="Orange Edgeview tool tag on a BT30 holder">
-      </figure>
+    </section>
+
+    <section class="ctt-tools" aria-labelledby="ctt-reorder-heading">
+      <div class="ctt-tools-split ctt-tools-split-flip">
+        <div class="ctt-tools-copy">
+          <h2 id="ctt-reorder-heading" class="ctt-tools-heading">So easy you'll be mad you waited.</h2>
+          <p class="ctt-tools-lead">Need more of that end mill? It's one tag scan away from reordering.</p>
+          <ul class="ctt-tools-points">
+            <li>
+              <span class="ctt-point-label">Scan</span>
+              QR or AirShop Code opens the tool from the holder.
+            </li>
+            <li>
+              <span class="ctt-point-label">Reorder</span>
+              All your ordering history is right there in AirShop.
+            </li>
+          </ul>
+          <div class="ctt-hero-actions">
+            <a href="https://airshop.work/onboarding" class="btn btn-primary">Stop waiting, start now</a>
+          </div>
+        </div>
+        <figure class="ctt-tools-media ctt-product">
+          <img src="/cnc-tool-tags/pdx-bt30-tag-on-holder.jpg" alt="BT30 holder with an Edgeview tag and scannable AirShop label">
+        </figure>
+      </div>
     </section>
 
     <section class="ctt-hardware" aria-labelledby="ctt-hardware-heading">
@@ -174,7 +195,7 @@
             </li>
           </ul>
           <p class="ctt-tapers">CAT40 / HSK63A / HSK63F, BT30, BT40, CAT50, ISO30, and Tormach TTS.</p>
-          <a href="https://pdxcnc.com/pages/tool-tags" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Shop tags &amp; towers at PDX CNC</a>
+          <a href="https://pdxcnc.com/pages/tool-tags" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View PDX CNC tags</a>
         </div>
         <figure class="ctt-hardware-media">
           <img src="/cnc-tool-tags/pdx-tool-tag-tower-hero.jpg" alt="PDX CNC Tool Tag Tower on a mill with labeled holders">
@@ -394,10 +415,27 @@
     </section>
   </main>
 
+  <aside id="cnc-magnet" class="cnc-magnet" hidden aria-labelledby="cnc-magnet-title" role="dialog">
+    <button type="button" class="cnc-magnet-close" aria-label="Close email signup" data-cnc-magnet-close>&times;</button>
+    <h2 id="cnc-magnet-title">Let's make it easy</h2>
+    <p class="cnc-magnet-lead">Setting up tagged tools feels like a big project. AirShop makes the library &amp; labels fast and simple.</p>
+    <form id="cnc-magnet-form" class="cnc-magnet-form" novalidate>
+      <input type="text" name="website" class="cnc-magnet-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="sr-only" for="cnc-magnet-email">Email address</label>
+      <div class="cnc-magnet-row">
+        <input type="email" name="email" id="cnc-magnet-email" placeholder="you@shop.com" autocomplete="email" required>
+        <button type="submit" class="btn btn-primary cnc-magnet-submit">Send</button>
+      </div>
+    </form>
+    <p class="cnc-magnet-trust">No spam. Unsubscribe anytime.</p>
+    <p id="cnc-magnet-message" class="cnc-magnet-message" aria-live="polite"></p>
+  </aside>
+
   <div id="footer-placeholder"></div>
-  <script src="/js/load-footer.js?v=20260304"></script>
+  <script src="/js/load-footer.js?v=20260913c"></script>
   <script src="/js/pricing-toggle.js"></script>
   <script src="/js/cal-embed.js" data-cal-variant="demo-only"></script>
+  <script src="/js/cnc-magnet.js?v=20260913b"></script>
   <script>
     document.querySelectorAll('.ctt-page .faq-item').forEach(function(item) {
       var questionBtn = item.querySelector('.faq-question');
