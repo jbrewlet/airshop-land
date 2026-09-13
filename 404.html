@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found | AirShop</title>
+  <meta name="description" content="This page isn't in inventory. Head back to AirShop for quoting, inventory, and the rest of the site.">
+  <meta name="robots" content="noindex,follow">
+  <meta property="og:title" content="Page not found | AirShop">
+  <meta property="og:description" content="This page isn't in inventory. Head back to AirShop for quoting, inventory, and the rest of the site.">
+  <meta property="og:image" content="https://airshopapp.com/AirShop-OPG.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page not found | AirShop">
+  <meta name="twitter:description" content="This page isn't in inventory. Head back to AirShop for quoting, inventory, and the rest of the site.">
+  <meta name="twitter:image" content="https://airshopapp.com/AirShop-OPG.png">
+  <!-- GitHub Pages serves this file for any missing URL. Keep asset paths root-absolute. -->
+  <script src="/js/ga.js"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260913a">
+  <link rel="stylesheet" href="/footer.css?v=20260311">
+  <style>
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -100%;
+      background: var(--orange);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      z-index: 2000;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 1rem;
+    }
+
+    .nf-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nf-page main {
+      flex: 1;
+    }
+
+    .nf-page .nav {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .nf-page .hero {
+      padding: var(--spacing-lg) 0 var(--spacing-md);
+      margin-bottom: 0;
+    }
+
+    .nf-page .hero h1 {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .nf-page .hero p {
+      margin-top: 0;
+      max-width: 28rem;
+    }
+
+    .nf-page .hero .nf-eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(3rem, 9vw, 4.5rem);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+
+    .nf-page .hero .nf-path {
+      display: none;
+      margin: var(--spacing-sm) auto 0;
+      padding: 0.45rem 0.9rem;
+      max-width: 36rem;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      font-weight: 400;
+      word-break: break-all;
+    }
+
+    .nf-page .hero .nf-path.is-visible {
+      display: inline-block;
+    }
+
+    .nf-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: var(--spacing-md);
+    }
+
+    .nf-destinations {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+      padding-bottom: var(--spacing-xl);
+    }
+
+    @media (min-width: 640px) {
+      .nf-destinations {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 960px) {
+      .nf-destinations {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .nf-destinations .feature-card {
+      flex: none;
+      width: auto;
+      color: inherit;
+    }
+
+    .nf-page .section-title {
+      margin-top: var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+      .nf-page .hero {
+        padding: var(--spacing-md) 0;
+      }
+
+      .nf-actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="nf-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="/" class="logo" aria-label="AirShop home"><img src="/AirShop_Dark.svg" alt="AirShop"></a>
+      <div class="nav-links">
+        <a href="/#how">HOW IT WORKS</a>
+        <a href="https://airshop.work/onboarding">START TRIAL</a>
+        <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
+      </div>
+    </nav>
+
+    <div class="hero container">
+      <div class="hero-content">
+        <p class="nf-eyebrow">404</p>
+        <h1>This page isn't in inventory</h1>
+        <p>We checked the floor. The URL you used doesn't match anything we stock.</p>
+        <p class="nf-path" id="nf-path" hidden></p>
+        <div class="nf-actions">
+          <a class="btn btn-primary" href="/">Go to AirShop</a>
+          <a class="btn btn-secondary" href="https://airshop.work/onboarding">Start free trial</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="features container" aria-labelledby="nf-destinations-heading">
+      <h2 class="section-title" id="nf-destinations-heading">Looking for one of these?</h2>
+      <div class="nf-destinations">
+        <a class="feature-card" href="/#how">
+          <h3>How it works</h3>
+          <p>Quotes and inventory in one place, without bouncing between tools.</p>
+        </a>
+        <a class="feature-card" href="/features-and-integrations/">
+          <h3>Features</h3>
+          <p>The full list, plus Fusion, Help Scout, and Stripe.</p>
+        </a>
+        <a class="feature-card" href="/blog/">
+          <h3>Articles</h3>
+          <p>Practical guides on quoting, inventory, and follow-up.</p>
+        </a>
+        <a class="feature-card" href="/updates/">
+          <h3>Latest updates</h3>
+          <p>What just shipped for labels, files, and the floor.</p>
+        </a>
+        <a class="feature-card" href="/cnc-tool-tags/">
+          <h3>CNC tool tags</h3>
+          <p>Identify, load, and track tools one-handed.</p>
+        </a>
+        <a class="feature-card" href="https://docs.airshop.work" target="_blank" rel="noopener noreferrer">
+          <h3>Superb docs</h3>
+          <p>Guides if you already run AirShop.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/load-footer.js?v=20260304"></script>
+  <script src="/js/cal-embed.js" data-cal-variant="demo-only"></script>
+  <script>
+    (function () {
+      var el = document.getElementById('nf-path');
+      if (!el) return;
+      var path = window.location.pathname || '';
+      if (!path || path === '/' || path === '/404' || path === '/404.html') return;
+      el.textContent = path;
+      el.hidden = false;
+      el.classList.add('is-visible');
+    })();
+  </script>
+</body>
+</html>
