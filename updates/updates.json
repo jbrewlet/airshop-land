@@ -5,7 +5,7 @@
     {
       "id": "2026-09-cnc-tool-management",
       "date": "2026-09-16",
-      "title": "Keep CNC tools in one library, then print the tags",
+      "title": "The easiest way to make CNC Tool Tag Labels",
       "summary": "Add or import cutters, preview the label while you edit, then print Dymo labels for PDX Edgeview tags. Scan a tag to open the same tool in AirShop.",
       "featured": true,
       "publicUrl": "/updates/cnc-tool-management/",
