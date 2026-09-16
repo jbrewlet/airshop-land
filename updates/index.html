@@ -59,6 +59,11 @@
                 <p>JavaScript is off. Here are the latest updates:</p>
                 <ul>
                     <li>
+                        <time class="fallback-date" datetime="2026-09-16">September 16, 2026</time>
+                        <a href="./cnc-tool-management/"><span class="fallback-title">Keep CNC tools in one library, then print the tags</span></a>
+                        <span class="fallback-summary">Add or import cutters, preview labels while you edit, print Dymo labels for Edgeview tags, and scan back to the tool.</span>
+                    </li>
+                    <li>
                         <time class="fallback-date" datetime="2026-08-16">August 16, 2026</time>
                         <a href="./files-page/"><span class="fallback-title">Customer upload links and a Files page</span></a>
                         <span class="fallback-summary">Send a Help Scout upload link. Customers drop photos, video, and CAD. Then browse every file in one grid.</span>
@@ -533,7 +538,7 @@
                 timeline.appendChild(block);
             }
 
-            fetch('./updates.json?v=20260816c')
+            fetch('./updates.json?v=20260916c')
                 .then(function (response) {
                     if (!response.ok) {
                         throw new Error('Network');

@@ -1,7 +1,51 @@
 {
   "version": "1",
-  "lastUpdated": "2026-08-16",
+  "lastUpdated": "2026-09-16",
   "items": [
+    {
+      "id": "2026-09-cnc-tool-management",
+      "date": "2026-09-16",
+      "title": "Keep CNC tools in one library, then print the tags",
+      "summary": "Add or import cutters, preview the label while you edit, then print Dymo labels for PDX Edgeview tags. Scan a tag to open the same tool in AirShop.",
+      "featured": true,
+      "publicUrl": "/updates/cnc-tool-management/",
+      "ctaLabel": "Read the docs",
+      "ctaUrl": "https://docs.airshop.work/inventory/tool-tags/",
+      "appArea": "Inventory",
+      "details": [
+        {
+          "heading": "Tool Library in AirShop",
+          "items": [
+            "Add cutters one at a time or import a Fusion-style, Airtable, or ERP CSV.",
+            "Tool Type and Shop Use stay separate. Geometry drives a live diagram and tag preview.",
+            "Quantity, reorder fields, and procurement sources sit on the same record as stock items."
+          ]
+        },
+        {
+          "heading": "Print and load Edgeview tags",
+          "items": [
+            "Queue tools from the library and print from Tool Tags on Dymo stock.",
+            "Fold labels onto PDX Edgeview tags. Holder on the bench, tower when the tool is in the machine.",
+            "New QRs open /inventory/{code}. Legacy /c/{code} tags still work."
+          ]
+        }
+      ],
+      "media": [
+        {
+          "type": "video",
+          "src": "/cnc-tool-tags/add-cnc-tool.mp4",
+          "poster": "/cnc-tool-tags/add-cnc-tool-poster.jpg",
+          "alt": "Screen recording: add a CNC tool in AirShop. Tag preview and tool diagram update as you enter specs.",
+          "caption": "This is real speed (with typos). Build the tool. Tag and diagram update live."
+        },
+        {
+          "type": "image",
+          "src": "/updates/cnc-tool-management/labeled-tags.jpg",
+          "alt": "Row of labeled PDX CNC Edgeview tool tags showing tool type and gauge length on each tag.",
+          "caption": "Printed specs match the library record on every tag."
+        }
+      ]
+    },
     {
       "id": "2026-08-files-page",
       "date": "2026-08-16",
