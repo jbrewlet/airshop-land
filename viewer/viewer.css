@@ -1,0 +1,315 @@
+.vw-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--dark-gray);
+}
+
+.vw-page .header {
+  padding-bottom: 0;
+}
+
+.vw-page .header .nav {
+  margin-bottom: 0;
+}
+
+/* Horizontal inset from .container only (same box as nav). Vertical padding here. */
+.vw-page .vw-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  box-sizing: border-box;
+  gap: 0;
+  background: var(--dark-gray);
+}
+
+.vw-page .vw-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem 1.25rem;
+  width: 100%;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.75rem;
+  background: transparent;
+}
+
+.vw-page .vw-copy {
+  min-width: 0;
+  text-align: left;
+}
+
+.vw-page .vw-headline {
+  margin: 0;
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--light-gray);
+  white-space: nowrap;
+}
+
+.vw-page .vw-subline {
+  margin: 0.3rem 0 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--med-gray);
+}
+
+.vw-page .vw-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  flex-shrink: 0;
+}
+
+.vw-page .vw-demo {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 1px;
+}
+
+.vw-page .vw-demo:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.vw-page .vw-trial {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  max-height: none;
+}
+
+.vw-page .vw-iframe {
+  width: 100%;
+  flex: 1;
+  min-height: 640px;
+  height: calc(100vh - 11rem);
+  border: 0;
+  border-radius: 0;
+  background: #1e1e1e;
+  display: block;
+}
+
+.vw-page .vw-below {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  width: 100%;
+  margin: 0.5rem 0 0.5rem;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.vw-page .vw-hints {
+  margin: 0;
+  flex: 1 1 12rem;
+  min-width: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--med-gray);
+  text-align: left;
+}
+
+.vw-page .vw-cue {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex: 0 1 auto;
+  margin: 0 0 0 auto;
+  padding: 0.85rem 1rem;
+  box-sizing: border-box;
+  text-align: right;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: transparent;
+  overflow: visible;
+  /* Infinite until .vw-cue-done (own file opened via drop/Open file). Delay 7s, 2.4s ease pulse. */
+  animation: vw-cue-pulse 2.4s ease-in-out 7s infinite both;
+}
+
+.vw-page .vw-cue.vw-cue-done {
+  opacity: 0.5;
+  animation: none;
+  background-color: transparent;
+}
+
+.vw-page .vw-cue-copy {
+  min-width: 0;
+}
+
+.vw-page .vw-cue-title {
+  margin: 0;
+  font-family: 'Action Sans', 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--light-gray);
+}
+
+.vw-page .vw-cue-lead {
+  color: #FF5918;
+}
+
+.vw-page .vw-cue-line {
+  margin: 0.25rem 0 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--med-gray);
+}
+
+.vw-page .vw-cue-formats {
+  margin: 0.3rem 0 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.vw-page .vw-cue-arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  flex-shrink: 0;
+  padding-bottom: 0.15rem;
+  overflow: visible;
+}
+
+@keyframes vw-cue-pulse {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgba(255, 89, 24, 0.12);
+  }
+}
+
+/* Rise into viewer: translateY(-64px), stagger 0.35s, start after 3s. Loop until .vw-cue-done. */
+@keyframes vw-cue-chevron-rise {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  55% {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+
+  56%,
+  100% {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+}
+
+.vw-page .vw-cue-chevron {
+  display: block;
+  width: 20px;
+  height: 12px;
+  margin-top: -3px;
+  will-change: transform, opacity;
+  animation: vw-cue-chevron-rise 2.1s ease-out infinite;
+}
+
+.vw-page .vw-cue-chevron-1 {
+  opacity: 1;
+  animation-delay: 3s;
+}
+
+.vw-page .vw-cue-chevron-2 {
+  opacity: 0.65;
+  animation-delay: 3.35s;
+}
+
+.vw-page .vw-cue-chevron-3 {
+  opacity: 0.35;
+  animation-delay: 3.7s;
+}
+
+.vw-page .vw-cue.vw-cue-done .vw-cue-chevron {
+  animation: none;
+  transform: none;
+}
+
+.vw-page .vw-cue.vw-cue-done .vw-cue-chevron-1 {
+  opacity: 1;
+}
+
+.vw-page .vw-cue.vw-cue-done .vw-cue-chevron-2 {
+  opacity: 0.65;
+}
+
+.vw-page .vw-cue.vw-cue-done .vw-cue-chevron-3 {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vw-page .vw-cue {
+    animation: none;
+  }
+
+  .vw-page .vw-cue-chevron {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .vw-page .vw-stage {
+    padding-top: 1.25rem;
+  }
+
+  .vw-page .vw-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vw-page .vw-headline {
+    white-space: normal;
+  }
+
+  .vw-page .vw-actions {
+    flex-wrap: wrap;
+  }
+
+  .vw-page .vw-below {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vw-page .vw-cue {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free CAD &amp; PDF File Viewer | AirShop</title>
+  <meta name="description" content="Preview STEP, DXF, PDF, and image files in your browser. Free, no signup. Files stay on your device. Built for manufacturers who quote fast.">
+  <meta property="og:title" content="Free CAD &amp; PDF File Viewer | AirShop">
+  <meta property="og:description" content="Preview STEP, DXF, PDF, and image files in your browser. Free, no signup. Files stay on your device.">
+  <meta property="og:image" content="https://airshopapp.com/dash.png">
+  <meta property="og:url" content="https://airshopapp.com/viewer/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free CAD &amp; PDF File Viewer | AirShop">
+  <meta name="twitter:description" content="Preview STEP, DXF, PDF, and image files in your browser. Free, no signup.">
+  <meta name="twitter:image" content="https://airshopapp.com/dash.png">
+  <link rel="canonical" href="https://airshopapp.com/viewer/">
+  <script src="/js/ga.js"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/airshop-landing-shared.css?v=20260913a">
+  <link rel="stylesheet" href="/footer.css?v=20260311">
+  <link rel="stylesheet" href="/viewer/viewer.css?v=20260927u">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free CAD and PDF File Viewer",
+    "url": "https://airshopapp.com/viewer/",
+    "description": "Preview STEP, DXF, PDF, and image files in your browser without uploading.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AirShop",
+      "logo": "https://airshopapp.com/AirShop-OPG.png"
+    }
+  }
+  </script>
+</head>
+<body class="vw-page">
+  <header class="header">
+    <nav class="nav container" aria-label="File viewer">
+      <a href="/" class="logo"><img src="/AirShop_Dark.svg" alt="AirShop"></a>
+      <div class="nav-links">
+        <a href="/#pricing">SEE PLANS</a>
+        <a href="https://airshop.work/onboarding">START TRIAL</a>
+        <a href="https://airshop.work" target="_blank" rel="noopener noreferrer">LOGIN</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="vw-stage container">
+    <section class="vw-band" aria-label="Viewer intro">
+      <div class="vw-copy">
+        <h1 class="vw-headline">View STEP, DXF, and PDF in the browser.</h1>
+        <p class="vw-subline">Files stay on your device. Same viewer as AirShop inquiries.</p>
+      </div>
+      <div class="vw-actions">
+        <a href="https://cal.com/airshop/demo" class="vw-demo cal-demo-trigger" data-cal-namespace="demo" data-cal-link="airshop/demo">Book a demo</a>
+        <a href="https://airshop.work/onboarding" class="btn btn-primary vw-trial">Start free trial</a>
+      </div>
+    </section>
+    <iframe
+      id="vw-frame"
+      class="vw-iframe"
+      src="https://airshop.work/embed/viewer"
+      title="AirShop file viewer"
+      allow="fullscreen"
+    ></iframe>
+    <div class="vw-below">
+      <p class="vw-hints">Drag to orbit. Scroll to zoom. Right-click and drag to pan.</p>
+      <div
+        class="vw-cue"
+        role="button"
+        tabindex="0"
+        aria-label="Open file. Or drag and drop a file"
+      >
+        <div class="vw-cue-copy">
+          <p class="vw-cue-title"><span class="vw-cue-lead">Try it!</span> Drag and drop a file</p>
+          <p class="vw-cue-line">Inspect your file in real time in our viewer</p>
+          <p class="vw-cue-formats">STEP, DXF, PDF, PNG, JPG</p>
+        </div>
+        <div class="vw-cue-arrows" aria-hidden="true">
+          <svg class="vw-cue-chevron vw-cue-chevron-1" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 10L10 2L18 10" stroke="#FF5918" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="vw-cue-chevron vw-cue-chevron-2" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 10L10 2L18 10" stroke="#FF5918" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="vw-cue-chevron vw-cue-chevron-3" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 10L10 2L18 10" stroke="#FF5918" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    (function () {
+      var host = window.location.hostname
+      var frame = document.getElementById('vw-frame')
+      var cue = document.querySelector('.vw-cue')
+      var cueDone = false
+
+      if (frame && (host === 'localhost' || host === '127.0.0.1')) {
+        frame.src = 'http://localhost:3000/embed/viewer'
+      }
+
+      function stopCue() {
+        if (cueDone || !cue) return
+        cueDone = true
+        cue.classList.add('vw-cue-done')
+      }
+
+      function frameTargetOrigin() {
+        if (!frame || !frame.src) {
+          return host === 'localhost' || host === '127.0.0.1'
+            ? 'http://localhost:3000'
+            : 'https://airshop.work'
+        }
+        try {
+          return new URL(frame.src).origin
+        } catch (err) {
+          return 'https://airshop.work'
+        }
+      }
+
+      // Cue click → iframe opens file dialog (sync in iframe message handler).
+      // Do not mark done here; wait for airshop-viewer-file-tried after a file is chosen.
+      function requestOpenFile() {
+        if (!frame || !frame.contentWindow) return
+        frame.contentWindow.postMessage(
+          { type: 'airshop-viewer-open-file' },
+          frameTargetOrigin()
+        )
+      }
+
+      if (cue) {
+        cue.addEventListener('click', function (event) {
+          event.preventDefault()
+          requestOpenFile()
+        })
+        cue.addEventListener('keydown', function (event) {
+          if (event.key !== 'Enter' && event.key !== ' ') return
+          event.preventDefault()
+          requestOpenFile()
+        })
+      }
+
+      // Iframe posts { type: 'airshop-viewer-file-tried' } on drop / Open file.
+      // Accept only embed origins (not *).
+      window.addEventListener('message', function (event) {
+        if (
+          event.origin !== 'http://localhost:3000' &&
+          event.origin !== 'https://airshop.work'
+        ) {
+          return
+        }
+        var data = event.data
+        if (!data || typeof data !== 'object') return
+        if (data.type !== 'airshop-viewer-file-tried') return
+        stopCue()
+      })
+    })()
+  </script>
+  <script src="/js/load-footer.js?v=20260913c"></script>
+  <script src="/js/cal-embed.js" data-cal-variant="demo-only"></script>
+</body>
+</html>
